@@ -1,0 +1,22 @@
+{
+  "name": "paperon-v2_dev",
+  "version": "1.0.0",
+  "description": "new version of paperon pwa app (development)",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wissmedia/paperon-v2_dev.git"
+  },
+  "author": "wissmedia",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wissmedia/paperon-v2_dev/issues"
+  },
+  "homepage": "https://github.com/wissmedia/paperon-v2_dev#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
