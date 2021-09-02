@@ -5,7 +5,7 @@ const dotenv = require('dotenv')
 const morgan = require('morgan')
 
 // LOAD ENV CONFIG
-dotenv.config({path: './config/config.env'})
+dotenv.config({ path: './config/config.env' })
 
 // CREATE EXPRESS APP 
 const app = express()
@@ -15,8 +15,10 @@ const PORT = process.env.PORT || 2021
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs')
 
-// LOGGER
-app.use(morgan('dev'))
+// LOGGER (if on development mode)
+if (process.env.NODE_ENV === 'development') {
+  app.use(morgan('dev'))
+}
 
 // STATIC FOLDER
 app.use(express.static(path.join(__dirname, 'public')))
