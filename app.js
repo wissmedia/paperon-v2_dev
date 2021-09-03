@@ -41,8 +41,8 @@ app.get('/', (req, res) => {
   res.render('index')
 })
 
-app.get('/signin', (req, res) => {
-  res.render('auth/signin')
+app.get('/dashboard', (req, res) => {
+  res.render('dashboard/index')
 })
 
 // TRY CONNECT TO DB THEN START SERVER
