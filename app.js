@@ -17,6 +17,7 @@ const HOST = process.env.HOST || '0.0.0.0'
 // GLOBAL VARIABLES
 app.locals.appNames = {
   title: 'Paperon',
+  subtitle: 'Survei dan Kuesioner'
 }
 
 // BODY PARSER
