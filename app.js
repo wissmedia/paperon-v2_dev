@@ -4,8 +4,13 @@ const path = require('path')
 const dotenv = require('dotenv')
 const morgan = require('morgan')
 
+const connectDB = require('./config/db')
+
 // LOAD ENV CONFIG
 dotenv.config({ path: './config/config.env' })
+
+// CONNECTING TO DB
+connectDB()
 
 // CREATE EXPRESS APP 
 const app = express()
@@ -32,4 +37,4 @@ app.get('/', (req, res) => {
   res.render('index')
 })
 
-app.listen(PORT, () => { console.log(`Server Running on port ${PORT}`) })
+app.listen(PORT, () => { console.log(`Server Running on: http://localhost/${PORT}`) })
