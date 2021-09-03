@@ -12,6 +12,7 @@ dotenv.config({ path: './config/config.env' })
 // CREATE EXPRESS APP 
 const app = express()
 const PORT = process.env.PORT || 2021
+const HOST = process.env.HOST || '0.0.0.0'
 
 // BODY PARSER
 app.use(express.urlencoded({ extended: true }))
@@ -37,8 +38,8 @@ app.get('/', (req, res) => {
 // TRY CONNECT TO DB THEN START SERVER
 try {
   connectDB().then(() => {
-    app.listen(PORT, () => {
-      console.log(`Server Running on: http://localhost/${PORT}`)
+    app.listen(PORT, HOST, () => {
+      console.log(`Server Running on: http://${HOST}/${PORT}`)
     })
   })
 } catch (error) {
