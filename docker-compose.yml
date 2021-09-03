@@ -2,6 +2,8 @@ version: '2.4'
 services: 
   app:
     container_name: paepron_app
+    env_file: 
+      - ./config/config.env
     build: .
     ports: 
       - 2021:2021
