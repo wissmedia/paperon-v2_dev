@@ -3,8 +3,30 @@
     <div class="modal-kepala">
       <span class="close">&times;</span>
     </div>
-    <% if(appNames.title === 'UI'){ %>
-      
+    <% if(user){ %>
+      <div class="modal-badan">
+        <div class="profile" id="username">
+          <div class="dpAkun">
+            <div>
+              <img src="<%= user.image %> " alt="User Image">
+            </div>
+            <h1>
+              <%= user.displayName %>
+            </h1>
+            <h3>
+              <%= user.email %>
+            </h3>
+          </div>
+        </div>
+        <a href="/auth/logout">
+          <div class="list-menu-container" id="login">
+            <i class="fas fa-sign-out-alt"></i>
+            <span class="label-list">
+              Logout
+            </span>
+          </div>
+        </a>
+      </div>
       <% }else{ %>
         <div class="form fadeIn">
           <div class="logo-form fadeInAtas">
@@ -26,6 +48,6 @@
           </a>
         </div>
         <% } %>
-          
+
   </div>
 </div>
