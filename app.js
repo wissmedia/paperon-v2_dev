@@ -41,8 +41,16 @@ app.get('/', (req, res) => {
   res.render('index')
 })
 
-app.get('/dashboard', (req, res) => {
+app.get('/dash', (req, res) => {
   res.render('dashboard/index')
+})
+
+app.get('/kuesioner', (req,res)=>{
+  res.render('KUESIONER')
+})
+
+app.get('/dash/result', (req,res)=>{
+  res.send('RESULT')
 })
 
 // TRY CONNECT TO DB THEN START SERVER
