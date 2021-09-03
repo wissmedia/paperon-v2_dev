@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- HEAD PARTIALS -->
+<%- include('../partials/head.ejs') %>
+
+  <body>
+    <div class="container">
+      <div class="row-content">
+        <div class="content">
+          <div class="form fadeIn">
+            <div class="logo-form fadeInAtas">
+              <img src="/logo/72.png" alt="Logo">
+            </div>
+            <h3 class="fadeInBawah">Sign In to <%= appNames.title %>
+            </h3>
+            <br><br>
+            <a href="/auth/google">
+              <button class="tombol-md bunder fadeInBawah">
+                <i class="fab fa-google left"></i> Log In with Google
+              </button>
+            </a>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- SCRIPT PARTIALS -->
+    <%- include('../partials/script.ejs') %>
+
+  </body>
+
+</html>
