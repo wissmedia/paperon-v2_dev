@@ -9,9 +9,6 @@ const connectDB = require('./config/db')
 // LOAD ENV CONFIG
 dotenv.config({ path: './config/config.env' })
 
-// CONNECTING TO DB
-connectDB()
-
 // CREATE EXPRESS APP 
 const app = express()
 const PORT = process.env.PORT || 2021
@@ -37,4 +34,14 @@ app.get('/', (req, res) => {
   res.render('index')
 })
 
-app.listen(PORT, () => { console.log(`Server Running on: http://localhost/${PORT}`) })
+// TRY CONNECT TO DB THEN START SERVER
+try {
+  connectDB().then(() => {
+    app.listen(PORT, () => {
+      console.log(`Server Running on: http://localhost/${PORT}`)
+    })
+  })
+} catch (error) {
+  console.error(error)
+  process.exit(1)
+}
