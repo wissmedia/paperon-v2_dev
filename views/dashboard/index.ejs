@@ -10,12 +10,13 @@
         <div class="card-container">
           <!-- Menu Item Card -->
           <h1>DASHBOARD</h1>
+          <h3>Welcome <%= user.firstName %> </h3>
           <!-- END Menu Item Card -->
         </div>
       </div>
 
       <!-- Modal Menu -->
-
+      <%- include('../partials/modal-auth.ejs') %>
         <!-- END Modal -->
         <!-- FOOTER PARTIALS -->
         <%- include('../partials/footer.ejs') %>
