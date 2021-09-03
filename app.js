@@ -3,11 +3,18 @@ const express = require('express')
 const path = require('path')
 const dotenv = require('dotenv')
 const morgan = require('morgan')
+const passport = require('passport')
+const session = require('express-session')
+const methodOverride = require('method-override')
+const MongoStore = require('connect-mongo')
 
 const connectDB = require('./config/db')
 
 // LOAD ENV CONFIG
 dotenv.config({ path: './config/config.env' })
+
+// LOAD PASSPORT CONFIG
+require('./config/passport')(passport)
 
 // CREATE EXPRESS APP 
 const app = express()
@@ -28,6 +35,31 @@ app.use(express.json())
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs')
 
+// SESSIONS
+const maxAge = 60 * 60 * 1000 // 60 minute
+app.use(session({
+  secret: process.env.SECRET,
+  resave: false,
+  saveUninitialized: false,
+  cookie:{
+    path: '/', 
+    httpOnly: true, 
+    secure: false, 
+    maxAge: maxAge,
+  },
+  store: MongoStore.create({ mongoUrl: process.env.MONGO_URI }),
+}))
+
+// PASSPORT MIDDLEWARE
+app.use(passport.initialize())
+app.use(passport.session())
+
+// SET USER AS GLOBAL VARIABLE
+app.use(function (req, res, next) {
+  res.locals.user = req.user || null
+  next()
+})
+
 // LOGGER (if on development mode)
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'))
@@ -36,22 +68,9 @@ if (process.env.NODE_ENV === 'development') {
 // STATIC FOLDER
 app.use(express.static(path.join(__dirname, 'public')))
 
-// ROUTES (basic)
-app.get('/', (req, res) => {
-  res.render('index')
-})
-
-app.get('/dash', (req, res) => {
-  res.render('dashboard/index')
-})
-
-app.get('/kuesioner', (req,res)=>{
-  res.render('KUESIONER')
-})
-
-app.get('/dash/result', (req,res)=>{
-  res.send('RESULT')
-})
+// ROUTES (intermediate)
+app.use('/', require('./routes/index'))
+app.use('/auth', require('./routes/auth'))
 
 // TRY CONNECT TO DB THEN START SERVER
 try {
