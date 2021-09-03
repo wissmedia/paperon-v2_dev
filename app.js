@@ -14,6 +14,12 @@ const app = express()
 const PORT = process.env.PORT || 80
 const HOST = process.env.HOST || '0.0.0.0'
 
+// GLOBAL VARIABLES
+app.locals.appNames = {
+  title: 'Paperon',
+  subtitle: 'Survei dan Kuesioner'
+}
+
 // BODY PARSER
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
@@ -33,6 +39,10 @@ app.use(express.static(path.join(__dirname, 'public')))
 // ROUTES (basic)
 app.get('/', (req, res) => {
   res.render('index')
+})
+
+app.get('/dashboard', (req, res) => {
+  res.render('dashboard/index')
 })
 
 // TRY CONNECT TO DB THEN START SERVER
