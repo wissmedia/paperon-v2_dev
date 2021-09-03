@@ -14,6 +14,11 @@ const app = express()
 const PORT = process.env.PORT || 80
 const HOST = process.env.HOST || '0.0.0.0'
 
+// GLOBAL VARIABLES
+app.locals.appNames = {
+  title: 'Paperon',
+}
+
 // BODY PARSER
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
