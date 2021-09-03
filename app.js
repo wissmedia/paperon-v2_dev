@@ -11,6 +11,10 @@ dotenv.config({ path: './config/config.env' })
 const app = express()
 const PORT = process.env.PORT || 2021
 
+// BODY PARSER
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
+
 // EJS
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs')
