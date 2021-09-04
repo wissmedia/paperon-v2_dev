@@ -10,7 +10,7 @@ router.get('/', ensureGuest, (req, res) => {
 
 // @desc    Dashboard
 // @route   GET /dashboard
-router.get('/dash', ensureAuth, async (req, res) => {
+router.get('/dasbor', ensureAuth, async (req, res) => {
 
   try {
     // const stories = await Story.find({ user: req.user.id }).lean()
