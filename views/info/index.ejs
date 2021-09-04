@@ -9,8 +9,20 @@
       <div class="container">
         <div class="card-container">
           <!-- Menu Item Card -->
-          <h1>INDEX INFO</h1>
-          <!-- END Menu Item Card -->
+          <% if (Menus) { %>
+            <% Menus.forEach(menu=> { %>
+              <a href="/info<%= menu.link %> ">
+                <div class="card-block">
+                  <h2>
+                    <i class="<%= menu.icon %> "></i>
+                    <%= menu.label %>
+                  </h2>
+                </div>
+              </a>
+              <% }) %>
+                <% } else { %>
+                  <% } %>
+                    <!-- END Menu Item Card -->
         </div>
       </div>
 
