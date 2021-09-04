@@ -8,7 +8,7 @@
         <div class="profile" id="username">
           <div class="dpAkun">
             <div>
-              <img src="<%= user.image %> " alt="User Image">
+              <img src="<%= user.image %> " width="50" height="50" alt="User Image">
             </div>
             <h1>
               <%= user.displayName %>
@@ -19,10 +19,18 @@
           </div>
         </div>
         <a href="/auth/logout">
-          <div class="list-menu-container" id="login">
+          <div class="list-menu-container" id="logout">
             <i class="fas fa-sign-out-alt"></i>
             <span class="label-list">
               Logout
+            </span>
+          </div>
+        </a>
+        <a href="/info">
+          <div class="list-menu-container" id="logout">
+            <i class="fas fa-info-circle"></i>
+            <span class="label-list">
+              Info Aplikasi
             </span>
           </div>
         </a>
