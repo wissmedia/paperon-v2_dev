@@ -85,7 +85,11 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use('/', require('./routes/index'))
 app.use('/auth', require('./routes/auth'))
 app.use('/pertanyaan', require('./routes/qbank'))
+app.use('/kuesioner', require('./routes/quesioner'))
+app.use('/hasil', require('./routes/result'))
+app.use('/pengaturan', require('./routes/setting'))
 app.use('/info', require('./routes/info'))
+app.use('/publik', require('./routes/public'))
 
 // TRY CONNECT TO DB THEN START SERVER
 try {
