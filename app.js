@@ -84,11 +84,8 @@ app.use(express.static(path.join(__dirname, 'public')))
 // ROUTES (intermediate)
 app.use('/', require('./routes/index'))
 app.use('/auth', require('./routes/auth'))
-
-// 404 ERROR PAGE
-app.use((req, res) => {
-  res.status(404).render('error/404')
-})
+app.use('/pertanyaan', require('./routes/qbank'))
+app.use('/info', require('./routes/info'))
 
 // TRY CONNECT TO DB THEN START SERVER
 try {
@@ -101,3 +98,8 @@ try {
   console.error(error)
   process.exit(1)
 }
+
+// 404 ERROR PAGE
+app.use((req, res) => {
+  res.status(404).render('error/404')
+})
