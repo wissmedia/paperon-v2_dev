@@ -7,6 +7,7 @@ const passport = require('passport')
 const session = require('express-session')
 const methodOverride = require('method-override')
 const MongoStore = require('connect-mongo')
+const createError = require('http-errors');
 
 const connectDB = require('./config/db')
 
@@ -48,7 +49,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs')
 
 // SESSIONS
-const maxAge = 60 * 60 * 1000 // 60 minute
+const maxAge = 60 * 60 * 1000 * 24 // 1 day
 app.use(session({
   secret: process.env.SECRET,
   resave: false,
@@ -83,6 +84,11 @@ app.use(express.static(path.join(__dirname, 'public')))
 // ROUTES (intermediate)
 app.use('/', require('./routes/index'))
 app.use('/auth', require('./routes/auth'))
+
+// 404 ERROR PAGE
+app.use((req, res) => {
+  res.status(404).render('error/404')
+})
 
 // TRY CONNECT TO DB THEN START SERVER
 try {
