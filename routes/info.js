@@ -9,7 +9,7 @@ router.get('/', ensureAuth, (req, res) => {
   let navMenus = [
     { link: '/', icon: 'fas fa-chevron-circle-left', label: 'Kembali' }
   ]
-  res.render('info/index', {navTitle:'Info',navMenus})
+  res.render('info/index', { navTitle: 'Info', navMenus })
 })
 
 
@@ -17,7 +17,7 @@ router.get('/', ensureAuth, (req, res) => {
 // @route   GET /info/log
 
 router.get('/log', ensureAuth, (req, res) => {
-  res.render('info/change-log',{navTitle:'Log',})
+  res.render('info/change-log', { navTitle: 'Log', })
 })
 
 module.exports = router

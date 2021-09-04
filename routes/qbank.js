@@ -8,7 +8,7 @@ router.get('/', ensureAuth, (req, res) => {
   let navMenus = [
     { link: '/', icon: 'fas fa-chevron-circle-left', label: 'Kembali' }
   ]
-  res.render('qbank/index', { navTitle:'List Pertanyaan', navMenus })
+  res.render('qbank/index', { navTitle: 'List Pertanyaan', navMenus })
 })
 
 module.exports = router
