@@ -31,6 +31,18 @@ app.locals.appNames = {
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
+// METHOD OVERRIDE (to use PUT and DELETE on front-side js)
+app.use(
+  methodOverride(function (req, res) {
+    if (req.body && typeof req.body === 'object' && '_method' in req.body) {
+      // look in urlencoded POST bodies and delete it
+      let method = req.body._method
+      delete req.body._method
+      return method
+    }
+  })
+)
+
 // EJS
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs')
@@ -41,10 +53,10 @@ app.use(session({
   secret: process.env.SECRET,
   resave: false,
   saveUninitialized: false,
-  cookie:{
-    path: '/', 
-    httpOnly: true, 
-    secure: false, 
+  cookie: {
+    path: '/',
+    httpOnly: true,
+    secure: false,
     maxAge: maxAge,
   },
   store: MongoStore.create({ mongoUrl: process.env.MONGO_URI }),
