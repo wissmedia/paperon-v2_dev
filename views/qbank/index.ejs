@@ -2,15 +2,38 @@
 <html lang="en">
 <!-- HEAD PARTIALS -->
 <%- include('../partials/head.ejs') %>
+  <link rel="stylesheet" type="text/css" href="/js/datatables.min.css" />
 
   <body>
     <!-- NAV PARTIALS -->
     <%- include('../partials/nav.ejs') %>
       <div class="container">
-        <div class="card-container">
-          <!-- Menu Item Card -->
+        <div class="row-content">
+          <div class="data-content fadeInAtas">
+            <div>
+              <% let i=0 %>
+                <% if(questions.length> 0){ %>
+                  <% questions.forEach(question=> { %>
+                    <div id="<%= question._id %> ">
+                      <h3>
+                        <%= question.body %>
+                      </h3>
+                      <p>
+                        <%= question.selectType %>
+                      </p>
+                      <p>
+                        <%= i+1 %>
+                      </p>
+                    </div>
+                    <br>
+                    <% i++ %>
+                      <% }) %>
+                        <% }else{ %>
+                          <p>tidak ada data</p>
+                          <% } %>
 
-          <!-- END Menu Item Card -->
+            </div>
+          </div>
         </div>
       </div>
 
@@ -20,6 +43,16 @@
         <%- include('../partials/footer.ejs') %>
           <!-- SCRIPT PARTIALS -->
           <%- include('../partials/script.ejs') %>
+            <script type="text/javascript" src="/js/datatables.min.js"></script>
+            <script>
+              $(document).ready(function () {
+                $('#dataTable').DataTable({
+                  lengthMenu: [[5, 10, 20, -1], [5, 10, 20, "All"]],
+                  scrollX: true
+                });
+              });
+            </script>
+
 
   </body>
 

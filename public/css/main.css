@@ -1332,6 +1332,16 @@ footer{
     animation-duration: 3s;
 }
 
+/* Add Question Page */
+.info-content{
+    width: 100%;
+    margin: 10px 0px;
+    text-align: center;
+    color: #a9b0b9;
+}
+
+/* END add Question Page */
+
 /* Doc PAGE */
 .container-content{
     overflow: hidden;
