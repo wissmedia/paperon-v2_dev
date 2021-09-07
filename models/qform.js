@@ -15,6 +15,6 @@ const qFormSchema = new Schema({
   },
 }, { timestamps: true })
 
-const QForm = mongoose.model('ques-form', qFormSchema)
+const QForm = mongoose.model('qform', qFormSchema)
 
 module.exports = QForm
