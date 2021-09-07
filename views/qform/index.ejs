@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- HEAD PARTIALS -->
+<%- include('../partials/head.ejs') %>
+
+  <body>
+    <!-- NAV PARTIALS -->
+    <%- include('../partials/nav.ejs') %>
+    <div class="container">
+      <div class="row-content">
+        <div class="data-content fadeInKiri">
+          <div>
+            <% let i=0 %>
+              <% if(qforms.length> 0){ %>
+                <% qforms.forEach(qform=> { %>
+                  <div id="<%= qform._id %> ">
+                    <p>
+                      <%= i+1 %>
+                    </p>
+                    <h3>
+                      <%= qform.title %>
+                    </h3>
+                    <p>
+                      <%= qform.body %>
+                    </p>
+                    <p>creator <%= qform.user._id %> </p>
+                  </div>
+                  <br>
+                  <% i++ %>
+                    <% }) %>
+                      <% }else{ %>
+                        <p>tidak ada data</p>
+                        <% } %>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <!-- MODAL AUTH -->
+      <%- include('../partials/modal-auth.ejs') %>
+        <!-- FOOTER PARTIALS -->
+        <%- include('../partials/footer.ejs') %>
+          <!-- SCRIPT PARTIALS -->
+          <%- include('../partials/script.ejs') %>
+
+  </body>
+
+</html>

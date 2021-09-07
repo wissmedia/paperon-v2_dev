@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- HEAD PARTIALS -->
+<%- include('../partials/head.ejs') %>
+
+  <body>
+    <!-- NAV PARTIALS -->
+    <%- include('../partials/nav.ejs') %>
+      <div class="container">
+        <div class="row-content">
+          <form action="/kuesioner" method="POST">
+            <div class="content fadeInKiri">
+              <div class="line"></div>
+              <div class="bungkus-content edit">
+                <label for="title">Judul</label>
+                <input type="text" name="title" id="title" class="text" placeholder="Judul Kuesioner*" required>
+              </div>
+
+              <div class="bungkus-content edit">
+                <label for="desc">Deskripsi</label>
+                <textarea name="desc" id="desc" cols="30" rows="10" placeholder="Deskripsi Kuesioner"></textarea>
+              </div>
+
+            </div>
+            <center>
+              <button type="submit" class="tombol-md tmb-utama bunder fadeInBawah">Kirim</button>
+            </center>
+          </form>
+        </div>
+      </div>
+
+      <!-- MODAL AUTH -->
+      <%- include('../partials/modal-auth.ejs') %>
+        <!-- FOOTER PARTIALS -->
+        <%- include('../partials/footer.ejs') %>
+          <!-- SCRIPT PARTIALS -->
+          <%- include('../partials/script.ejs') %>
+
+  </body>
+
+</html>
