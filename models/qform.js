@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const quesFormSchema = new Schema({
+const qFormSchema = new Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
@@ -15,6 +15,6 @@ const quesFormSchema = new Schema({
   },
 }, { timestamps: true })
 
-const QuesForm = mongoose.model('ques-form', quesFormSchema)
+const QForm = mongoose.model('ques-form', qFormSchema)
 
-module.exports = QuesForm
+module.exports = QForm
