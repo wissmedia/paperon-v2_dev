@@ -40,8 +40,11 @@ router.get('/tambah', ensureAuth, (req, res) => {
     { link: '/', icon: 'fas fa-chevron-circle-left', label: 'Kembali' },
   ]
   let options = [
-    { value: 'shortText', text: 'Jawaban Pendek' },
-    { value: 'longText', text: 'Jawaban Panjang' },
+    { value: 'shortText', text: 'Teks Jawaban Pendek' },
+    { value: 'longText', text: 'Teks Jawaban Panjang' },
+    { value: 'radio', text: 'Pilihan dengan 1 Jawaban' },
+    { value: 'checkBox', text: 'Pilihan dengan Banyak Jawaban' },
+    { value: 'dropDown', text: 'Menu Turun dengan 1 Jawaban' },
   ]
   res.render('qbank/add', { options, navTitle: 'Tambah Pertanyaan', navMenus })
 })
