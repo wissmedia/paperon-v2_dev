@@ -12,13 +12,22 @@
             <div class="content fadeInKiri">
               <div class="line"></div>
               <div class="bungkus-content edit">
-                <label for="title">Judul</label>
-                <input type="text" name="title" id="title" class="text" placeholder="Judul Kuesioner*" required>
+                <label for="title">Judul : </label>
+                <input type="text" name="title" id="title" class="text" placeholder="Judul Kuesioner" required>
               </div>
 
               <div class="bungkus-content edit">
-                <label for="desc">Deskripsi</label>
+                <label for="desc">Deskripsi : </label>
                 <textarea name="desc" id="desc" cols="30" rows="10" placeholder="Deskripsi Kuesioner"></textarea>
+              </div>
+
+              <div class="bungkus-content edit">
+                <label for="status">Status : </label>
+                <select id="status" name="status" class="dropdown" required>
+                  <option disabled hidden selected>-- Pilihan</option>
+                  <option value="private">Private</option>
+                  <option value="public">Public</option>
+                </select>
               </div>
 
             </div>
