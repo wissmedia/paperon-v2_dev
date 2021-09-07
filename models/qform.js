@@ -8,11 +8,17 @@ const qFormSchema = new Schema({
   },
   title: {
     type: String,
-    required: true
+    required: true,
+    trim: true,
   },
   desc: {
     type: String
   },
+  status: {
+    type:String,
+    default: 'private',
+    enum: ['public', 'private']
+  }
 }, { timestamps: true })
 
 const QForm = mongoose.model('qform', qFormSchema)
