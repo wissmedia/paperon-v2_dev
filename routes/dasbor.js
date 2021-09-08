@@ -16,6 +16,7 @@ router.get('/dasbor', ensureAuth, async (req, res) => {
     { link: '/kuesioner', icon: 'fas fa-newspaper', label: 'Kuesioner' },
     { link: '/hasil', icon: 'fas fa-poll', label: 'Hasil' },
     { link: '/pengaturan', icon: 'fas fa-cogs', label: 'Pengaturan' },
+    { link: '/viewer', icon: 'fas fa-cogs', label: 'Viewer' },
   ]
 
   try {

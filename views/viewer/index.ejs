@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- HEAD PARTIALS -->
+<%- include('../partials/head.ejs') %>
+
+  <body>
+    <!-- NAV PARTIALS -->
+    <%- include('../partials/nav.ejs') %>
+      <div class="container">
+        <% let i=0 %>
+          <% if(questions.length> 0){ %>
+            <% questions.forEach(question=> { %>
+              <div class="content fadeInAtas">
+                <div class="line"></div>
+                <div class="bungkus-content edit">
+                  <h2>
+                    <%= question.body %>
+                  </h2>
+                  <!-- <% let selectType = question.selectType  %>  -->
+                  
+                  <% if( question.selectType == "shortText"){ %> 
+                    <label for="shortText">Jawaban Singkat</label>
+                    <input type="text" name="shortText" id="shortText">
+                  <% }else{ %> 
+                    <p>
+                      <%= question.selectType %>
+                    </p>
+                  <% } %> 
+
+                </div>
+              </div>
+              <% i++ %>
+                <% }) %>
+                  <% }else{ %>
+                    <div class="content fadeInAtas">
+                      <div class="line"></div>
+                      <div class="bungkus-content edit">
+                        <h3>Tidak Ada Data</h3>
+                      </div>
+                    </div>
+
+                    <% } %>
+
+
+                    
+      </div>
+
+      <!-- MODAL AUTH -->
+      <%- include('../partials/modal-auth.ejs') %>
+        <!-- FOOTER PARTIALS -->
+        <%- include('../partials/footer.ejs') %>
+          <!-- SCRIPT PARTIALS -->
+          <%- include('../partials/script.ejs') %>
+  </body>
+
+</html>
