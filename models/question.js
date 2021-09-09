@@ -8,7 +8,8 @@ const questionSchema = new Schema({
   },
   selectType: {
     type: String,
-    required: true
+    required: true,
+    trim: true
   },
   body: {
     type: String,
