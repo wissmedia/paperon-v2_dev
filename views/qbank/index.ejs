@@ -25,10 +25,10 @@
                   </p>
                   <div class="control-edit">
                     <form action="/pertanyaan/<%= question._id %>" method="POST" id="delete-form">
-                    <button type="button"><a href="/pertanyaan/detail/<%= question._id %>"><i
-                          class="fas fa-eye"></i></a></button>
-                    <button type="button"><a href="/pertanyaan/edit/<%= question._id %>"><i
-                          class="fas fa-edit"></i></a></button>
+                      <button type="button"><a href="/pertanyaan/detail/<%= question._id %>"><i
+                            class="fas fa-eye"></i></a></button>
+                      <button type="button"><a href="/pertanyaan/edit/<%= question._id %>"><i
+                            class="fas fa-edit"></i></a></button>
                       <input type="hidden" name="_method" value="DELETE">
                       <button type="submit"><i class="fas fa-trash"></i></button>
                     </form>
