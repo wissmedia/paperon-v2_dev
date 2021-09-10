@@ -2,7 +2,6 @@
 <html lang="en">
 <!-- HEAD PARTIALS -->
 <%- include('../partials/head.ejs') %>
-  <link rel="stylesheet" type="text/css" href="/js/datatables.min.css" />
 
   <body>
     <!-- NAV PARTIALS -->
@@ -22,6 +21,8 @@
                   </h2>
                   <p>
                     Tipe : <%= question.selectType %>
+                  </p>
+                  <p>Created : <%= helper.formatDate(question.createdAt, 'DD MMMM YYYY, h:mm:ss a' ) %>
                   </p>
                   <div class="control-edit">
                     <form action="/pertanyaan/<%= question._id %>" method="POST" id="delete-form">
@@ -54,16 +55,6 @@
         <%- include('../partials/footer.ejs') %>
           <!-- SCRIPT PARTIALS -->
           <%- include('../partials/script.ejs') %>
-            <script type="text/javascript" src="/js/datatables.min.js"></script>
-            <script>
-              $(document).ready(function () {
-                $('#dataTable').DataTable({
-                  lengthMenu: [[5, 10, 20, -1], [5, 10, 20, "All"]],
-                  scrollX: true
-                });
-              });
-            </script>
-
 
   </body>
 
