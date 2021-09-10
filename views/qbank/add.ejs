@@ -12,9 +12,9 @@
             <div class="content fadeInKiri">
               <div class="line"></div>
               <div class="bungkus-content">
-                <label for="selectType">Tipe Pertanyaan : </label>
+                <label for="selectType">Tipe Jawaban : </label>
                 <select name="selectType" id="selectType" class="dropdown" required>
-                  <option disabled hidden selected>-- Tipe Jawaban</option>
+                  <option disabled hidden selected value="">-- Pilihan</option>
                   <% if(options.length> 0){ %>
                     <% options.forEach(option=> { %>
                       <option value="<%= option.value %> ">
@@ -22,7 +22,7 @@
                       </option>
                       <% }) %>
                         <% }else{ %>
-                          <option value="">tidak ada data</option>
+                          <option value="">Tidak ada data</option>
                           <% } %>
                 </select>
               </div>
