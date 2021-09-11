@@ -2,7 +2,7 @@ const moment = require('moment')
 
 var func = {
   formatDate: function (date, format) {
-    return moment(date).local().format(format)
+    return moment(date).utcOffset(8).format(format)
   },
   select: function (selected, option) {
     return (selected == option) ? 'selected="selected"' : ''
