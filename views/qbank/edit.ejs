@@ -7,10 +7,37 @@
     <!-- NAV PARTIALS -->
     <%- include('../partials/nav.ejs') %>
       <div class="container">
-        <div class="card-container">
-          <!-- Menu Item Card -->
-
-          <!-- END Menu Item Card -->
+        <div class="row-content">
+          <form action="/pertanyaan/<%= question._id %>" method="POST">
+            <input type="hidden" name="_method" value="PUT">
+            <div class="content fadeInKiri">
+              <div class="line"></div>
+              <div class="bungkus-content edit">
+                <label for="now">Tipe Saat Ini :</label>
+                <input type="text" id="now" class="text" disabled value="<%= helper.typeChange(question.selectType) %>">
+                <label for="selectType">Edit Tipe Jawaban : </label>
+                <select name="selectType" id="selectType" class="dropdown">
+                  <option disabled hidden selected value="">-- Pilihan</option>
+                  <% if(options.length> 0){ %>
+                    <% options.forEach(option=> { %>
+                      <option value="<%= option.value %>">
+                        <%= option.text %>
+                      </option>
+                      <% }) %>
+                        <% }else{ %>
+                          <option value="">Tidak ada data</option>
+                          <% } %>
+                </select>
+              </div>
+              <div class="bungkus-content edit">
+                <label for="body">Edit Pertanyaan :</label>
+                <input type="text" name="body" id="body" class="text" value="<%= question.body %>">
+              </div>
+              <center>
+                <button type="submit" class="tombol-md tmb-utama bunder">Simpan</button>
+              </center>
+            </div>
+          </form>
         </div>
       </div>
 

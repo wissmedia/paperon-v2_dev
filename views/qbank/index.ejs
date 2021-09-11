@@ -2,50 +2,51 @@
 <html lang="en">
 <!-- HEAD PARTIALS -->
 <%- include('../partials/head.ejs') %>
-  <link rel="stylesheet" type="text/css" href="/js/datatables.min.css" />
 
   <body>
     <!-- NAV PARTIALS -->
     <%- include('../partials/nav.ejs') %>
       <div class="container">
-        <% let i=0 %>
-          <% if(questions.length> 0){ %>
-            <% questions.forEach(question=> { %>
-              <div class="content fadeInAtas">
-                <div class="line"></div>
-                <div class="bungkus-content edit">
-                  <p>
-                    <%= i+1 %>
-                  </p>
-                  <h2>
-                    <%= question.body %>
-                  </h2>
-                  <p>
-                    Tipe : <%= question.selectType %>
-                  </p>
-                  <div class="control-edit">
-                    <form action="/pertanyaan/<%= question._id %>" method="POST" id="delete-form">
-                    <button type="button"><a href="/pertanyaan/detail/<%= question._id %>"><i
-                          class="fas fa-eye"></i></a></button>
-                    <button type="button"><a href="/pertanyaan/edit/<%= question._id %>"><i
-                          class="fas fa-edit"></i></a></button>
-                      <input type="hidden" name="_method" value="DELETE">
-                      <button type="submit"><i class="fas fa-trash"></i></button>
-                    </form>
+        <div class="row-content">
+          <% let i=0 %>
+            <% if(questions.length> 0){ %>
+              <% questions.forEach(question=> { %>
+                <div class="content fadeInAtas">
+                  <div class="line"></div>
+                  <div class="bungkus-content edit">
+                    <p>
+                      <%= i+1 %>
+                    </p>
+                    <h2>
+                      <%= question.body %>
+                    </h2>
+                    <p>
+                      Tipe : <%= helper.typeChange(question.selectType) %>
+                    </p>
+                    <div class="control-edit">
+                      <form action="/pertanyaan/<%= question._id %>" method="POST" id="delete-form">
+                        <button type="button"><a href="/pertanyaan/<%= question._id %>"><i
+                              class="fas fa-eye"></i></a></button>
+                        <button type="button"><a href="/pertanyaan/edit/<%= question._id %>"><i
+                              class="fas fa-edit"></i></a></button>
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="submit"><i class="fas fa-trash"></i></button>
+                      </form>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <% i++ %>
-                <% }) %>
-                  <% }else{ %>
-                    <div class="content fadeInAtas">
-                      <div class="line"></div>
-                      <div class="bungkus-content edit">
-                        <h3>Tidak Ada Data</h3>
+                <% i++ %>
+                  <% }) %>
+                    <% }else{ %>
+                      <div class="content fadeInAtas">
+                        <div class="line"></div>
+                        <div class="bungkus-content edit">
+                          <h3>Tidak Ada Data</h3>
+                        </div>
                       </div>
-                    </div>
 
-                    <% } %>
+                      <% } %>
+        </div>
       </div>
 
       <!-- MODAL AUTH -->
@@ -54,16 +55,6 @@
         <%- include('../partials/footer.ejs') %>
           <!-- SCRIPT PARTIALS -->
           <%- include('../partials/script.ejs') %>
-            <script type="text/javascript" src="/js/datatables.min.js"></script>
-            <script>
-              $(document).ready(function () {
-                $('#dataTable').DataTable({
-                  lengthMenu: [[5, 10, 20, -1], [5, 10, 20, "All"]],
-                  scrollX: true
-                });
-              });
-            </script>
-
 
   </body>
 
