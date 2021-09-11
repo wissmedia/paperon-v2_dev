@@ -13,11 +13,22 @@
             <div class="content fadeInKiri">
               <div class="line"></div>
               <div class="bungkus-content">
-
+                <label for="selectType">Edit Tipe Jawaban : </label>
+                <select name="selectType" id="selectType" class="dropdown">
+                  <% if(options.length> 0){ %>
+                    <% options.forEach(option=> { %>
+                      <option value="<%= option.value %>" <%- helper.select(option.value, option.text) %>  >
+                        <%= option.text %>
+                      </option>
+                      <% }) %>
+                        <% }else{ %>
+                          <option value="">Tidak ada data</option>
+                          <% } %>
+                </select>
               </div>
               <div class="bungkus-content edit">
-                <label for="body">Pertanyaan :</label>
-                <input type="text" name="body" id="body" class="text" value="<%= question.body %>" required>
+                <label for="body">Edit Pertanyaan :</label>
+                <input type="text" name="body" id="body" class="text" value="<%= question.body %>">
               </div>
               <center>
                 <button type="submit" class="tombol-md tmb-utama bunder">Simpan</button>
