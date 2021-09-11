@@ -87,6 +87,13 @@ router.get('/edit/:id', ensureAuth, async (req, res) => {
   let navMenus = [
     { link: '/pertanyaan', icon: 'fas fa-chevron-circle-left', label: 'Kembali' },
   ]
+  let options = [
+    { value: 'shortText', text: 'Teks Jawaban Pendek' },
+    { value: 'longText', text: 'Teks Jawaban Panjang' },
+    { value: 'radio', text: 'Pilihan dengan 1 Jawaban' },
+    { value: 'checkBox', text: 'Pilihan dengan Banyak Jawaban' },
+    { value: 'dropDown', text: 'Menu Turun dengan 1 Jawaban' },
+  ]
   try {
     const question = await Question.findOne({
       _id: req.params.id
@@ -98,7 +105,13 @@ router.get('/edit/:id', ensureAuth, async (req, res) => {
     if (question.user != req.user.id) {
       res.redirect('/pertanyaan')
     } else {
-      res.render('qbank/edit', { question, navTitle: 'Edit Pertanyaan', navMenus })
+      res.render('qbank/edit', {
+        question,
+        options,
+        helper: require('../helper/helper'),
+        navTitle: 'Edit Pertanyaan',
+        navMenus
+      })
     }
   } catch (error) {
     console.error(error)
@@ -108,26 +121,27 @@ router.get('/edit/:id', ensureAuth, async (req, res) => {
 
 // @desc    Update Pertanyaan
 // @route   PUT /pertanyaan/:id
-// router.put('/:id', ensureAuth, async (req, res) => {
-//   try {
-//     const question = await Question.findById(req.params.id).lean()
-
-//     if (!question) {
-//       return res.render('error/404')
-//     }
-//     if (question.user != req.user.id) {
-//       res.redirect('/pertanyaan')
-//     } else {
-//       question = await Question.findOneAndUpdate({ _id: req.params.id }, req.body, {
-//         runValidators: true
-//       })
-//       res.redirect('/dasbor')
-//     }
-//   } catch (error) {
-//     console.error(error)
-//     return res.render('error/500')
-//   }
-// })
+router.put('/:id', ensureAuth, async (req, res) => {
+  console.log(req.params.id)
+  try {
+    const question = await Question.findById(req.params.id).lean()
+    console.log(question)
+    if (!question) {
+      return res.render('error/404')
+    }
+    if (question.user != req.user.id) {
+      res.redirect('/pertanyaan')
+    } else {
+      question = await Question.findOneAndUpdate({ _id: req.params.id }, req.body, {
+        runValidators: true
+      })
+      res.redirect('/dasbor')
+    }
+  } catch (error) {
+    console.error(error)
+    return res.render('error/500')
+  }
+})
 
 
 // @desc    DELETE Pertanyaan
