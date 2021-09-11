@@ -7,46 +7,46 @@
     <!-- NAV PARTIALS -->
     <%- include('../partials/nav.ejs') %>
       <div class="container">
-        <% let i=0 %>
-          <% if(questions.length> 0){ %>
-            <% questions.forEach(question=> { %>
-              <div class="content fadeInAtas">
-                <div class="line"></div>
-                <div class="bungkus-content edit">
-                  <p>
-                    <%= i+1 %>
-                  </p>
-                  <h2>
-                    <%= question.body %>
-                  </h2>
-                  <p>
-                    Tipe : <%= question.selectType %>
-                  </p>
-                  <p>Created : <%= helper.formatDate(question.createdAt, 'DD MMMM YYYY, h:mm:ss a' ) %>
-                  </p>
-                  <div class="control-edit">
-                    <form action="/pertanyaan/<%= question._id %>" method="POST" id="delete-form">
-                      <button type="button"><a href="/pertanyaan/detail/<%= question._id %>"><i
-                            class="fas fa-eye"></i></a></button>
-                      <button type="button"><a href="/pertanyaan/edit/<%= question._id %>"><i
-                            class="fas fa-edit"></i></a></button>
-                      <input type="hidden" name="_method" value="DELETE">
-                      <button type="submit"><i class="fas fa-trash"></i></button>
-                    </form>
+        <div class="row-container">
+          <% let i=0 %>
+            <% if(questions.length> 0){ %>
+              <% questions.forEach(question=> { %>
+                <div class="content fadeInAtas">
+                  <div class="line"></div>
+                  <div class="bungkus-content edit">
+                    <p>
+                      <%= i+1 %>
+                    </p>
+                    <h2>
+                      <%= question.body %>
+                    </h2>
+                    <p>
+                      Tipe : <%= question.selectType %>
+                    </p>
+                    <div class="control-edit">
+                      <form action="/pertanyaan/<%= question._id %>" method="POST" id="delete-form">
+                        <button type="button"><a href="/pertanyaan/<%= question._id %>"><i
+                              class="fas fa-eye"></i></a></button>
+                        <button type="button"><a href="/pertanyaan/edit/<%= question._id %>"><i
+                              class="fas fa-edit"></i></a></button>
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="submit"><i class="fas fa-trash"></i></button>
+                      </form>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <% i++ %>
-                <% }) %>
-                  <% }else{ %>
-                    <div class="content fadeInAtas">
-                      <div class="line"></div>
-                      <div class="bungkus-content edit">
-                        <h3>Tidak Ada Data</h3>
+                <% i++ %>
+                  <% }) %>
+                    <% }else{ %>
+                      <div class="content fadeInAtas">
+                        <div class="line"></div>
+                        <div class="bungkus-content edit">
+                          <h3>Tidak Ada Data</h3>
+                        </div>
                       </div>
-                    </div>
 
-                    <% } %>
+                      <% } %>
+        </div>
       </div>
 
       <!-- MODAL AUTH -->
