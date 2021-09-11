@@ -1,6 +1,8 @@
 const express = require('express')
 const router = express.Router()
 const { ensureAuth, ensureGuest } = require('../middleware/auth')
+const Author = require('../models/user')
+const QForm = require('../models/qform')
 
 // @desc    Login/Landing Page
 // @route   GET /
@@ -19,12 +21,21 @@ router.get('/dasbor', ensureAuth, async (req, res) => {
   ]
 
   try {
-    // const stories = await Story.find({ user: req.user.id }).lean()
+    let author = Author.estimatedDocumentCount()
+    let qform = QForm.estimatedDocumentCount()
+
+    let [a, b] = await Promise.all([author, qform])
+
+    const estimate = {
+      author: a,
+      qform: b
+    }
+
     res.render('dashboard/index', {
+      estimate,
       navTitle: 'Dasbor',
       navMenus,
       user: req.user,
-      // stories
     })
   } catch (err) {
     console.error(err)

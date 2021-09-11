@@ -8,11 +8,10 @@
     <%- include('../partials/nav.ejs') %>
       <div class="container">
         <div class="card-container">
-          <!-- Menu Item Card -->
           <% if (Menus) { %>
             <% Menus.forEach(menu=> { %>
               <a href="/info<%= menu.link %> ">
-                <div class="card-block">
+                <div class="card-block fadeInKiri">
                   <h2>
                     <i class="<%= menu.icon %> "></i>
                     <%= menu.label %>
@@ -21,8 +20,13 @@
               </a>
               <% }) %>
                 <% } else { %>
+                  <div class="card-block fadeInKiri">
+                    <h2>
+                      <i class="fas fa-times-circle"></i>
+                      Tidak ada data
+                    </h2>
+                  </div>
                   <% } %>
-                    <!-- END Menu Item Card -->
         </div>
       </div>
 

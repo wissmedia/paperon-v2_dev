@@ -2,7 +2,7 @@ const moment = require('moment')
 
 var func = {
   formatDate: function (date, format) {
-    return moment(date).format(format)
+    return moment(date).local().format(format)
   },
   select: function (selected, option) {
     return (selected == option) ? 'selected="selected"' : ''
