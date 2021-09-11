@@ -16,6 +16,7 @@ router.get('/', ensureAuth, async (req, res) => {
       .lean()
     res.render('qbank/index', {
       navTitle: 'List Pertanyaan',
+      helper: require('../helper/helper'),
       questions,
       navMenus
     })
@@ -122,8 +123,9 @@ router.get('/edit/:id', ensureAuth, async (req, res) => {
 // @desc    Update Pertanyaan
 // @route   PUT /pertanyaan/:id
 router.put('/:id', ensureAuth, async (req, res) => {
+  let id = req.params.id
   try {
-    let question = await Question.findById(req.params.id).lean()
+    let question = await Question.findById(id).lean()
     if (!question) {
       return res.render('error/404')
     }
@@ -133,7 +135,7 @@ router.put('/:id', ensureAuth, async (req, res) => {
       question = await Question.findOneAndUpdate({ _id: req.params.id }, req.body, {
         runValidators: true
       })
-      res.redirect('/pertanyaan')
+      res.redirect(`/pertanyaan/${id}`)
     }
   } catch (error) {
     console.error(error)
