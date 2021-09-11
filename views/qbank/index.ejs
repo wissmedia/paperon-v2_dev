@@ -21,7 +21,7 @@
                       <%= question.body %>
                     </h2>
                     <p>
-                      Tipe : <%= question.selectType %>
+                      Tipe : <%= helper.typeChange(question.selectType) %>
                     </p>
                     <div class="control-edit">
                       <form action="/pertanyaan/<%= question._id %>" method="POST" id="delete-form">
