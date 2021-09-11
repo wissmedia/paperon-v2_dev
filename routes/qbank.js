@@ -122,10 +122,8 @@ router.get('/edit/:id', ensureAuth, async (req, res) => {
 // @desc    Update Pertanyaan
 // @route   PUT /pertanyaan/:id
 router.put('/:id', ensureAuth, async (req, res) => {
-  console.log(req.params.id)
   try {
-    const question = await Question.findById(req.params.id).lean()
-    console.log(question)
+    let question = await Question.findById(req.params.id).lean()
     if (!question) {
       return res.render('error/404')
     }
@@ -135,7 +133,7 @@ router.put('/:id', ensureAuth, async (req, res) => {
       question = await Question.findOneAndUpdate({ _id: req.params.id }, req.body, {
         runValidators: true
       })
-      res.redirect('/dasbor')
+      res.redirect('/pertanyaan')
     }
   } catch (error) {
     console.error(error)
