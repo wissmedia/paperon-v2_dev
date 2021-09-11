@@ -7,7 +7,6 @@ const passport = require('passport')
 const session = require('express-session')
 const methodOverride = require('method-override')
 const MongoStore = require('connect-mongo')
-const createError = require('http-errors');
 
 const connectDB = require('./config/db')
 
