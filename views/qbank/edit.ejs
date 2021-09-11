@@ -12,12 +12,15 @@
             <input type="hidden" name="_method" value="PUT">
             <div class="content fadeInKiri">
               <div class="line"></div>
-              <div class="bungkus-content">
+              <div class="bungkus-content edit">
+                <label for="now">Tipe Saat Ini :</label>
+                <input type="text" id="now" class="text" disabled value="<%= helper.typeChange(question.selectType) %>">
                 <label for="selectType">Edit Tipe Jawaban : </label>
                 <select name="selectType" id="selectType" class="dropdown">
+                  <option disabled hidden selected value="">-- Pilihan</option>
                   <% if(options.length> 0){ %>
                     <% options.forEach(option=> { %>
-                      <option value="<%= option.value %>" <%- helper.select(option.value, option.text) %>  >
+                      <option value="<%= option.value %>">
                         <%= option.text %>
                       </option>
                       <% }) %>
