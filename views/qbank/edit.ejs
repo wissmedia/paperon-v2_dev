@@ -7,10 +7,23 @@
     <!-- NAV PARTIALS -->
     <%- include('../partials/nav.ejs') %>
       <div class="container">
-        <div class="card-container">
-          <!-- Menu Item Card -->
+        <div class="row-content">
+          <form action="/pertanyan/<%= question._id %>" method="POST">
+            <input type="hidden" name="_method" value="PUT">
+            <div class="content fadeInKiri">
+              <div class="line"></div>
+              <div class="bungkus-content">
 
-          <!-- END Menu Item Card -->
+              </div>
+              <div class="bungkus-content edit">
+                <label for="body">Pertanyaan :</label>
+                <input type="text" name="body" id="body" class="text" value="<%= question.body %>" required>
+              </div>
+              <center>
+                <button type="submit" class="tombol-md tmb-utama bunder">Simpan</button>
+              </center>
+            </div>
+          </form>
         </div>
       </div>
 
