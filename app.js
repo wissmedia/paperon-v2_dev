@@ -91,6 +91,7 @@ app.use('/pengaturan', require('./routes/setting'))
 app.use('/info', require('./routes/info'))
 app.use('/publik', require('./routes/public'))
 app.use('/viewer', require('./routes/viewer'))
+app.use('/noschema', require('./routes/noschema'))
 
 // TRY CONNECT TO DB THEN START SERVER
 try {
