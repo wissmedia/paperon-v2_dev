@@ -6,11 +6,8 @@ const noSchema = new Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
   },
-  forms: {
-    type: Array,
-    default: []
-  }
-}, {strict: false})
+  
+}, { timestamps: true, strict: false })
 
 const NOX = mongoose.model('noschema', noSchema)
 
