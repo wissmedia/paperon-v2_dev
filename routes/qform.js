@@ -3,8 +3,8 @@ const router = express.Router()
 const { ensureAuth } = require('../middleware/auth')
 const QForm = require('../models/qform')
 
-// @desc    Login/Landing Page
-// @route   GET /
+// @desc    List Kuesioner Page
+// @route   GET /kuesioner
 router.get('/', ensureAuth, async (req, res) => {
   let navMenus = [
     { link: '/', icon: 'fas fa-chevron-circle-left', label: 'Kembali' },
@@ -33,7 +33,7 @@ router.post('/', ensureAuth, async (req, res) => {
   }
 })
 
-// @desc    Get Tambah Kuesioner Page
+// @desc    Tambah Kuesioner Page
 // @route   GET /kuesioner/tambah
 router.get('/tambah', ensureAuth, (req, res) => {
   let navMenus = [

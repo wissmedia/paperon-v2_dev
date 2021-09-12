@@ -16,7 +16,7 @@ router.get('/', ensureAuth, (req, res) => {
   res.render('info/index', { navTitle: 'Info', navMenus, Menus })
 })
 
-// @desc    Change Log Page
+// @desc    Log Page
 // @route   GET /info/log
 router.get('/log', ensureAuth, (req, res) => {
   let navMenus = [
@@ -25,7 +25,7 @@ router.get('/log', ensureAuth, (req, res) => {
   res.render('info/change-log', { navTitle: 'Log', navMenus })
 })
 
-// @desc    How To Page
+// @desc    How-To Page
 // @route   GET /info/cara-penggunaan
 router.get('/cara-penggunaan', ensureAuth, (req, res) => {
   let navMenus = [

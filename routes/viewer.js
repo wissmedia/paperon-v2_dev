@@ -4,7 +4,7 @@ const { ensureAuth } = require('../middleware/auth')
 const Question = require('../models/question')
 
 // @desc    Viewer Page
-// @route   GET /
+// @route   GET /viewer
 router.get('/', ensureAuth, async (req, res) => {
   let navMenus = [
     { link: '/', icon: 'fas fa-chevron-circle-left', label: 'Kembali' }

@@ -1,9 +1,9 @@
 const express = require('express')
 const router = express.Router()
-const { ensureAuth, ensureGuest } = require('../middleware/auth')
+const { ensureAuth } = require('../middleware/auth')
 
-// @desc    Login/Landing Page
-// @route   GET /
+// @desc    Hasil Page
+// @route   GET /hasil
 router.get('/', ensureAuth, (req, res) => {
   let navMenus = [
     { link: '/', icon: 'fas fa-chevron-circle-left', label: 'Kembali' }

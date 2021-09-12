@@ -10,7 +10,7 @@ router.get('/', ensureGuest, (req, res) => {
   res.render('index', { navTitle: 'Beranda' })
 })
 
-// @desc    Dashboard
+// @desc    Dashboard Page
 // @route   GET /dashboard
 router.get('/dasbor', ensureAuth, async (req, res) => {
   let navMenus = [
@@ -37,8 +37,8 @@ router.get('/dasbor', ensureAuth, async (req, res) => {
       navMenus,
       user: req.user,
     })
-  } catch (err) {
-    console.error(err)
+  } catch (error) {
+    console.error(error)
     res.render('error/500')
   }
 })

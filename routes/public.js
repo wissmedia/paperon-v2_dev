@@ -3,7 +3,7 @@ const router = express.Router()
 const { ensureAuth } = require('../middleware/auth')
 const Qform = require('../models/qform')
 
-// @desc    Published Kuesioner Page
+// @desc    Publik Kuesioner Page
 // @route   GET /public
 router.get('/', ensureAuth, async (req, res) => {
   let navMenus = [

@@ -15,7 +15,7 @@ const qFormSchema = new Schema({
     type: String
   },
   status: {
-    type:String,
+    type: String,
     default: 'private',
     enum: ['public', 'private']
   }

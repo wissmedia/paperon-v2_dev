@@ -3,7 +3,7 @@ const router = express.Router()
 const { ensureAuth } = require('../middleware/auth')
 const Question = require('../models/question')
 
-// @desc    Show List Pertanyaan Page
+// @desc    List Pertanyaan Page
 // @route   GET /pertanyaan
 router.get('/', ensureAuth, async (req, res) => {
   let navMenus = [
@@ -26,7 +26,7 @@ router.get('/', ensureAuth, async (req, res) => {
   }
 })
 
-// @desc    Process add pertanyaan
+// @desc    Process tambah pertanyaan
 // @route   POST /pertanyaan
 router.post('/', ensureAuth, async (req, res) => {
   try {
@@ -40,7 +40,7 @@ router.post('/', ensureAuth, async (req, res) => {
   }
 })
 
-// @desc    Get Tambah Pertanyaan Page
+// @desc    Tambah Pertanyaan Page
 // @route   GET /pertanyaan/tambah
 router.get('/tambah', ensureAuth, (req, res) => {
   let navMenus = [
@@ -65,11 +65,9 @@ router.get('/:id', ensureAuth, async (req, res) => {
   try {
     let question = await Question.findById(req.params.id)
       .lean()
-
     if (!question) {
       return res.render('error/404')
     }
-
     res.render('qbank/detail', {
       question,
       helper: require('../helper/helper'),
@@ -99,7 +97,6 @@ router.get('/edit/:id', ensureAuth, async (req, res) => {
     const question = await Question.findOne({
       _id: req.params.id
     }).lean()
-
     if (!question) {
       return res.render('error/404')
     }
@@ -142,7 +139,6 @@ router.put('/:id', ensureAuth, async (req, res) => {
     return res.render('error/500')
   }
 })
-
 
 // @desc    DELETE Pertanyaan
 // @route   DELETE /pertanyaan/:id

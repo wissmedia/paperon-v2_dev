@@ -11,9 +11,14 @@
           <% if(qforms.length>0){ %>
             <% qforms.forEach(qform=> { %>
               <div>
-                <h1><%= qform.title %></h1>
-                <h3><%= qform.desc %></h3>
-                <p>Creator : <%= qform.user.displayName %> </p>
+                <h1>
+                  <%= qform.title %>
+                </h1>
+                <h3>
+                  <%= qform.desc %>
+                </h3>
+                <p>Creator : <%= qform.user.displayName %>
+                </p>
               </div>
               <% }) %>
                 <% }else{ %>
