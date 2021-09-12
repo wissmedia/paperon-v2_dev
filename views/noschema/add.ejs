@@ -1,44 +1,66 @@
-<form action="/noschema" method="POST">
-  <% let i=0 %>
-    <% if(questions.length> 0){ %>
-      <% questions.forEach(question=> { %>
-        <div class="content fadeInKiri">
-          <div class="line"></div>
-          <div class="bungkus-content edit">
-            <h2>
-              <%= question.body %>
-            </h2>
-          </div>
-          <% switch (question.selectType) { case 'shortText' : %>
-            <div class="bungkus-content edit">
-              <label for="shortText">Jawaban : </label>
-              <input type="text" class="text" name="forms" id="shortText"
-                placeholder="Ketik jawaban singkat disini">
-            </div>
-            <% break; case 'longText' : %>
-              <div class="bungkus-content edit">
-                <label for="longText">Jawaban : </label>
-                <textarea name="forms" id="longText" cols="30" rows="10"
-                  placeholder="Ketik jawaban panjang disini"></textarea>
-              </div>
-              <% break; default: %>
-                <div class="bungkus-content edit">
-                  <p>Need to create switch for : <%= question.selectType %>
-                  </p>
-                </div>
-                <% break; } %>
+<!DOCTYPE html>
+<html lang="en">
+<!-- HEAD PARTIALS -->
+<%- include('../partials/head.ejs') %>
 
-
+  <body>
+    <!-- NAV PARTIALS -->
+    <%- include('../partials/nav.ejs') %>
+      <div class="container">
+        <div class="row-content">
+          <form action="/noschema" method="POST">
+            <% let i=0 %>
+              <% if(questions.length> 0){ %>
+                <% questions.forEach(question=> { %>
+                  <div class="content fadeInKiri">
+                    <div class="line"></div>
+                    <div class="bungkus-content edit">
+                      <label for="bodyText">Pertanyaan : </label>
+                      <input type="text" class="text" name="bodyText" id="bodyText" value="<%= question.body %>" readonly>
+                    </div>
+                    <% switch (question.selectType) { case 'shortText' : %>
+                      <div class="bungkus-content edit">
+                        <label for="shortText">Jawaban : </label>
+                        <input type="text" class="text" name="answerText" id="shortText"
+                          placeholder="Ketik jawaban singkat disini">
+                      </div>
+                      <% break; case 'longText' : %>
+                        <div class="bungkus-content edit">
+                          <label for="longText">Jawaban : </label>
+                          <textarea name="answerText" id="longText" cols="30" rows="10"
+                            placeholder="Ketik jawaban panjang disini"></textarea>
+                        </div>
+                        <% break; default: %>
+                          <div class="bungkus-content edit">
+                            <p>Need to create switch for : <%= question.selectType %>
+                            </p>
+                          </div>
+                          <% break; } %>
+                  </div>
+                  <% i++ %>
+                    <% }) %>
+                      <% }else{ %>
+                        <div class="content fadeInkiri">
+                          <div class="line"></div>
+                          <div class="bungkus-content edit">
+                            <h3>Tidak Ada Data</h3>
+                          </div>
+                        </div>
+                        <% } %>
+                        <center>
+                          <button type="submit" class="tombol-md tmb-utama bunder fadeInAtas">Kirim</button>
+                        </center>
+          </form>
         </div>
-        <% i++ %>
-          <% }) %>
-            <% }else{ %>
-              <div class="content fadeInkiri">
-                <div class="line"></div>
-                <div class="bungkus-content edit">
-                  <h3>Tidak Ada Data</h3>
-                </div>
-              </div>
-              <% } %>
-                <button type="submit">Submit</button>
-</form>
+      </div>
+
+      <!-- MODAL AUTH -->
+      <%- include('../partials/modal-auth.ejs') %>
+        <!-- FOOTER PARTIALS -->
+        <%- include('../partials/footer.ejs') %>
+          <!-- SCRIPT PARTIALS -->
+          <%- include('../partials/script.ejs') %>
+
+  </body>
+
+</html>
