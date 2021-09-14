@@ -31,6 +31,7 @@ router.get('/', ensureAuth, async (req, res) => {
 router.post('/', ensureAuth, async (req, res) => {
   try {
     req.body.user = req.user.id
+    // console.log(req.body)
     const question = new Question(req.body)
     await question.save()
     res.redirect('/pertanyaan')
@@ -44,16 +45,10 @@ router.post('/', ensureAuth, async (req, res) => {
 // @route   GET /pertanyaan/tambah
 router.get('/tambah', ensureAuth, (req, res) => {
   let navMenus = [
-    { link: '/pertanyaan', icon: 'fas fa-chevron-circle-left', label: 'Kembali' },
+    { link: '/pertanyaan', icon: 'fas fa-chevron-circle-left', label: 'Kembali', id:'kembali' },
+    { link: 'javascript:;', icon: 'fas fa-plus', label: 'Pilihan', id:'add' },
   ]
-  let options = [
-    { value: 'shortText', text: 'Teks Jawaban Pendek' },
-    { value: 'longText', text: 'Teks Jawaban Panjang' },
-    { value: 'radio', text: 'Pilihan dengan 1 Jawaban' },
-    { value: 'checkBox', text: 'Pilihan dengan Banyak Jawaban' },
-    { value: 'dropDown', text: 'Menu Turun dengan 1 Jawaban' },
-  ]
-  res.render('qbank/add', { options, navTitle: 'Tambah Pertanyaan', navMenus })
+  res.render('qbank/add-new', { navTitle: 'Tambah Pertanyaan', navMenus })
 })
 
 // @desc    Show single question page
