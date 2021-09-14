@@ -936,7 +936,6 @@ abbr{
 }
 
 .control-edit{
-    border-top: 1px dashed #dddee9;
     text-align: right;
     color: #424874;
 }
@@ -1342,13 +1341,13 @@ footer{
 
 .list-menu-container:hover,
 .list-menu-container:focus{
-    color: var(--darkaksen);
+    color: var(--dark);
     margin-left: 10px;
 }
 
 .list-menu-container a:hover,
 .list-menu-container a:focus{
-    color: var(--darkaksen);
+    color: var(--dark);
 }
 
 .profile{
