@@ -19,7 +19,7 @@
                         <%= question.body %>
                       </h2>
                     </div>
-                    <% switch (question.selectType) { case 'shortText' : %>
+                    <% switch (question.tipe) { case 'shortText' : %>
                       <div class="bungkus-content edit">
                         <label for="shortText">Jawaban : </label>
                         <input type="text" class="text" name="shortText" id="shortText"
@@ -33,7 +33,7 @@
                         </div>
                         <% break; default: %>
                           <div class="bungkus-content edit">
-                            <p>Need to create switch for : <%= question.selectType %>
+                            <p>Need to create switch for : <%= question.tipe %> on viewer
                             </p>
                           </div>
                           <% break; } %>
