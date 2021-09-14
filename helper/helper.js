@@ -15,7 +15,7 @@ var func = {
       case 'longText':
         return 'Text Jawaban Panjang'
       default:
-        return `Tipe > ${type} < perlu tambahan switch case`
+        return `Tipe > ${type} < perlu tambahan switch case di helper`
     }
   }
 }
