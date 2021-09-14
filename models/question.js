@@ -6,7 +6,7 @@ const questionSchema = new Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
   },
-  selectType: {
+  tipe: {
     type: String,
     required: true,
     trim: true
@@ -15,6 +15,17 @@ const questionSchema = new Schema({
     type: String,
     required: true
   },
+  wajib: {
+    type: String,
+    default:'',
+    enum: ['on', '']
+  },
+  opsi: [
+    {
+      type: String,
+      default: ''
+    }
+  ]
 }, { timestamps: true })
 
 const Question = mongoose.model('question', questionSchema)
