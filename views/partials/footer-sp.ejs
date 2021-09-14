@@ -1,0 +1,24 @@
+<!-- This footer need link, icon, id -->
+<footer class="fadeInBawah">
+  <div class="bottom-menu">
+    <% if (navMenus) { %>
+      <% navMenus.forEach(item=> { %>
+          <div class="menu" id="<%= item.id %>">
+            <a href="<%= item.link %> ">
+              <i class="<%= item.icon %>"></i>
+              <p>
+                <%= item.label %>
+              </p>
+            </a>
+          </div>
+        <% }) %>
+          <% } else { %>
+            <div class="menu">
+              <a href="/">
+                <i class="fas fa-home"></i>
+                <p>Back To Home</p>
+              </a>
+            </div>
+            <% } %>
+  </div>
+</footer>
