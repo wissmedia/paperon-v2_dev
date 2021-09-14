@@ -27,11 +27,18 @@ $(document).ready(function(){
     });
 });
 
-// Fungsi autofocus Checkbox Input
-document.getElementById("ck_other").addEventListener('click',function(){
-    let input_other = document.getElementById("input_other");
-    input_other.focus();
+// Hide Footer saat keyboard muncul (input focus)
+$(document).ready(function(){
+    $(".container").on("focus","input",function(){
+        $("footer").attr("hidden", "hidden");
+    });
+
+    $(".container").on("blur","input",function(){
+        $("footer").removeAttr("hidden");
+    });
 });
+
+
 
 // Tampilkan menu User
 function tampilMenu(){
@@ -45,8 +52,3 @@ function tampilMenu(){
     return show;
     
 }
-
-
-
-
-
