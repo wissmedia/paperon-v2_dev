@@ -555,7 +555,7 @@ $(document).ready(function(){
     });
 
     // Input with checkbox
-    $("body").on("click",".addOpsiCheck",function(){ 
+    $("body").on("click",".addOpsiCheck",function(){
         $(this).parents(".addInput").before(`
             <div class="edit-group setInput">
                 <input type="checkbox" name="pilih" id="pilih1" disabled>

@@ -4,6 +4,15 @@
     src: url(../fonts/SourceSansPro-Regular.ttf);
 }
 
+:root{
+    --bgdark: #1B262C;
+    --dark: #11191d;
+    --bglight: #F9F9F9;
+    --light: #FFFFFF;
+    --darkaksen: #3282B8;
+    --darktext: #FFFFFF;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -15,6 +24,38 @@ a{
     text-decoration: none;
 }
 
+/* Data Tables Custom */
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_filter,
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .dataTables_processing,
+.dataTables_wrapper .dataTables_paginate {
+    color: rgb(255, 255, 255) !important;
+}
+/* END Data Tables Custom */
+
+/* Input untuk dark theme */
+input{
+    background-color: transparent;
+    color: var(--darktext);
+}
+
+textarea{
+    background-color: transparent;
+    color: var(--darktext);
+}
+
+.bg{
+    font-size: 10px;
+    margin-top: 5px;
+    margin-left: 5px;
+    text-align: center;
+    width: 40px;
+    padding: 5px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
 .text-center{
     text-align: center;
 }
@@ -24,7 +65,19 @@ html{
 }
 
 body{
-    background-color: #F9F9F9;
+    background-color: var(--bgdark);
+    color: var(--darktext);
+}
+
+.responsive-table{
+    overflow: hidden;
+    overflow-x: auto;
+    clear: both;
+    width: 100%;
+}
+
+table{
+    white-space: nowrap;
 }
 
 /* Input Text */
@@ -204,11 +257,11 @@ nav{
     margin: 0 auto;
     display: flex;
     font-size: 25px;
-    background-color: #424874;
+    background-color: var(--darkaksen);
 }
 
 .mobile-nav a{
-    color: #DCD6F7;
+    color: var(--darktext);
 }
 
 .logo{
@@ -229,10 +282,11 @@ nav{
 
 /* Menu User */
 .menu-list{
-    background-color: #fff;
+    background-color: var(--bgdark);
     width: 40%;
     margin: 0 auto;
     display: none;
+    color: var(--darktext);
 }
 
 .show{
@@ -247,19 +301,19 @@ nav{
     display: block;
     padding: 10px;
     border-bottom: 1px solid #DCD6F7;
-    color: #424874;
+    color: var(--darktext);
 }
 
 .menu-list a:hover{
-    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(221,222,233,1) 100%, rgba(6,44,99,1) 100%);
+    background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(43, 43, 43) 100%, rgba(6,44,99,1) 100%);
     text-indent: 10px;
     font-weight: bold;  
 }
 
 .menu-list .username{
-    background-color: #424874;
+    background-color: var(--bgdark);
     padding: 25px 0px;
-    color: #fff;
+    color: var(--darktext);
 }
 
 .menu-list .username h3{
@@ -281,7 +335,7 @@ nav{
 }
 
 .container a{
-    color: #424874;
+    color: var(--darkaksen);
 }
 
 .row-menu{
@@ -295,7 +349,7 @@ nav{
 
     padding: 25px;
     margin: 15px;
-    background-color: #fff;
+    background-color: var(--dark);
     border-radius: 10px;
 
     -webkit-box-shadow: 2px 4px 14px -10px rgba(132,132,132,0.83); 
@@ -320,7 +374,7 @@ nav{
 .main-menu-2{
     padding: 25px;
     margin: 15px;
-    background-color: #fff;
+    background-color: var(--dark);
     border-radius: 10px;
     width: 28%;
 
@@ -343,12 +397,13 @@ nav{
     display: inline-block;
     padding: 25px;
     margin: 7px;
-    background-color: #fff;
+    background-color: var(--dark);
     border-radius: 10px;
     width: 30%;
     height: 30%;
     text-align: center;
     position: relative;
+    color: var(--darktext);
 }
 
 .rounded{
@@ -381,17 +436,19 @@ nav{
     right: 0;
     text-align: center;
     font-weight: bold;
+    color: var(--darktext);
 }
 
 .card-img{
     display: inline-block;
     margin: 7px;
-    background-color: #fff;
+    background-color: var(--dark);
     border-radius: 10px;
     width: 30%;
     height: 30%;
     text-align: center;
     position: relative;
+    color: var(--darktext);
 }
 
 .card-img p{
@@ -426,12 +483,13 @@ nav{
     display: inline-block;
     padding: 25px;
     margin: 2px 7px;
-    background-color: #fff;
+    background-color: var(--dark);
     border-radius: 10px;
     width: 98%;
     height: 30%;
     text-align: center;
     position: relative;
+    color: var(--darktext);
 }
 
 .card-block p{
@@ -456,6 +514,7 @@ nav{
     right: 0;
     text-align: center;
     font-weight: bold;
+    color: var(--darktext);
 }
 /* END CARD-BLOCK */
 
@@ -464,24 +523,26 @@ nav{
     display: inline-block;
     padding: 25px;
     margin: 7px;
-    background-color: #fff;
+    background-color: var(--dark);
     border-radius: 10px;
     width: 30%;
     height: 30%;
     text-align: center;
     position: relative;
+    color: var(--darktext);
 }
 
 .card-text-block{
     display: inline-block;
     padding: 25px;
     margin: 7px;
-    background-color: #fff;
+    background-color: var(--dark);
     border-radius: 10px;
     width: 98%;
     height: 30%;
     text-align: center;
     position: relative;
+    color: var(--darktext);
 }
 /* END CARD-TEXT */
 
@@ -503,22 +564,22 @@ nav{
 .content{
     padding: 0px 0px 20px 0px;
     border-radius: 10px;
-    background-color: #ffffff;
-    border: 1px solid #DCD6F7;
+    background-color: var(--dark);
+    border: 1px solid var(--dark);
     margin-bottom: 10px;
     overflow: hidden;
 }
 
 .content2{
     border-radius: 10px;
-    background-color: #ffffff;
-    border: 1px solid #DCD6F7;
+    background-color: var(--dark);
+    border: 1px solid var(--dark);
     margin-bottom: 10px;
     overflow: hidden;
 }
 
 .line{
-    background-color: #424874;
+    background-color: var(--darkaksen);
     height: 10px;
     border-radius: 20px 20px 0px 0px;
     margin: 0;
@@ -556,13 +617,13 @@ abbr{
 
 /* Navigasi TAB */
 .tab-container{
-    background-color: #fff;
+    background-color: var(--bgdark);
     width: 100%;
     border-radius: 10px;
     padding: 20px 20px 10px 20px;
     overflow: hidden;
     margin-bottom: 10px;
-    border: 1px solid #DCD6F7;
+    border: 1px solid var(--bgdark);
 }
 
 .tab li{
@@ -611,22 +672,24 @@ abbr{
 
 .result-kotak{
     position: relative;
-    background-color: #e7eaff;
+    background-color: var(--dark);
     width: 60px;
     border-radius: 20px;
     padding: 3px;
     display: inline-block;
     margin-bottom: 5px;
+    color: var(--darktext);
 }
 
 .result-kotak-wkt{
     position: relative;
-    background-color: #e7eaff;
+    background-color: var(--dark);
     width: 75px;
     border-radius: 20px;
     padding: 3px;
     display: inline-block;
     margin-bottom: 5px;
+    color: var(--darktext);
 }
 
 .tglwkt{
@@ -637,7 +700,7 @@ abbr{
     position: absolute;
     width: 25px;
     border-radius: 10px;
-    background-color:#fff;
+    background-color: var(--dark);
     top: 0;
     bottom: 0;
     right: 0;
@@ -652,13 +715,13 @@ abbr{
 }
 
 .most{
-    background-color: #424874;
+    background-color: var(--darkaksen);
     color: #fff;
 }
 
 .most .jumlah{
-    background-color: #b6cfee;
-    color: #424874;
+    background-color: #ffffff;
+    color: var(--darkaksen);
 }
 /* END Style Result Tanggal dan Waktu */
 
@@ -667,7 +730,7 @@ abbr{
     margin: 5px 0px;
     padding: 10px;
     border-radius: 5px;
-    background-color: #f7f7f7;
+    background-color: var(--dark);
 }
 /* END Bungkus Jawaban */
 
@@ -796,7 +859,7 @@ abbr{
 
 .edit-group .label{
     position: absolute;
-    color: #424874;
+    color: var(--darkaksen);
     top: 10px;
     left: 20px;
 }
@@ -828,18 +891,19 @@ abbr{
     border-radius: 50px;
     background-color: transparent;
     cursor: pointer;
+    color: var(--darktext);
 }
 
 .edit-group button:hover{
-    background-color: rgba(252, 229, 225, 0.5);
+    background-color: rgba(54, 54, 54, 0.5);
 }
 
 .edit-group button.add-lain{
-    color: #4E709D;
+    color: var(--darkaksen);
     font-weight: bold;
 }
 .edit-group button.add-lain:hover{
-    background-color: rgba(225, 237, 252, 0.5);
+    background-color: rgba(54, 54, 54, 0.5);
 }
 
 .edit-group input[type=text]{
@@ -950,7 +1014,7 @@ input.wajib:checked + label.wajib{
 button.buttonReset{
     outline: none;
     border: none;
-    background-color: #fff;
+    background-color: var(--bgdark);
     cursor: pointer;
     font-size: 15px;
     font-weight: bold;
@@ -960,7 +1024,7 @@ button.buttonReset{
 }
 
 button.buttonReset:hover{
-    background-color: rgb(243, 243, 243);
+    background-color: rgb(82, 30, 30);
     border-radius: 3px;
 }
 
@@ -972,7 +1036,7 @@ button.buttonReset:hover{
 }
 
 .pilihan-gandav2 tr{
-    border-bottom: 5px solid #fff;
+    border-bottom: 5px solid var(--dark);
 }
 
 .pilihan-gandav2 th{
@@ -981,7 +1045,7 @@ button.buttonReset:hover{
 }
 
 .pilihan-gandav2 tr td{
-    background-color: rgb(243, 243, 243);
+    background-color: var(--bgdark);
     padding: 15px;
 }
 
@@ -1011,11 +1075,12 @@ textarea:focus{
 
 /* Bottom Menu */
 footer{
+    /* Position fixed */
     position: fixed;
     bottom: 0;
     width: 100%;
     overflow: hidden;
-    background-color: #F9F9F9;
+    background-color: var(--bgdark);
 }
 
 .bottom-menu{
@@ -1023,7 +1088,7 @@ footer{
     margin: 15px auto;
     display: flex;
     font-size: 25px;
-    background-color: #fff;
+    background-color: var(--dark);
     padding: 10px 0;
     
     margin-bottom: 10px;
@@ -1035,7 +1100,7 @@ footer{
 }
 
 .bottom-menu a{
-    color: #424874;
+    color: var(--darktext);
 }
 
 .menu{
@@ -1069,11 +1134,11 @@ footer{
 }
 
 .form a{
-    color: #424874;
+    color: var(--darkaksen);
 }
 
 .grup-input{
-    background-color: brown;
+    background-color: transparent;
     margin: 30px 0px;
     position: relative;
 }
@@ -1096,7 +1161,7 @@ footer{
 }
 
 .grup-input:focus-within{
-    color: #424874;;
+    color: var(--darkaksen);
 }
 
 .shortcut{
@@ -1105,7 +1170,7 @@ footer{
 
 /* Table */
 .data-content{
-    background-color: #fff;
+    background-color: var(--dark);
     padding: 20px;
 }
 
@@ -1116,12 +1181,16 @@ footer{
 }
 
 .data-table tbody tr:nth-child(even){
-    background-color: #42487418;
+    background-color: var(--bgdark);
+}
+
+.data-table tbody tr:nth-child(odd){
+    background-color: var(--dark);
 }
 
 .data-table tbody tr:hover{
     font-weight: bold;
-    background-color: #DCD6F7;
+    background-color: var(--dark);
 }
 
 .table-responsive{
@@ -1147,7 +1216,7 @@ footer{
     margin-top: 20%;
     font-size: 200px;
     font-weight: bold;
-    text-shadow: 3px 3px 0px #FFFFFF;
+    text-shadow: 3px 3px 0px var(--bgdark);
 }
 
 .animasi-1{
@@ -1189,7 +1258,7 @@ footer{
     width: 250px;
     position: relative;
     left: 450px;
-    background-color: #ffffff;
+    background-color: var(--dark);
     border-radius: 10px;
     box-shadow: 0px 0px 9px 0px rgba(166,166,166,0.75);
     -webkit-box-shadow: 0px 0px 9px 0px rgba(166,166,166,0.75);
@@ -1205,7 +1274,7 @@ footer{
 }
 
 .add-list-content:hover{
-    background-color: rgba(245, 245, 245, 0.829);
+    background-color: rgba(0, 0, 0, 0.829);
 }
 
 /* Modal */
@@ -1219,6 +1288,7 @@ footer{
     height: 100%;
     overflow: auto;
     display: none;
+    color: var(--darktext);
 }
 
 .modal-content{
@@ -1227,7 +1297,7 @@ footer{
     left: 50%;
     width: 40%;
     margin-left: -20%;
-    background-color: #fff;
+    background-color: #000000;
     height: 320px;
     padding: 30px;
     border-radius: 20px 20px 0px 0px;
@@ -1244,13 +1314,13 @@ footer{
     width: 100%;
     padding: 15px;
     cursor: pointer;
-    color: rgb(29, 29, 29);
+    color: var(--darktext);
     font-weight: bold;
     transition: 0.5s ease;
 }
 
 .list-menu-container a{
-    color: rgb(29, 29, 29);
+    color: var(--darktext);
 }
 
 .label-list{
@@ -1272,20 +1342,20 @@ footer{
 
 .list-menu-container:hover,
 .list-menu-container:focus{
-    color: indigo;
+    color: var(--darkaksen);
     margin-left: 10px;
 }
 
 .list-menu-container a:hover,
 .list-menu-container a:focus{
-    color: indigo;
+    color: var(--darkaksen);
 }
 
 .profile{
     width: 100%;
     padding: 15px;
     cursor: pointer;
-    color: rgb(29, 29, 29);
+    color: var(--darktext);
     font-weight: bold;
     transition: 0.5s ease;
 }
@@ -1294,7 +1364,7 @@ footer{
 .profile.focus{
     margin-top: -10px;
     margin-bottom: 10px;
-    color: indigo;
+    color: var(--darkaksen);
 }
 
 .dpAkun{
@@ -1480,7 +1550,6 @@ footer{
         margin-top: 40%;
         font-size: 150px;
         font-weight: bold;
-        text-shadow: 3px 3px 0px #FFFFFF;
     }
 
     .animasi-1{
@@ -1688,7 +1757,6 @@ footer{
         margin-top: 40%;
         font-size: 150px;
         font-weight: bold;
-        text-shadow: 3px 3px 0px #FFFFFF;
     }
 
     .animasi-1{
@@ -1893,7 +1961,6 @@ footer{
         margin-top: 40%;
         font-size: 150px;
         font-weight: bold;
-        text-shadow: 3px 3px 0px #FFFFFF;
     }
 
     .animasi-1{
@@ -2099,7 +2166,6 @@ footer{
         margin-top: 40%;
         font-size: 150px;
         font-weight: bold;
-        text-shadow: 3px 3px 0px #FFFFFF;
     }
 
     .animasi-1{
@@ -2305,7 +2371,6 @@ footer{
         margin-top: 40%;
         font-size: 150px;
         font-weight: bold;
-        text-shadow: 3px 3px 0px #FFFFFF;
     }
 
     .animasi-1{
@@ -2399,7 +2464,7 @@ footer{
         margin-left: 5px;
         margin-right: 5px;
     }
-     .card-block p{
+    .card-block p{
         font-size: 9px;
     }
 
@@ -2512,7 +2577,6 @@ footer{
         margin-top: 30%;
         font-size: 150px;
         font-weight: bold;
-        text-shadow: 3px 3px 0px #FFFFFF;
     }
 
     .animasi-1{
@@ -2607,7 +2671,7 @@ footer{
         margin-right: 5px;
     }
 
-     .card-block p{
+    .card-block p{
         font-size: 10px;
     }
 
@@ -2717,7 +2781,6 @@ footer{
         margin-top: 30%;
         font-size: 150px;
         font-weight: bold;
-        text-shadow: 3px 3px 0px #FFFFFF;
     }
 
     .animasi-1{
@@ -2922,7 +2985,6 @@ footer{
         margin-top: 30%;
         font-size: 150px;
         font-weight: bold;
-        text-shadow: 3px 3px 0px #FFFFFF;
     }
 
     .animasi-1{
@@ -3127,7 +3189,6 @@ footer{
         margin-top: 30%;
         font-size: 150px;
         font-weight: bold;
-        text-shadow: 3px 3px 0px #FFFFFF;
     }
 
     .animasi-1{
@@ -3334,7 +3395,6 @@ footer{
         margin-top: 25%;
         font-size: 150px;
         font-weight: bold;
-        text-shadow: 3px 3px 0px #FFFFFF;
     }
 
     .animasi-1{
@@ -3512,7 +3572,6 @@ footer{
         margin-top: 20%;
         font-size: 150px;
         font-weight: bold;
-        text-shadow: 3px 3px 0px #FFFFFF;
     }
 
     .animasi-1{
@@ -3690,7 +3749,6 @@ footer{
         margin-top: 10%;
         font-size: 200px;
         font-weight: bold;
-        text-shadow: 3px 3px 0px #FFFFFF;
     }
 
     .animasi-1{
@@ -3868,7 +3926,6 @@ footer{
         margin-top: 10%;
         font-size: 200px;
         font-weight: bold;
-        text-shadow: 3px 3px 0px #FFFFFF;
     }
 
     .animasi-1{
@@ -4046,7 +4103,6 @@ footer{
         margin-top: 10%;
         font-size: 200px;
         font-weight: bold;
-        text-shadow: 3px 3px 0px #FFFFFF;
     }
 
     .animasi-1{
@@ -4224,7 +4280,6 @@ footer{
         margin-top: 10%;
         font-size: 200px;
         font-weight: bold;
-        text-shadow: 3px 3px 0px #FFFFFF;
     }
 
     .animasi-1{
@@ -4402,7 +4457,6 @@ footer{
         margin-top: 10%;
         font-size: 200px;
         font-weight: bold;
-        text-shadow: 3px 3px 0px #FFFFFF;
     }
 
     .animasi-1{
@@ -4580,7 +4634,6 @@ footer{
         margin-top: 10%;
         font-size: 200px;
         font-weight: bold;
-        text-shadow: 3px 3px 0px #FFFFFF;
     }
 
     .animasi-1{
@@ -4758,7 +4811,6 @@ footer{
         margin-top: 10%;
         font-size: 200px;
         font-weight: bold;
-        text-shadow: 3px 3px 0px #FFFFFF;
     }
 
     .animasi-1{
@@ -4937,7 +4989,6 @@ footer{
         margin-top: 10%;
         font-size: 200px;
         font-weight: bold;
-        text-shadow: 3px 3px 0px #FFFFFF;
     }
 
     .animasi-1{
@@ -5096,7 +5147,6 @@ footer{
         margin-top: 10%;
         font-size: 200px;
         font-weight: bold;
-        text-shadow: 3px 3px 0px #FFFFFF;
     }
 
     .animasi-1{
@@ -5255,7 +5305,6 @@ footer{
         margin-top: 10%;
         font-size: 200px;
         font-weight: bold;
-        text-shadow: 3px 3px 0px #FFFFFF;
     }
 
     .animasi-1{
@@ -5415,7 +5464,6 @@ footer{
         margin-top: 20%;
         font-size: 200px;
         font-weight: bold;
-        text-shadow: 3px 3px 0px #FFFFFF;
     }
 
     .animasi-1{
@@ -5538,7 +5586,6 @@ footer{
         margin-top: 30%;
         font-size: 200px;
         font-weight: bold;
-        text-shadow: 3px 3px 0px #FFFFFF;
     }
 
     .animasi-1{
@@ -5604,7 +5651,6 @@ footer{
         margin-top: 20%;
         font-size: 200px;
         font-weight: bold;
-        text-shadow: 3px 3px 0px #FFFFFF;
     }
 
     .animasi-1{
@@ -5738,7 +5784,6 @@ footer{
         margin-top: 20%;
         font-size: 200px;
         font-weight: bold;
-        text-shadow: 3px 3px 0px #FFFFFF;
     }
 
     .animasi-1{
@@ -5872,7 +5917,6 @@ footer{
         margin-top: 20%;
         font-size: 200px;
         font-weight: bold;
-        text-shadow: 3px 3px 0px #FFFFFF;
     }
 
     .animasi-1{
@@ -6083,7 +6127,6 @@ footer{
         margin-top: 30%;
         font-size: 200px;
         font-weight: bold;
-        text-shadow: 3px 3px 0px #FFFFFF;
     }
 
     .animasi-1{
@@ -6205,7 +6248,6 @@ footer{
         margin-top: 40%;
         font-size: 200px;
         font-weight: bold;
-        text-shadow: 3px 3px 0px #FFFFFF;
     }
 
     .animasi-1{
@@ -6328,7 +6370,6 @@ footer{
         margin-top: 40%;
         font-size: 200px;
         font-weight: bold;
-        text-shadow: 3px 3px 0px #FFFFFF;
     }
 
     .animasi-1{
@@ -6468,7 +6509,6 @@ footer{
         margin-top: 40%;
         font-size: 200px;
         font-weight: bold;
-        text-shadow: 3px 3px 0px #FFFFFF;
     }
 
     .animasi-1{
@@ -6608,7 +6648,6 @@ footer{
         margin-top: 40%;
         font-size: 200px;
         font-weight: bold;
-        text-shadow: 3px 3px 0px #FFFFFF;
     }
 
     .animasi-1{
@@ -6748,7 +6787,6 @@ footer{
         margin-top: 40%;
         font-size: 200px;
         font-weight: bold;
-        text-shadow: 3px 3px 0px #FFFFFF;
     }
 
     .animasi-1{
@@ -6888,7 +6926,6 @@ footer{
         margin-top: 40%;
         font-size: 200px;
         font-weight: bold;
-        text-shadow: 3px 3px 0px #FFFFFF;
     }
 
     .animasi-1{
@@ -7028,7 +7065,6 @@ footer{
         margin-top: 40%;
         font-size: 250px;
         font-weight: bold;
-        text-shadow: 3px 3px 0px #FFFFFF;
     }
 
     .animasi-1{
@@ -7168,7 +7204,6 @@ footer{
         margin-top: 40%;
         font-size: 250px;
         font-weight: bold;
-        text-shadow: 3px 3px 0px #FFFFFF;
     }
 
     .animasi-1{
@@ -7308,7 +7343,6 @@ footer{
         margin-top: 45%;
         font-size: 300px;
         font-weight: bold;
-        text-shadow: 3px 3px 0px #FFFFFF;
     }
 
     .animasi-1{
