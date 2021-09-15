@@ -14,9 +14,9 @@
               <div class="line"></div>
               <div class="bungkus-content edit">
                 <label for="now">Tipe Saat Ini :</label>
-                <input type="text" id="now" class="text" disabled value="<%= helper.typeChange(question.selectType) %>">
-                <label for="selectType">Edit Tipe Jawaban : </label>
-                <select name="selectType" id="selectType" class="dropdown">
+                <input type="text" id="now" class="text" disabled value="<%= helper.typeChange(question.tipe) %>">
+                <label for="tipe">Edit Tipe Jawaban : </label>
+                <select name="tipe" id="tipe" class="dropdown">
                   <option disabled hidden selected value="">-- Pilihan</option>
                   <% if(options.length> 0){ %>
                     <% options.forEach(option=> { %>
