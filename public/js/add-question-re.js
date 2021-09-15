@@ -62,9 +62,9 @@ $(document).ready(function () {
                             <input type="text" name="body" id="tanya" class="text tanya" placeholder="Masukan pertanyaan jawaban singkat" required>
 
                             <div class="control-edit">
-                                <button class="remove" type="button"><i class="fas fa-trash"></i></button>
-                                <span class="divider">|</span>
-                                <span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
+                            <span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
+                            <span class="divider">|</span>
+                            <button class="remove" type="button"><i class="fas fa-trash"></i></button>
                             </div>
                         </div>
                     </div>
@@ -97,9 +97,9 @@ $(document).ready(function () {
                             <input type="text" name="body" id="tanyapanjang" class="text" placeholder="Masukan pertanyaan jawaban panjang" required>
 
                             <div class="control-edit">
-                                <button class="remove" type="button"><i class="fas fa-trash"></i></button>
-                                <span class="divider">|</span>
-                                <span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
+                            <span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
+                            <span class="divider">|</span>
+                            <button class="remove" type="button"><i class="fas fa-trash"></i></button>
                             </div>
                         </div>
                     </div>
@@ -134,20 +134,19 @@ $(document).ready(function () {
                             
                             <div class="edit-group setInput">
                                 <input type="radio" name="pilih" id="pilih1" disabled>
-                                <input type="text" name="opsi" id="opsi" class="text" placeholder="Ketik opsi disini" required>
+                                <input type="text" name="opsiy" id="opsi" class="text" placeholder="Ketik opsi kolom disini" required>
                             </div>
                             
                             <div class="edit-group addInput">
                                 <input type="radio" name="pilih" id="pilih1" disabled>
-                                <input type="text" class="text addOpsi" placeholder="Tambah opsi">
-                                
+                                <input type="text" class="text addOpsiKolom" placeholder="Tambah opsi" readonly>
                             </div>
 
                             <div class="control-edit">
-                                <button class="remove" type="button"><i class="fas fa-trash"></i></button>
-                                <span class="divider">|</span>
-                                <span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Tambahkan Lainnya</label></span>
-                                <span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
+                            <span class="wajib"><input type="checkbox" name="useEtc" class="wajibisi"><label class="lainnyalabel">Tambahkan Lainnya</label></span>
+                            <span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
+                            <span class="divider">|</span>
+                            <button class="remove" type="button"><i class="fas fa-trash"></i></button>
                             </div>
                         </div>
                     </div>
@@ -178,31 +177,31 @@ $(document).ready(function () {
                         <input type="hidden" name="tipe" value="radioGrid">
                         <input type="hidden" name="useOpsi" value="on">
                             <p>Pertanyaan dengan 1 pilihan berbentuk baris dan kolom</p>
-                            <input type="text" name="body" id="pilihanganda" class="text" placeholder="Masukan pertanyaan kisi pilihan ganda">
+                            <input type="text" name="body" id="pilihanganda" class="text" placeholder="Masukan pertanyaan kisi pilihan ganda" required>
                             <div class="baris">
                                 <label for="">Baris</label>
                                 <div class="edit-group setInput">
                                     <input type="radio" name="pilih" id="pilih1" disabled>
-                                    <input type="text" name="opsi" id="opsi" class="text" placeholder="Ketik opsi baris disini">
+                                    <input type="text" name="opsix" id="opsi" class="text" placeholder="Ketik opsi baris disini" required>
                                     <button class="del"><i class="fas fa-times"></i></button>
                                 </div>
 
                                 <div class="edit-group addInput">
                                     <input type="radio" name="pilih" id="pilih1" disabled>
-                                    <input type="text" name="opsi" class="text addOpsi" placeholder="Tambah baris">
+                                    <input type="text" class="text addOpsiBaris" placeholder="Tambah baris" readonly>
                                 </div>
                             </div>
                             <div class="kolom">
                                 <label for="">Kolom</label>
                                 <div class="edit-group setInput">
                                     <input type="radio" name="pilih" id="pilih1" disabled>
-                                    <input type="text" name="opsi" id="opsi" class="text" placeholder="Ketik opsi kolom disini">
+                                    <input type="text" name="opsiy" id="opsi" class="text" placeholder="Ketik opsi kolom disini" required>
                                     <button class="del"><i class="fas fa-times"></i></button>
                                 </div>
 
                                 <div class="edit-group addInput">
                                     <input type="radio" name="pilih" id="pilih1" disabled>
-                                    <input type="text" name="opsi" class="text addOpsi" placeholder="Tambah kolom">
+                                    <input type="text" class="text addOpsiKolom" placeholder="Tambah kolom" readonly>
                                 </div>
                             </div>
 
@@ -244,20 +243,20 @@ $(document).ready(function () {
                                 
                             <div class="edit-group setInput">
                                 <input type="checkbox" name="pilih" id="pilih1" disabled>
-                                <input type="text" name="opsi" id="opsi" class="text" placeholder="Ketik opsi disini" required>
+                                <input type="text" name="opsiy" id="opsi" class="text" placeholder="Ketik opsi kolom disini" required>
                                 <button class="del"><i class="fas fa-times"></i></button>
                             </div>
 
                             <div class="edit-group addInput">
                                 <input type="checkbox" name="pilih" id="pilih1" disabled>
-                                <input type="text" class="text addOpsiCheck" placeholder="Tambah opsi">
-                                
+                                <input type="text" class="text addOpsiCheckKolom" placeholder="Tambah opsi" readonly>
                             </div>
 
                             <div class="control-edit">
-                                <button class="remove" type="button"><i class="fas fa-trash"></i></button>
-                                <span class="divider">|</span>
-                                <span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
+                            <span class="wajib"><input type="checkbox" name="useEtc" class="wajibisi"><label class="lainnyalabel">Tambahkan Lainnya</label></span>
+                            <span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
+                            <span class="divider">|</span>
+                            <button class="remove" type="button"><i class="fas fa-trash"></i></button>
                             </div>
                         </div>
                     </div>
@@ -287,43 +286,43 @@ $(document).ready(function () {
                         <div class="bungkus-content edit">
                         <input type="hidden" name="tipe" value="checkGrid">
                         <input type="hidden" name="useOpsi" value="on">
-                            <p>*Pertanyaan Pilihan Kotak centang v2</p>
-                            <input type="text" name="pilihanganda" id="pilihanganda" class="text" placeholder="Masukan pertanyaan pilihan kotak centang">
+                            <p>Pertanyaan pilihan petak kotak centang</p>
+                            <input type="text" name="body" id="pilihanganda" class="text" placeholder="Masukan pertanyaan pilihan petak kotak centang" required>
                             <div class="baris">
                                 <label for="">Baris</label>
                                 <div class="edit-group setInput">
                                     <input type="checkbox" name="pilih" id="pilih1" disabled>
-                                    <input type="text" name="opsi" id="opsi" class="text" placeholder="Text ...">
+                                    <input type="text" name="opsix" id="opsi" class="text" placeholder="Ketik opsi baris disini">
                                     <button class="del"><i class="fas fa-times"></i></button>
                                 </div>
 
                                 <div class="edit-group addInput">
                                     <input type="checkbox" name="pilih" id="pilih1" disabled>
-                                    <input type="text" name="opsi" class="text addOpsiCheck" placeholder="Tambah baris">
+                                    <input type="text" class="text addOpsiCheckBaris" placeholder="Tambah baris" readonly>
                                 </div>
                             </div>
                             <div class="kolom">
                                 <label for="">Kolom</label>
                                 <div class="edit-group setInput">
                                     <input type="checkbox" name="pilih" id="pilih1" disabled>
-                                    <input type="text" name="opsi" id="opsi" class="text" placeholder="Text ...">
+                                    <input type="text" name="opsiy" id="opsi" class="text" placeholder="Ketik opsi kolom disini">
                                     <button class="del"><i class="fas fa-times"></i></button>
                                 </div>
 
                                 <div class="edit-group addInput">
                                     <input type="checkbox" name="pilih" id="pilih1" disabled>
-                                    <input type="text" name="opsi" class="text addOpsiCheck" placeholder="Tambah kolom">
+                                    <input type="text" class="text addOpsiCheckKolom" placeholder="Tambah kolom" readonly>
                                 </div>
                             </div>
 
                             <div class="control-edit">
-                                <button class="remove" type="button"><i class="fas fa-trash"></i></button>
-                                <span class="divider">|</span>
-                                <span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
+                            <span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
+                            <span class="divider">|</span>
+                            <button class="remove" type="button"><i class="fas fa-trash"></i></button>
                             </div>
                         </div>
                     </div>
-                    <button class="tombol-md tmb-utama bunder fadeInBawah">Simpan</button>
+                    <center><button class="tombol-md tmb-utama bunder fadeInBawah">Simpan</button></center>
                 </div>
             `).hide().fadeIn();
 
@@ -354,19 +353,19 @@ $(document).ready(function () {
                                 
                             <div class="edit-group setInput">
                                 <span id="nomor" class="nomor">&#9672;</span>
-                                <input type="text" name="opsi" id="opsi" class="text" placeholder="Ketik opsi disini" required>
+                                <input type="text" name="opsiy" id="opsi" class="text" placeholder="Ketik opsi disini" required>
                                 <button class="del"><i class="fas fa-times"></i></button>
                             </div>
 
                             <div class="edit-group addInput">
                                 <span id="nomor">&#9672;</span>
-                                <input type="text" class="text addOpsiDaftar" placeholder="Tambah opsi">
+                                <input type="text" class="text addOpsiDaftar" placeholder="Tambah opsi" readonly>
                             </div>
 
                             <div class="control-edit">
-                                <button class="remove" type="button"><i class="fas fa-trash"></i></button>
-                                <span class="divider">|</span>
-                                <span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
+                            <span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
+                            <span class="divider">|</span>
+                            <button class="remove" type="button"><i class="fas fa-trash"></i></button>
                             </div>
                         </div>
                     </div>
@@ -399,9 +398,9 @@ $(document).ready(function () {
                             <input type="text" name="body" id="tanya" class="text" placeholder="Masukan pertanyaan untuk jawaban tanggal" required>
 
                             <div class="control-edit">
-                                <button class="remove" type="button"><i class="fas fa-trash"></i></button>
-                                <span class="divider">|</span>
-                                <span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
+                            <span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
+                            <span class="divider">|</span>
+                            <button class="remove" type="button"><i class="fas fa-trash"></i></button>
                             </div>
                         </div>
                     </div>
@@ -434,9 +433,9 @@ $(document).ready(function () {
                             <input type="text" name="body" id="tanya" class="text" placeholder="Masukan pertanyaan untuk jawaban waktu" required>
 
                             <div class="control-edit">
-                                <button class="remove" type="button"><i class="fas fa-trash"></i></button>
-                                <span class="divider">|</span>
-                                <span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
+                            <span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
+                            <span class="divider">|</span>
+                            <button class="remove" type="button"><i class="fas fa-trash"></i></button>
                             </div>
                         </div>
                     </div>
@@ -495,9 +494,9 @@ $(document).ready(function () {
                             </div>
 
                             <div class="control-edit">
-                                <button class="remove" type="button"><i class="fas fa-trash"></i></button>
-                                <span class="divider">|</span>
-                                <span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
+                            <span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
+                            <span class="divider">|</span>
+                            <button class="remove" type="button"><i class="fas fa-trash"></i></button>
                             </div>
                         </div>
                     </div>
@@ -644,66 +643,67 @@ $(document).ready(function () {
 });
 
 // Insert Text Input
-$(document).ready(function () {
-    // Input with radio
-    $("body").on("click", ".addOpsi", function () {
+$(document).ready(function(){
+
+    // Input with radio Baris
+    $("body").on("click",".addOpsiBaris",function(){ 
         $(this).parents(".addInput").before(`
             <div class="edit-group setInput">
                 <input type="radio" name="pilih" id="pilih1" disabled>
-                <input type="text" name="opsi" id="opsi" class="text" placeholder="Ketik opsi disini" required>
+                <input type="text" name="opsix" id="opsi" class="text" placeholder="Ketik opsi baris disini" required>
                 <button class="del"><i class="fas fa-times"></i></button>
             </div>
         `);
     });
 
-    $("body").on("click", ".addLain-radio", function () {
+    // Input with radio Kolom
+    $("body").on("click",".addOpsiKolom",function(){ 
         $(this).parents(".addInput").before(`
             <div class="edit-group setInput">
                 <input type="radio" name="pilih" id="pilih1" disabled>
-                <div class="label">Lainnya :</div>
-                <input type="text" name="opsi" id="opsi" class="text lainnya">
+                <input type="text" name="opsiy" id="opsi" class="text" placeholder="Ketik opsi kolom disini" required>
                 <button class="del"><i class="fas fa-times"></i></button>
             </div>
         `);
     });
 
-    // Input with checkbox
-    $("body").on("click", ".addOpsiCheck", function () {
+    // Input with checkbox Baris
+    $("body").on("click",".addOpsiCheckBaris",function(){ 
         $(this).parents(".addInput").before(`
             <div class="edit-group setInput">
                 <input type="checkbox" name="pilih" id="pilih1" disabled>
-                <input type="text" name="opsi" id="opsi" class="text" placeholder="Ketik opsi disini" required>
+                <input type="text" name="opsix" id="opsi" class="text" placeholder="Ketik opsi baris disini" required>
                 <button class="del"><i class="fas fa-times"></i></button>
             </div>
         `);
     });
 
-    $("body").on("click", ".addLain-check", function () {
+    // Input with checkbox Kolom
+    $("body").on("click",".addOpsiCheckKolom",function(){ 
         $(this).parents(".addInput").before(`
             <div class="edit-group setInput">
                 <input type="checkbox" name="pilih" id="pilih1" disabled>
-                <div class="label">Lainnya :</div>
-                <input type="text" name="opsi" id="opsi" class="text lainnya">
+                <input type="text" name="opsiy" id="opsi" class="text" placeholder="Ketik opsi kolom disini" required>
                 <button class="del"><i class="fas fa-times"></i></button>
             </div>
         `);
     });
 
     // Input with number
-    $("body").on("click", ".addOpsiDaftar", function () {
+    $("body").on("click",".addOpsiDaftar",function(){
         $(this).parents(".addInput").before(`
             <div class="edit-group setInput">
                 <span id="nomor" class="nomor">&#9672;</span>
-                <input type="text" name="opsi" id="opsi" class="text" placeholder="Ketik opsi disini" required>
+                <input type="text" name="opsiy" id="opsi" class="text" placeholder="Ketik opsi disini">
                 <button class="del"><i class="fas fa-times"></i></button>
             </div>
         `);
     });
 });
-
-// Add Attribute ID on wajib isi checkbox
+//myFunc
+// Add Attribute ID on tambah lainnya checkbox
 $(document).ready(function () {
-    $("body").on("click", ".wajiblabel", function () {
+    $("body").on("click", ".lainnyalabel", function () {
 
         if ($(this).prev().is(":checked")) {
             $(this).prev().prop("checked", false);
