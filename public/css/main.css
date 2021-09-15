@@ -7,6 +7,8 @@
 :root{
     --bgdark: #1B262C;
     --dark: #11191d;
+    --softdark: #171717;
+    --bgdarkaksen: #106aa5;
     --bglight: #F9F9F9;
     --light: #FFFFFF;
     --darkaksen: #3282B8;
@@ -31,6 +33,15 @@ a{
 .dataTables_wrapper .dataTables_processing,
 .dataTables_wrapper .dataTables_paginate {
     color: rgb(255, 255, 255) !important;
+}
+.dataTables_wrapper a#dataTable_previous.paginate_button{
+    color: white !important;
+}
+.dataTables_wrapper a#dataTable_next.paginate_button{
+    color: white !important;
+}
+.dataTables_wrapper select{
+    color: white !important;
 }
 /* END Data Tables Custom */
 
@@ -847,6 +858,26 @@ abbr{
 
 }
 
+/* Button Delete on Input Dinamis */
+.btn-delInput{
+    font-size: 15px;
+
+    outline: none;
+    border: none;
+    padding: 8px;
+    border-radius: 50px;
+    background-color: transparent;
+    cursor: pointer;
+    color: var(--darktext);
+}
+
+.btn-delInput:hover,
+.btn-delInput:focus{
+    background-color: rgba(54, 54, 54, 0.5);
+}
+/* END Button Delete on Input Dinamis */
+
+/* Edit Group */
 .edit-group{
     position: relative;
     margin: 10px 0px;
@@ -909,6 +940,7 @@ abbr{
 .edit-group input[type=text]{
     text-indent: 10px;
 }
+/* END Edit Group */
 
 .baris{
     float: left;
@@ -936,6 +968,7 @@ abbr{
 }
 
 .control-edit{
+    border-top: 0px dashed var(--bgdark);
     text-align: right;
     color: #424874;
 }
@@ -960,6 +993,22 @@ abbr{
 
 .control-edit button:hover{
     color: #424874;
+}
+
+.control-edit button.add-lain{
+    font-size: 15px;
+    margin-bottom: 10px;
+    padding: 5px;
+    font-weight: bold;
+    background-color: var(--darkaksen);
+    color: var(--darktext);
+}
+
+.control-edit button.add-lain:hover,
+.control-edit button.add-lain:focus{
+    background-color: transparent;
+    color: var(--darkaksen);
+    border: 1px solid var(--darkaksen);
 }
 
 .wajib{
@@ -1169,7 +1218,7 @@ footer{
 
 /* Table */
 .data-content{
-    background-color: var(--dark);
+    background-color: var(--softdark);
     padding: 20px;
 }
 
@@ -1180,16 +1229,16 @@ footer{
 }
 
 .data-table tbody tr:nth-child(even){
-    background-color: var(--bgdark);
+    background-color: var(--softdark);
 }
 
 .data-table tbody tr:nth-child(odd){
-    background-color: var(--dark);
+    background-color: var(--bgdark);
 }
 
 .data-table tbody tr:hover{
     font-weight: bold;
-    background-color: var(--dark);
+    background-color: var(--bgdark);
 }
 
 .table-responsive{

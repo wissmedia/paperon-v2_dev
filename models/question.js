@@ -15,17 +15,28 @@ const questionSchema = new Schema({
     type: String,
     required: true
   },
-  wajib: {
+  useWajib: {
     type: String,
     default:'',
     enum: ['on', '']
   },
-  etc: {
+  useEtc: {
     type: String,
     default:'',
     enum: ['on', '']
   },
-  opsi: [
+  useOpsi: {
+    type: String,
+    default:'',
+    enum: ['on', '']
+  },
+  opsiy: [
+    {
+      type: String,
+      default: ''
+    }
+  ],
+  opsix: [
     {
       type: String,
       default: ''

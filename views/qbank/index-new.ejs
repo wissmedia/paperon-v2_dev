@@ -13,7 +13,6 @@
           <div class="data-content fadeInAtas">
             <!-- responsive table -->
               <% if (questions.length>0) { %>
-                <% console.log(questions) %> 
                 <div class="responsive-table">
                   <table id="dataTable" class="data-table">
                     <thead>
@@ -32,7 +31,7 @@
                           </td>
                           <td><a href="/pertanyaan/<%= question._id %>">
                               <%= question.body %>
-                                <%= (question.wajib=='on' ? '*' : '' ) %>
+                                <%= (question.useWajib=='on' ? '*' : '' ) %>
                             </a></td>
                           <td>
                             <%= helper.typeChange(question.tipe) %>

@@ -141,7 +141,6 @@ $(document).ready(function(){
                             <div class="edit-group addInput">
                                 <input type="radio" name="pilih" id="pilih1" disabled>
                                 <input type="text" name="opsi" class="text addOpsi" placeholder="Tambah opsi">
-                                <button id="add-lain" class="add-lain addLain-radio">atau tambahkan "Lainnya"</button>
                             </div>
 
                             <div class="control-edit">
@@ -249,7 +248,6 @@ $(document).ready(function(){
                             <div class="edit-group addInput">
                                 <input type="checkbox" name="pilih" id="pilih1" disabled>
                                 <input type="text" name="opsi" class="text addOpsiCheck" placeholder="Tambah opsi">
-                                <button id="add-lain" class="add-lain addLain-check">atau tambahkan "Lainnya"</button>
                             </div>
                             
                             <div class="control-edit">

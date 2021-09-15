@@ -29,16 +29,14 @@ $(document).ready(function(){
 
 // Hide Footer saat keyboard muncul (input focus)
 $(document).ready(function(){
-    $(".container").on("focus","input",function(){
+    $(".container").on("focus","input:text","textarea",function(){
         $("footer").attr("hidden", "hidden");
     });
 
-    $(".container").on("blur","input",function(){
+    $(".container").on("blur","input:text","textarea",function(){
         $("footer").removeAttr("hidden");
     });
 });
-
-
 
 // Tampilkan menu User
 function tampilMenu(){
