@@ -128,6 +128,7 @@ $(document).ready(function () {
                         <div class="line"></div>
                         <div class="bungkus-content edit">
                         <input type="hidden" name="tipe" value="radio">
+                        <input type="hidden" name="useOpsi" value="on">
                             <p>Pertanyaan dengan 1 pilihan jawaban</p>
                             <input type="text" name="body" id="pilihanganda" class="text" placeholder="Masukan pertanyaan pilihan ganda" required>
                             
@@ -145,6 +146,7 @@ $(document).ready(function () {
                             <div class="control-edit">
                                 <button class="remove" type="button"><i class="fas fa-trash"></i></button>
                                 <span class="divider">|</span>
+                                <span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Tambahkan Lainnya</label></span>
                                 <span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
                             </div>
                         </div>
@@ -174,6 +176,7 @@ $(document).ready(function () {
                         <div class="line"></div>
                         <div class="bungkus-content edit">
                         <input type="hidden" name="tipe" value="radioGrid">
+                        <input type="hidden" name="useOpsi" value="on">
                             <p>Pertanyaan dengan 1 pilihan berbentuk baris dan kolom</p>
                             <input type="text" name="body" id="pilihanganda" class="text" placeholder="Masukan pertanyaan kisi pilihan ganda">
                             <div class="baris">
@@ -235,6 +238,7 @@ $(document).ready(function () {
                         <div class="line"></div>
                         <div class="bungkus-content edit">
                         <input type="hidden" name="tipe" value="checkBox">
+                        <input type="hidden" name="useOpsi" value="on">
                             <p>Pertanyaan dengan banyak pilihan</p>
                             <input type="text" name="body" id="pilihanganda" class="text" placeholder="Masukan pertanyaan pilihan kotak centang" required>
                                 
@@ -281,6 +285,8 @@ $(document).ready(function () {
                     <div class="content" id="addpetakkotakCentang">
                         <div class="line"></div>
                         <div class="bungkus-content edit">
+                        <input type="hidden" name="tipe" value="checkGrid">
+                        <input type="hidden" name="useOpsi" value="on">
                             <p>*Pertanyaan Pilihan Kotak centang v2</p>
                             <input type="text" name="pilihanganda" id="pilihanganda" class="text" placeholder="Masukan pertanyaan pilihan kotak centang">
                             <div class="baris">
@@ -342,6 +348,7 @@ $(document).ready(function () {
                         <div class="line"></div>
                         <div class="bungkus-content edit">
                         <input type="hidden" name="tipe" value="dropDown">
+                        <input type="hidden" name="useOpsi" value="on">
                             <p>Pertanyaan Pilihan Dropdown</p>
                             <input type="text" name="body" id="pilihdropdown" class="text" placeholder="Masukan pertanyaan daftar pilihan" required>
                                 
