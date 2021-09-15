@@ -15,6 +15,20 @@ var func = {
         return 'Jawaban Panjang'
       case 'radio':
         return 'Pilihan Ganda'
+      case 'radioGrid':
+        return 'Kisi Pilihan Ganda'
+      case 'checkBox':
+        return 'Kotak Centang'
+      case 'checkGrid':
+        return 'Petak Kotak Centang'
+      case 'dropDown':
+        return 'Daftar Pilihan'
+      case 'date':
+        return 'Tanggal'
+      case 'time':
+        return 'Waktu'
+      case 'linearScale':
+        return 'Skala Linier'
       default:
         return `Tipe > ${type} < perlu tambahan switch case di helper`
     }
