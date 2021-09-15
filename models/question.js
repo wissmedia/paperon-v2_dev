@@ -20,6 +20,11 @@ const questionSchema = new Schema({
     default:'',
     enum: ['on', '']
   },
+  etc: {
+    type: String,
+    default:'',
+    enum: ['on', '']
+  },
   opsi: [
     {
       type: String,
