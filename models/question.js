@@ -15,7 +15,7 @@ const questionSchema = new Schema({
     type: String,
     required: true
   },
-  wajib: {
+  useWajib: {
     type: String,
     default:'',
     enum: ['on', '']

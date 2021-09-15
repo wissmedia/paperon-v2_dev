@@ -19,7 +19,7 @@
                     </p>
                     <h2>
                       <%= question.body %>
-                        <%= (question.wajib=='on' ? '*' : '' ) %>
+                        <%= (question.useWajib=='on' ? '*' : '' ) %>
                     </h2>
                     <p>
                       Tipe : <%= helper.typeChange(question.tipe) %>

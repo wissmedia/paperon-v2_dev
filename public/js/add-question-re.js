@@ -64,7 +64,7 @@ $(document).ready(function () {
                             <div class="control-edit">
                                 <button class="remove" type="button"><i class="fas fa-trash"></i></button>
                                 <span class="divider">|</span>
-                                <span class="wajib"><input type="checkbox" name="wajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
+                                <span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
                             </div>
                         </div>
                     </div>
@@ -99,7 +99,7 @@ $(document).ready(function () {
                             <div class="control-edit">
                                 <button class="remove" type="button"><i class="fas fa-trash"></i></button>
                                 <span class="divider">|</span>
-                                <span class="wajib"><input type="checkbox" name="wajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
+                                <span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
                             </div>
                         </div>
                     </div>
@@ -145,7 +145,7 @@ $(document).ready(function () {
                             <div class="control-edit">
                                 <button class="remove" type="button"><i class="fas fa-trash"></i></button>
                                 <span class="divider">|</span>
-                                <span class="wajib"><input type="checkbox" name="wajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
+                                <span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
                             </div>
                         </div>
                     </div>
@@ -206,7 +206,7 @@ $(document).ready(function () {
                             <div class="control-edit">
                                 <button class="remove" type="button"><i class="fas fa-trash"></i></button>
                                 <span class="divider">|</span>
-                                <span class="wajib"><input type="checkbox" name="wajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
+                                <span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
                             </div>
                         </div>
                     </div>
@@ -253,7 +253,7 @@ $(document).ready(function () {
                             <div class="control-edit">
                                 <button class="remove" type="button"><i class="fas fa-trash"></i></button>
                                 <span class="divider">|</span>
-                                <span class="wajib"><input type="checkbox" name="wajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
+                                <span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
                             </div>
                         </div>
                     </div>
@@ -313,7 +313,7 @@ $(document).ready(function () {
                             <div class="control-edit">
                                 <button class="remove" type="button"><i class="fas fa-trash"></i></button>
                                 <span class="divider">|</span>
-                                <span class="wajib"><input type="checkbox" name="wajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
+                                <span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
                             </div>
                         </div>
                     </div>
@@ -359,7 +359,7 @@ $(document).ready(function () {
                             <div class="control-edit">
                                 <button class="remove" type="button"><i class="fas fa-trash"></i></button>
                                 <span class="divider">|</span>
-                                <span class="wajib"><input type="checkbox" name="wajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
+                                <span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
                             </div>
                         </div>
                     </div>
@@ -394,7 +394,7 @@ $(document).ready(function () {
                             <div class="control-edit">
                                 <button class="remove" type="button"><i class="fas fa-trash"></i></button>
                                 <span class="divider">|</span>
-                                <span class="wajib"><input type="checkbox" name="wajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
+                                <span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
                             </div>
                         </div>
                     </div>
@@ -429,7 +429,7 @@ $(document).ready(function () {
                             <div class="control-edit">
                                 <button class="remove" type="button"><i class="fas fa-trash"></i></button>
                                 <span class="divider">|</span>
-                                <span class="wajib"><input type="checkbox" name="wajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
+                                <span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
                             </div>
                         </div>
                     </div>
@@ -490,7 +490,7 @@ $(document).ready(function () {
                             <div class="control-edit">
                                 <button class="remove" type="button"><i class="fas fa-trash"></i></button>
                                 <span class="divider">|</span>
-                                <span class="wajib"><input type="checkbox" name="wajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
+                                <span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
                             </div>
                         </div>
                     </div>
