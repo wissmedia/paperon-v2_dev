@@ -10,10 +10,11 @@ var func = {
   typeChange: function (type) {
     switch (type) {
       case 'shortText':
-        return 'Text Jawaban Pendek'
-
+        return 'Jawaban Pendek'
       case 'longText':
-        return 'Text Jawaban Panjang'
+        return 'Jawaban Panjang'
+      case 'radio':
+        return 'Pilihan Ganda'
       default:
         return `Tipe > ${type} < perlu tambahan switch case di helper`
     }

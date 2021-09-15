@@ -14,7 +14,7 @@ router.get('/', ensureAuth, async (req, res) => {
     const questions = await Question.find({ user: req.user.id })
       .sort({ createdAt: 'desc' })
       .lean()
-    res.render('qbank/index', {
+    res.render('qbank/index-new', {
       navTitle: 'List Pertanyaan',
       helper: require('../helper/helper'),
       questions,
@@ -31,7 +31,7 @@ router.get('/', ensureAuth, async (req, res) => {
 router.post('/', ensureAuth, async (req, res) => {
   try {
     req.body.user = req.user.id
-    // console.log(req.body)
+    console.log(req.body)
     const question = new Question(req.body)
     await question.save()
     res.redirect('/pertanyaan')

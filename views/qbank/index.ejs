@@ -19,14 +19,15 @@
                     </p>
                     <h2>
                       <%= question.body %>
+                        <%= (question.wajib=='on' ? '*' : '' ) %>
                     </h2>
                     <p>
                       Tipe : <%= helper.typeChange(question.tipe) %>
                     </p>
                     <div class="control-edit">
+                      <button type="button"><a href="/pertanyaan/<%= question._id %>"><i
+                            class="fas fa-eye"></i></a></button>
                       <form action="/pertanyaan/<%= question._id %>" method="POST" id="delete-form">
-                        <button type="button"><a href="/pertanyaan/<%= question._id %>"><i
-                              class="fas fa-eye"></i></a></button>
                         <button type="button"><a href="/pertanyaan/edit/<%= question._id %>"><i
                               class="fas fa-edit"></i></a></button>
                         <input type="hidden" name="_method" value="DELETE">
@@ -38,13 +39,10 @@
                 <% i++ %>
                   <% }) %>
                     <% }else{ %>
-                      <div class="content fadeInKiri">
-                        <div class="line"></div>
-                        <div class="bungkus-content edit">
-                          <h3>Tidak Ada Data</h3>
-                        </div>
+                      <div class="info-content fadeInAtas">
+                        <p>Belum ada pertanyaan dibuat</p>
+                        <p>Klik <strong>Tambah</strong> untuk mulai membuat pertanyaan</p>
                       </div>
-
                       <% } %>
         </div>
       </div>
