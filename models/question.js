@@ -30,7 +30,13 @@ const questionSchema = new Schema({
     default:'',
     enum: ['on', '']
   },
-  opsi: [
+  opsiy: [
+    {
+      type: String,
+      default: ''
+    }
+  ],
+  opsix: [
     {
       type: String,
       default: ''
