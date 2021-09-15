@@ -20,7 +20,12 @@ const questionSchema = new Schema({
     default:'',
     enum: ['on', '']
   },
-  etc: {
+  useEtc: {
+    type: String,
+    default:'',
+    enum: ['on', '']
+  },
+  useOpsi: {
     type: String,
     default:'',
     enum: ['on', '']
