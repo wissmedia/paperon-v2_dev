@@ -28,26 +28,26 @@ router.get('/', ensureAuth, async (req, res) => {
 // @route   POST /viewer
 router.post('/', ensureAuth, async (req, res) => {
   try {
-    const { body, tipe, jawaban } = req.body
     let objs = []
+    const { body, tipe, ...newReq } = req.body
+
     for (let i = 0; i < body.length; i++) {
-      obj = {
+      let obj = {
         body: body[i],
         tipe: tipe[i],
-        jawaban: jawaban[i],
+        jawaban: [
+          newReq[body[i]],
+          newReq[body[i]]
+        ]
       }
       objs.push(obj)
     }
-    let objx = {
+    console.log(objs)
+
+    await new NOX({
       user: req.user.id,
       response: objs
-    }
-    console.log(objx)
-
-    // await new NOX({
-    //   user: req.user.id,
-    //   response: objs
-    // }).save()
+    }).save()
     res.redirect('/viewer')
   } catch (error) {
     console.error(error)
