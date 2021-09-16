@@ -20,6 +20,7 @@
                     <h2>
                       <%= question.body %>
                         <%= (question.useWajib=='on' ? '*' : '' ) %>
+                        <%= (question.useEtc=='on' ? '^' : '' ) %>
                     </h2>
                     <p>
                       Tipe : <%= helper.typeChange(question.tipe) %>
