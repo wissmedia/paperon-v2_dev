@@ -48,7 +48,7 @@ var func = {
         </div>
         <div class="bungkus-content edit">
           <p class="judul">Jawaban${isWajib ? '*' : ''} : </p>
-          <input type="text" class="text" name="jawaban" id="shortText" placeholder="Ketik jawaban singkat disini" ${isWajib}>
+          <input type="text" class="text" name="${body}" id="shortText" placeholder="Ketik jawaban singkat disini" ${isWajib}>
         </div>
         <input type="hidden" name="body" value="${body}">
         <input type="hidden" name="tipe" value="${tipe}">
@@ -63,7 +63,7 @@ var func = {
         </div>
         <div class="bungkus-content edit">
           <p class="judul">Jawaban${isWajib ? '*' : ''} : </p>
-          <textarea name="longText" id="longText" cols="30" rows="10" placeholder="Ketik jawaban panjang disini" ${isWajib}></textarea>
+          <textarea name="${body}" id="longText" cols="30" rows="10" placeholder="Ketik jawaban panjang disini" ${isWajib}></textarea>
         </div>
         <input type="hidden" name="body" value="${body}">
         <input type="hidden" name="tipe" value="${tipe}">
@@ -82,7 +82,7 @@ var func = {
         let output = opsiy.map((opsi, i) => {
           return `
           <p>
-            <input type="radio" name="${opsi}" id="${opsi}${i + 1}" value="${opsi}" ${isWajib}>
+            <input type="radio" name="${body}" id="${opsi}${i + 1}" value="${opsi}" ${isWajib}>
             <label for="${opsi}${i + 1}">${opsi}</label>
           </p>
           `
