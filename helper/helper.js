@@ -33,11 +33,13 @@ var func = {
         return `Tipe > ${tipe} < perlu tambahan switch change case di helper`
     }
   },
-  typeRender: function (tipe, wajib, etc, opsi, body) {
+  typeRender: function (tipe, useWajib, useEtc, useOpsi, body, opsiy, opsix) {
     let isWajib = ''
+    let isEtc = ''
+    let objs = []
     switch (tipe) {
       case 'shortText':
-        if (wajib == 'on') {
+        if (useWajib == 'on') {
           isWajib = 'required'
         }
         return `
@@ -52,7 +54,7 @@ var func = {
         <input type="hidden" name="tipe" value="${tipe}">
         `
       case 'longText':
-        if (wajib == 'on') {
+        if (useWajib == 'on') {
           isWajib = 'required'
         }
         return `
@@ -63,11 +65,43 @@ var func = {
           <p class="judul">Jawaban${isWajib ? '*' : ''} : </p>
           <textarea name="longText" id="longText" cols="30" rows="10" placeholder="Ketik jawaban panjang disini" ${isWajib}></textarea>
         </div>
+        <input type="hidden" name="body" value="${body}">
+        <input type="hidden" name="tipe" value="${tipe}">
         `
       case 'radio':
+        if (useWajib == 'on') {
+          isWajib = 'required'
+        }
+        if (useEtc == 'on') {
+          isEtc = `
+          <div class="control-edit addInput">
+              <button type="button" id="add-lain" class="add-lain addLain-radio">Tambahkan "Lainnya"</button>
+          </div>
+          `
+        }
+        let output = opsiy.map((opsi, i) => {
+          return `
+          <p>
+            <input type="radio" name="${opsi}" id="${opsi}${i + 1}" value="${opsi}" ${isWajib}>
+            <label for="${opsi}${i + 1}">${opsi}</label>
+          </p>
+          `
+        }).join('')
+
         return `
         <div class="bungkus-content edit">
           <h2>${body}</h2>
+        </div>
+        <div class="bungkus-content edit">
+          <p class="judul">Jawaban${isWajib ? '*' : ''} : </p>
+          ${output}
+
+          ${isEtc}
+
+          <input type="hidden" name="body" value="${body}">
+          <input type="hidden" name="tipe" value="${tipe}">
+
+          <button type="reset" id="batalRadio" class="buttonReset">Batalkan Pilihan</button>
         </div>
         `
       case 'radioGrid':
