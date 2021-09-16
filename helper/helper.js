@@ -29,11 +29,13 @@ var func = {
         return 'Waktu'
       case 'linearScale':
         return 'Skala Linier'
+      case 'tglWaktu':
+        return 'Tanggal dan Waktu'
       default:
         return `Tipe > ${tipe} < perlu tambahan switch change case di helper`
     }
   },
-  typeRender: function (tipe, useWajib, useEtc, useOpsi, body, opsiy, opsix) {
+  typeRender: function (idQ, tipe, useWajib, useEtc, useOpsi, body, opsiy, opsix) {
     let isWajib = ''
     let isEtc = ''
     let objs = []
@@ -48,10 +50,11 @@ var func = {
         </div>
         <div class="bungkus-content edit">
           <p class="judul">Jawaban${isWajib ? '*' : ''} : </p>
-          <input type="text" class="text" name="${body}" id="shortText" placeholder="Ketik jawaban singkat disini" ${isWajib}>
+          <input type="text" class="text" name="${idQ}" id="shortText" placeholder="Ketik jawaban singkat disini" ${isWajib}>
         </div>
         <input type="hidden" name="body" value="${body}">
         <input type="hidden" name="tipe" value="${tipe}">
+        <input type="hidden" name="idQ" value="${idQ}">
         `
       case 'longText':
         if (useWajib == 'on') {
@@ -63,10 +66,11 @@ var func = {
         </div>
         <div class="bungkus-content edit">
           <p class="judul">Jawaban${isWajib ? '*' : ''} : </p>
-          <textarea name="${body}" id="longText" cols="30" rows="10" placeholder="Ketik jawaban panjang disini" ${isWajib}></textarea>
+          <textarea name="${idQ}" id="longText" cols="30" rows="10" placeholder="Ketik jawaban panjang disini" ${isWajib}></textarea>
         </div>
         <input type="hidden" name="body" value="${body}">
         <input type="hidden" name="tipe" value="${tipe}">
+        <input type="hidden" name="idQ" value="${idQ}">
         `
       case 'radio':
         if (useWajib == 'on') {
@@ -82,8 +86,8 @@ var func = {
         let output = opsiy.map((opsi, i) => {
           return `
           <p>
-            <input type="radio" name="${body}" id="${opsi}${i + 1}" value="${opsi}" ${isWajib}>
-            <label for="${opsi}${i + 1}">${opsi}</label>
+            <input type="radio" name="${idQ}" id="${idQ}" value="${opsi}" ${isWajib}>
+            <label for="${idQ}">${opsi}</label>
           </p>
           `
         }).join('')
@@ -100,6 +104,7 @@ var func = {
 
           <input type="hidden" name="body" value="${body}">
           <input type="hidden" name="tipe" value="${tipe}">
+          <input type="hidden" name="idQ" value="${idQ}">
 
           <button type="reset" id="batalRadio" class="buttonReset">Batalkan Pilihan</button>
         </div>
@@ -129,16 +134,40 @@ var func = {
         </div>
         `
       case 'date':
+        if (useWajib == 'on') {
+          isWajib = 'required'
+        }
         return `
         <div class="bungkus-content edit">
           <h2>${body}</h2>
         </div>
+        <div class="bungkus-content">
+          <div class="form_group">
+          <p class="judul">Jawaban${isWajib ? '*' : ''} : </p>
+            <input type="date" name="${idQ}" id="${idQ}" ${isWajib}>
+          </div>
+        </div>  
+        <input type="hidden" name="body" value="${body}">
+        <input type="hidden" name="tipe" value="${tipe}">
+        <input type="hidden" name="idQ" value="${idQ}">
         `
       case 'time':
+        if (useWajib == 'on') {
+          isWajib = 'required'
+        }
         return `
         <div class="bungkus-content edit">
           <h2>${body}</h2>
         </div>
+        <div class="bungkus-content">
+            <div class="form_group">
+              <p class="judul">Jawaban${isWajib ? '*' : ''} : </p>
+              <input type="time" name="${idQ}" id="${idQ}" ${isWajib}>
+            </div>
+        </div>
+        <input type="hidden" name="body" value="${body}">
+        <input type="hidden" name="tipe" value="${tipe}">
+        <input type="hidden" name="idQ" value="${idQ}">
         `
       case 'linearScale':
         return `
@@ -146,8 +175,26 @@ var func = {
           <h2>${body}</h2>
         </div>
         `
+      case 'tglWaktu':
+        if (useWajib == 'on') {
+          isWajib = 'required'
+        }
+        return `
+        <div class="bungkus-content edit">
+          <h2>${body}</h2>
+        </div>
+        <div class="bungkus-content">
+            <div class="form_group">
+              <p class="judul">Jawaban${isWajib ? '*' : ''} : </p>
+              <input type="datetime-local" name="${idQ}" id="${idQ}" ${isWajib}>
+            </div>
+        </div>
+        <input type="hidden" name="body" value="${body}">
+        <input type="hidden" name="tipe" value="${tipe}">
+        <input type="hidden" name="idQ" value="${idQ}">
+        `
       default:
-        return `Tipe > ${type} < perlu tambahan switch render case di helper`
+        return `Tipe > ${tipe} < perlu tambahan switch render case di helper`
     }
   }
 }

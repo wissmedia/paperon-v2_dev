@@ -452,6 +452,41 @@ $(document).ready(function () {
         }
     });
 
+    // Tanggal dan Waktu
+    $("#tglwaktu").click(function () {
+        let cek = $(".content");
+        if (cek.length > 0) {
+            alert("Complete the question before adding more question");
+        } else {
+            $(".setup").append(`
+                <div class="addTglWaktu">
+                    <div class="content" id="addTglWaktu">
+                        <div class="line"></div>
+                        <div class="bungkus-content edit">
+                        <input type="hidden" name="tipe" value="tglWaktu">
+                            <p>Pertanyaan Tanggal dan Waktu</p>
+                            <input type="text" name="body" id="tanya" class="text" placeholder="Masukan pertanyaan untuk jawaban tanggal & waktu" required>
+
+                            <div class="control-edit">
+                            <span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
+                            <span class="divider">|</span>
+                            <button class="remove" type="button"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <center><button class="tombol-md tmb-utama bunder fadeInBawah">Simpan</button></center>
+                </div>
+            `).hide().fadeIn();
+
+            // Hide Pop Up Menu Add setelah pilih
+            $("#modalAddQuestion").fadeOut();
+            $("#modalAddQuestion .modal-content").slideUp();
+
+            // Hide Info Content setelah add question
+            $(".info-content").hide().fadeOut();
+        }
+    });
+
     // Skala Linear
     $("#skalaLinear").click(function () {
         let cek = $(".content");
@@ -580,6 +615,13 @@ $(document).ready(function () {
     });
 
     $("body").on("click", ".remove", function () {
+        $(this).parents(".addTglWaktu").fadeOut(function () {
+            $(this).remove();
+        });
+        $(".info-content").show().fadeIn();
+    });
+
+    $("body").on("click", ".remove", function () {
         $(this).parents(".addskalaLinier").fadeOut(function () {
             $(this).remove();
         });
@@ -623,6 +665,10 @@ $(document).ready(function () {
 
     $("body").on("click", ".copy", function () {
         $(this).parents(".addWaktu").clone().appendTo(".setup").hide().fadeIn();
+    });
+
+    $("body").on("click", ".copy", function () {
+        $(this).parents(".addTglWaktu").clone().appendTo(".setup").hide().fadeIn();
     });
 
     $("body").on("click", ".copy", function () {
