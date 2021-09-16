@@ -39,6 +39,7 @@ var func = {
     let isWajib = ''
     let isEtc = ''
     let objs = []
+    let output = {}
     switch (tipe) {
       case 'shortText':
         if (useWajib == 'on') {
@@ -83,7 +84,7 @@ var func = {
           </div>
           `
         }
-        let output = opsiy.map((opsi, i) => {
+        output = opsiy.map((opsi, i) => {
           return `
           <p>
             <input type="radio" name="${idQ}" id="${idQ}" value="${opsi}" ${isWajib}>
@@ -128,10 +129,28 @@ var func = {
         </div>
         `
       case 'dropDown':
+        if (useWajib == 'on') {
+          isWajib = 'required'
+        }
+       output = opsiy.map((opsi, i) => {
+          return `
+            <option value="${opsi}">${opsi}</option>
+          `
+        }).join('')
         return `
         <div class="bungkus-content edit">
           <h2>${body}</h2>
         </div>
+        <div class="bungkus-content">
+          <p class="judul">Jawaban${isWajib ? '*' : ''} : </p>
+          <select name="${idQ}" id="${idQ}" class="dropdown" ${isWajib}>
+            <option hidden selected value="">-- Pilihan</option>
+            ${output}
+          </select>
+        </div>
+        <input type="hidden" name="body" value="${body}">
+        <input type="hidden" name="tipe" value="${tipe}">
+        <input type="hidden" name="idQ" value="${idQ}">
         `
       case 'date':
         if (useWajib == 'on') {
