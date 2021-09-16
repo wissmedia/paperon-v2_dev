@@ -13,7 +13,7 @@
               <% questions.forEach(question=> { %>
                 <div class="content fadeInKiri">
                   <div class="line"></div>
-                  <%- helper.typeRender(question.tipe, question.useWajib, question.useEtc, question.useOpsi,
+                  <%- helper.typeRender(question._id, question.tipe, question.useWajib, question.useEtc, question.useOpsi,
                     question.body, question.opsiy, question.opsix) %>
                 </div>
                 <% }) %>
