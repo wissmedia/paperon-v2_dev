@@ -99,6 +99,7 @@ var func = {
         </div>
         <div class="bungkus-content edit">
           <p class="judul">Jawaban${isWajib ? '*' : ''} : </p>
+          <input type="radio" hidden name="${idQ}" value="" checked ${isWajib}>
           ${output}
 
           ${isEtc}
