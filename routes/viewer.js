@@ -41,7 +41,7 @@ router.post('/', ensureAuth, async (req, res) => {
 
     for (let i = 0; i < idQ.length; i++) {
       let obj = {
-        idQ : idQ[i],
+        idQ: idQ[i],
         body: body[i],
         tipe: tipe[i],
         jawaban: newReq[idQ[i]]
@@ -67,7 +67,7 @@ router.get('/data', ensureAuth, async (req, res) => {
   try {
     const vx = await Vx.find().lean()
 
-  res.type('json').send(JSON.stringify(vx, null, 2) + '\n')
+    res.type('json').send(JSON.stringify(vx, null, 2) + '\n')
   } catch (error) {
     console.error(error)
     return res.render('error/500')
