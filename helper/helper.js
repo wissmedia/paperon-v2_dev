@@ -87,8 +87,8 @@ var func = {
         output = opsiy.map((opsi, i) => {
           return `
           <p>
-            <input type="radio" name="${idQ}" id="${idQ}" value="${opsi}" ${isWajib}>
-            <label for="${idQ}">${opsi}</label>
+            <input type="radio" name="${idQ}" id="${opsi}" value="${opsi}" ${isWajib}>
+            <label for="${opsi}">${opsi}</label>
           </p>
           `
         }).join('')
@@ -117,9 +117,39 @@ var func = {
         </div>
         `
       case 'checkBox':
+        if (useWajib == 'on') {
+          isWajib = 'required'
+        }
+        if (useEtc == 'on') {
+          isEtc = `
+          <div class="control-edit addInput">
+              <button type="button" id="add-lain" class="add-lain addLain-check">Tambahkan "Lainnya"</button>
+          </div>
+          `
+        }
+        output = opsiy.map((opsi, i) => {
+          return `
+          <p>
+            <input type="checkBox" name="${idQ}" id="${opsi}" value="${opsi}">
+            <label for="${opsi}">${opsi}</label>
+          </p>
+          `
+        }).join('')
         return `
         <div class="bungkus-content edit">
           <h2>${body}</h2>
+        </div>
+        <div class="bungkus-content">
+          <p class="judul">Jawaban${isWajib ? '*' : ''} : </p>
+          ${output}
+
+          ${isEtc}
+
+          <input type="hidden" name="body" value="${body}">
+          <input type="hidden" name="tipe" value="${tipe}">
+          <input type="hidden" name="idQ" value="${idQ}">
+
+          <button type="reset" id="batalRadio-2" class="buttonReset">Batalkan Pilihan</button>
         </div>
         `
       case 'checkGrid':
