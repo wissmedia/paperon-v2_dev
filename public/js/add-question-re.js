@@ -713,6 +713,18 @@ $(document).ready(function(){
         `);
     });
 
+    // Input AddLain-radio
+    $("body").on("click",".addLain-radio",function(){ 
+        $(this).parents(".addInput").before(`
+            <div class="edit-group setInput">
+                <input type="radio" name="pilih" id="pilih1" disabled>
+                <div class="label">Lainnya :</div>
+                <input type="text" name="opsi" id="opsi" class="text lainnya">
+                <button class="del"><i class="fas fa-times"></i></button>
+            </div>
+        `);
+    });
+
     // Input with checkbox Baris
     $("body").on("click",".addOpsiCheckBaris",function(){ 
         $(this).parents(".addInput").before(`
@@ -730,6 +742,18 @@ $(document).ready(function(){
             <div class="edit-group setInput">
                 <input type="checkbox" name="pilih" id="pilih1" disabled>
                 <input type="text" name="opsiy" id="opsi" class="text" placeholder="Ketik opsi kolom disini" required>
+                <button class="del"><i class="fas fa-times"></i></button>
+            </div>
+        `);
+    });
+
+    // Input AddLain-check
+    $("body").on("click",".addLain-check",function(){ 
+        $(this).parents(".addInput").before(`
+            <div class="edit-group setInput">
+                <input type="checkbox" name="pilih" id="pilih1" disabled>
+                <div class="label">Lainnya :</div>
+                <input type="text" name="opsi" id="opsi" class="text lainnya">
                 <button class="del"><i class="fas fa-times"></i></button>
             </div>
         `);
