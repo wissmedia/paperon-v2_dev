@@ -101,8 +101,8 @@ var func = {
           <p class="judul">Jawaban${isWajib ? '*' : ''} : </p>
           <input type="radio" hidden name="${idQ}" value="" checked ${isWajib}>
           ${output}
-
-          ${isEtc}
+          
+          <!-- ${isEtc} -->
 
           <input type="hidden" name="body" value="${body}">
           <input type="hidden" name="tipe" value="${tipe}">
@@ -144,7 +144,7 @@ var func = {
           <p class="judul">Jawaban${isWajib ? '*' : ''} : </p>
           ${output}
 
-          ${isEtc}
+          <!-- ${isEtc} -->
 
           <input type="hidden" name="body" value="${body}">
           <input type="hidden" name="tipe" value="${tipe}">
