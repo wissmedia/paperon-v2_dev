@@ -50,3 +50,6 @@ function tampilMenu(){
     return show;
     
 }
+
+// Disable Div
+$(".pending").addClass("disabledbutton");
