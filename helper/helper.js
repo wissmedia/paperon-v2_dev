@@ -118,6 +118,16 @@ var func = {
         </div>
         `
       case 'checkBox':
+        if (useWajib == 'on') {
+          isWajib = 'required'
+        }
+        if (useEtc == 'on') {
+          isEtc = `
+          <div class="control-edit addInput">
+              <button type="button" id="add-lain" class="add-lain addLain-check">Tambahkan "Lainnya"</button>
+          </div>
+          `
+        }
         output = opsiy.map((opsi, i) => {
           return `
           <p>
@@ -134,6 +144,8 @@ var func = {
           <p class="judul">Jawaban : </p>
           ${output}
           <input type="checkBox" hidden name="${idQ}" value="" checked>
+
+          <!-- ${isEtc} -->
 
           <input type="hidden" name="body" value="${body}">
           <input type="hidden" name="tipe" value="${tipe}">
