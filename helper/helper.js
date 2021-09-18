@@ -108,7 +108,7 @@ var func = {
           <input type="hidden" name="tipe" value="${tipe}">
           <input type="hidden" name="idQ" value="${idQ}">
 
-          <button type="reset" id="batalRadio" class="buttonReset">Batalkan Pilihan</button>
+          <button type="reset" id="batalRadio" class="buttonReset pending">Batalkan Pilihan</button>
         </div>
         `
       case 'radioGrid':
@@ -151,7 +151,7 @@ var func = {
           <input type="hidden" name="tipe" value="${tipe}">
           <input type="hidden" name="idQ" value="${idQ}">
 
-          <button type="reset" id="batalRadio-2" class="buttonReset">Batalkan Pilihan</button>
+          <button type="reset" id="batalRadio-2" class="buttonReset pending">Batalkan Pilihan</button>
         </div>
         `
       case 'checkGrid':
