@@ -108,7 +108,7 @@ var func = {
           <input type="hidden" name="tipe" value="${tipe}">
           <input type="hidden" name="idQ" value="${idQ}">
 
-          <button type="reset" id="batalRadio" class="buttonReset">Batalkan Pilihan</button>
+          <button type="reset" id="batalRadio" class="buttonReset pending">Batalkan Pilihan</button>
         </div>
         `
       case 'radioGrid':
@@ -141,8 +141,9 @@ var func = {
           <h2>${body}</h2>
         </div>
         <div class="bungkus-content">
-          <p class="judul">Jawaban${isWajib ? '*' : ''} : </p>
+          <p class="judul">Jawaban : </p>
           ${output}
+          <input type="checkBox" hidden name="${idQ}" value="" checked>
 
           <!-- ${isEtc} -->
 
@@ -150,7 +151,7 @@ var func = {
           <input type="hidden" name="tipe" value="${tipe}">
           <input type="hidden" name="idQ" value="${idQ}">
 
-          <button type="reset" id="batalRadio-2" class="buttonReset">Batalkan Pilihan</button>
+          <button type="reset" id="batalRadio-2" class="buttonReset pending">Batalkan Pilihan</button>
         </div>
         `
       case 'checkGrid':
