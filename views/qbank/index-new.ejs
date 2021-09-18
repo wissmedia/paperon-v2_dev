@@ -12,50 +12,51 @@
         <div class="row-content">
           <div class="data-content fadeInAtas">
             <!-- responsive table -->
-              <% if (questions.length>0) { %>
-                <div class="responsive-table">
-                  <table id="dataTable" class="data-table">
-                    <thead>
+            <% if (questions.length>0) { %>
+              <div class="responsive-table">
+                <table id="dataTable" class="data-table">
+                  <thead>
+                    <tr>
+                      <th>No</th>
+                      <th>Pertanyaan</th>
+                      <th>Tipe</th>
+                      <th>Aksi</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% questions.forEach((question, index)=> { %>
                       <tr>
-                        <th>No</th>
-                        <th>Pertanyaan</th>
-                        <th>Tipe</th>
-                        <th>Aksi</th>
+                        <td>
+                          <%= index+1 %>
+                        </td>
+                        <td><a href="/pertanyaan/<%= question._id %>">
+                            <%= question.body %>
+                              <%= (question.useWajib=='on' ? '*' : '' ) %>
+                              <%= (question.useEtc=='on' ? '^' : '' ) %>
+                          </a></td>
+                        <td>
+                          <%= helper.typeChange(question.tipe) %>
+                        </td>
+                        <td>
+                          <form action="/pertanyaan/<%= question._id %>" method="POST" id="delete-form">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <a href="/pertanyaan/edit/<%= question._id %>"><button type="button"
+                                class="tombol tmb-utama bunder"><i class="fas fa-pencil-alt"></i></button></a>
+                            <button type="submit" class="tombol tmb-batal bunder"><i
+                                class="fas fa-trash-alt"></i></button>
+                          </form>
+                        </td>
                       </tr>
-                    </thead>
-                    <tbody>
-                      <% questions.forEach((question, index)=> { %>
-                        <tr>
-                          <td>
-                            <%= index+1 %>
-                          </td>
-                          <td><a href="/pertanyaan/<%= question._id %>">
-                              <%= question.body %>
-                                <%= (question.useWajib=='on' ? '*' : '' ) %>
-                            </a></td>
-                          <td>
-                            <%= helper.typeChange(question.tipe) %>
-                          </td>
-                          <td>
-                            <form action="/pertanyaan/<%= question._id %>" method="POST" id="delete-form">
-                              <input type="hidden" name="_method" value="DELETE">
-                              <a href="/pertanyaan/edit/<%= question._id %>"><button type="button"
-                                  class="tombol tmb-utama bunder"><i class="fas fa-pencil-alt"></i></button></a>
-                              <button type="submit" class="tombol tmb-batal bunder"><i
-                                  class="fas fa-trash-alt"></i></button>
-                            </form>
-                          </td>
-                        </tr>
-                        <% }) %>
-                    </tbody>
-                  </table>
+                      <% }) %>
+                  </tbody>
+                </table>
+              </div>
+              <% } else { %>
+                <div class="info-content fadeInAtas">
+                  <p>Belum ada pertanyaan dibuat</p>
+                  <p>Klik <strong>Tambah</strong> untuk mulai membuat pertanyaan</p>
                 </div>
-                <% } else { %>
-                  <div class="info-content fadeInAtas">
-                    <p>Belum ada pertanyaan dibuat</p>
-                    <p>Klik <strong>Tambah</strong> untuk mulai membuat pertanyaan</p>
-                  </div>
-                  <% } %>
+                <% } %>
 
           </div>
         </div>
@@ -85,6 +86,8 @@
                   lengthMenu: [[5, 10, 20, -1], [5, 10, 20, "All"]],
                   language: {
                     lengthMenu: "Tampilkan _MENU_ per halaman",
+                    info: "Tampilkan _START_ sampai _END_ dari _TOTAL_ data",
+                    search: "Cari : ",
                   }
                 });
               });

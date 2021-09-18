@@ -8,48 +8,24 @@
     <%- include('../partials/nav.ejs') %>
       <div class="container">
         <div class="row-content">
-          <form action="">
-            <% let i=0 %>
-              <% if(questions.length> 0){ %>
-                <% questions.forEach(question=> { %>
-                  <div class="content fadeInKiri">
-                    <div class="line"></div>
-                    <div class="bungkus-content edit">
-                      <h2>
-                        <%= question.body %>
-                      </h2>
-                    </div>
-                    <% switch (question.tipe) { case 'shortText' : %>
+          <form action="/viewer" method="POST">
+            <% if(questions.length> 0){ %>
+              <% questions.forEach(question=> { %>
+                <div class="content fadeInKiri">
+                  <div class="line"></div>
+                  <%- helper.typeRender(question._id, question.tipe, question.useWajib, question.useEtc, question.useOpsi,
+                    question.body, question.opsiy, question.opsix) %>
+                </div>
+                <% }) %>
+                  <center><button type="submit" class="tombol-md tmb-utama bunder fadeInBawah">Simpan</button></center>
+                  <% }else{ %>
+                    <div class="content fadeInkiri">
+                      <div class="line"></div>
                       <div class="bungkus-content edit">
-                        <label for="shortText">Jawaban : </label>
-                        <input type="text" class="text" name="shortText" id="shortText"
-                          placeholder="Ketik jawaban singkat disini">
+                        <h3>Tidak Ada Data</h3>
                       </div>
-                      <% break; case 'longText' : %>
-                        <div class="bungkus-content edit">
-                          <label for="longText">Jawaban : </label>
-                          <textarea name="longText" id="longText" cols="30" rows="10"
-                            placeholder="Ketik jawaban panjang disini"></textarea>
-                        </div>
-                        <% break; default: %>
-                          <div class="bungkus-content edit">
-                            <p>Need to create switch for : <%= question.tipe %> on viewer
-                            </p>
-                          </div>
-                          <% break; } %>
-
-
-                  </div>
-                  <% i++ %>
-                    <% }) %>
-                      <% }else{ %>
-                        <div class="content fadeInkiri">
-                          <div class="line"></div>
-                          <div class="bungkus-content edit">
-                            <h3>Tidak Ada Data</h3>
-                          </div>
-                        </div>
-                        <% } %>
+                    </div>
+                    <% } %>
           </form>
         </div>
       </div>
@@ -60,6 +36,7 @@
         <%- include('../partials/footer.ejs') %>
           <!-- SCRIPT PARTIALS -->
           <%- include('../partials/script.ejs') %>
+            <script src="/js/quesioner-view.js"></script>
   </body>
 
 </html>
