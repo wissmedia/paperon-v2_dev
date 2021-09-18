@@ -30,15 +30,10 @@
           <div class="list-menu-container">
             <i class="fas fa-info-circle"></i>
             <span class="label-list">
-              Info Aplikasi
+              Info Aplikasi v<%= appNames.version %>
             </span>
           </div>
         </a>
-
-        <span class="label-list">
-          Versi : <%= appNames.version %>
-        </span>
-
       </div>
       <% }else{ %>
         <div class="form fadeIn">
@@ -52,6 +47,11 @@
             <h4>
               <%= appNames.subtitle %>
             </h4>
+          </div>
+          <div class="fadeIn">
+            <h6>
+              v<%= appNames.version %>
+            </h6>
           </div>
           <br>
           <a href="/auth/google">
