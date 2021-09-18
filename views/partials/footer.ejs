@@ -2,7 +2,7 @@
   <div class="bottom-menu">
     <% if (navMenus) { %>
       <% navMenus.forEach(item=> { %>
-        <div class="menu">
+        <div class="menu <%=(item.status ? 'pending' : '' ) %> ">
           <a href="<%= item.link %> ">
             <i class="<%= item.icon %>"></i>
             <p>

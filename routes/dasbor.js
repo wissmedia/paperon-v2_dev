@@ -15,9 +15,9 @@ router.get('/', ensureGuest, (req, res) => {
 router.get('/dasbor', ensureAuth, async (req, res) => {
   let navMenus = [
     { link: '/pertanyaan', icon: 'fas fa-warehouse', label: 'Pertanyaan' },
-    { link: '/kuesioner', icon: 'fas fa-newspaper', label: 'Kuesioner' },
-    { link: '/hasil', icon: 'fas fa-poll', label: 'Hasil' },
-    { link: '/pengaturan', icon: 'fas fa-cogs', label: 'Pengaturan' },
+    { link: '/kuesioner', icon: 'fas fa-newspaper', label: 'Kuesioner', status:'pending'},
+    { link: '/hasil', icon: 'fas fa-poll', label: 'Hasil', status:'pending'},
+    { link: '/pengaturan', icon: 'fas fa-cogs', label: 'Pengaturan', status:'pending'},
   ]
 
   try {
