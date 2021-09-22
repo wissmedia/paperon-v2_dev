@@ -30,30 +30,33 @@ router.get('/', ensureAuth, async (req, res) => {
 router.post('/', ensureAuth, async (req, res) => {
   try {
     let objs = []
-    const { body, tipe, idQ, ...newReq } = req.body
+    const { body, tipe, idQ, ...jawab } = req.body
+    console.log(req.body)
+    console.log(body)
+    console.log(tipe)
+    console.log(idQ)
+    console.log(jawab)
+    let objx = Object.keys(jawab).length
+    console.log(objx)
+    const newArr = Object.entries(jawab);
+    // console.log(newArr[0])
+    // console.log(newArr[0][0])
 
-    // console.log(req.body)
-
-    // console.log(body)
-    // console.log(tipe)
-    // console.log(idQ)
-    // console.log(newReq)
-
-    for (let i = 0; i < idQ.length; i++) {
+    for (let i = 0; i < objx; i++) {
       let obj = {
-        idQ: idQ[i],
-        body: body[i],
-        tipe: tipe[i],
-        jawaban: newReq[idQ[i]]
+        idQ: idQ,
+        body: body,
+        tipe: tipe,
+        jawaban: jawab
       }
       objs.push(obj)
     }
     console.log(objs)
 
-    await new Vx({
-      user: req.user.id,
-      response: objs
-    }).save()
+    // await new Vx({
+    //   user: req.user.id,
+    //   response: objs
+    // }).save()
     res.redirect('/viewer')
   } catch (error) {
     console.error(error)
