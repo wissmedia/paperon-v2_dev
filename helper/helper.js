@@ -53,6 +53,7 @@ var func = {
           <p class="judul">Jawaban${isWajib ? '*' : ''} : </p>
           <input type="text" class="text" name="${idQ}" id="shortText" placeholder="Ketik jawaban singkat disini" ${isWajib}>
         </div>
+        
         <input type="hidden" name="body" value="${body}">
         <input type="hidden" name="tipe" value="${tipe}">
         <input type="hidden" name="idQ" value="${idQ}">
