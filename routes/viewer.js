@@ -62,10 +62,10 @@ router.post('/', ensureAuth, async (req, res) => {
     }
     console.log(objs)
 
-    // await new Vx({
-    //   user: req.user.id,
-    //   response: objs
-    // }).save()
+    await new Vx({
+      user: req.user.id,
+      response: objs
+    }).save()
     res.redirect('/viewer')
   } catch (error) {
     console.error(error)
