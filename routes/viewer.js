@@ -31,25 +31,37 @@ router.post('/', ensureAuth, async (req, res) => {
   try {
     let objs = []
     const { body, tipe, idQ, ...jawab } = req.body
-    console.log(req.body)
-    console.log(body)
-    console.log(tipe)
-    console.log(idQ)
-    console.log(jawab)
-    let objx = Object.keys(jawab).length
-    console.log(objx)
+    // console.log(req.body)
+    // console.log(body)
+    // console.log(tipe)
+    // console.log(idQ)
+    // console.log(jawab)
+    let V = Object.keys(jawab).length
+    // console.log(objx)
     const newArr = Object.entries(jawab);
     // console.log(newArr[0])
     // console.log(newArr[0][0])
 
-    for (let i = 0; i < objx; i++) {
-      let obj = {
-        idQ: idQ,
-        body: body,
-        tipe: tipe,
-        jawaban: jawab
+    if (V == 1) {
+      for (let i = 0; i < V; i++) {
+        let obj = {
+          idQ: idQ,
+          body: body,
+          tipe: tipe,
+          jawaban: jawab[idQ]
+        }
+        objs.push(obj)
       }
-      objs.push(obj)
+    } else {
+      for (let i = 0; i < V; i++) {
+        let obj = {
+          idQ: idQ[i],
+          body: body[i],
+          tipe: tipe[i],
+          jawaban: jawab[idQ[i]]
+        }
+        objs.push(obj)
+      }
     }
     console.log(objs)
 
