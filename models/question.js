@@ -17,17 +17,17 @@ const questionSchema = new Schema({
   },
   useWajib: {
     type: String,
-    default:'',
+    default: '',
     enum: ['on', '']
   },
   useEtc: {
     type: String,
-    default:'',
+    default: '',
     enum: ['on', '']
   },
   useOpsi: {
     type: String,
-    default:'',
+    default: '',
     enum: ['on', '']
   },
   opsiy: [
@@ -41,7 +41,9 @@ const questionSchema = new Schema({
       type: String,
       default: ''
     }
-  ]
+  ],
+  sl: [Number],
+  label: [String]
 }, { timestamps: true })
 
 const Question = mongoose.model('question', questionSchema)
