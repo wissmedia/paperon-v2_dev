@@ -46,6 +46,6 @@ $(document).ready(function(){
 //Reset
 $(document).ready(function(){
     $(".buttonReset").click(function(){
-        console.log($(this).parent().find(".bungkus-content").attr("class"));
+        $(this).parents(".bungkus-content").find("input:radio, input:checkbox").prop("checked", false);
     });
 });
