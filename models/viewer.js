@@ -6,7 +6,7 @@ const responseSchema = new Schema({
   body: { type: String },
   tipe: { type: String },
   jawaban: {
-    type: String,
+    type: Array,
     default: ''
   }
 }, { _id: false })
