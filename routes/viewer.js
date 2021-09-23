@@ -31,11 +31,11 @@ router.post('/', ensureAuth, async (req, res) => {
   try {
     let objs = []
     const { body, tipe, idQ, ...jawab } = req.body
-    // console.log(req.body)
-    // console.log(body)
-    // console.log(tipe)
-    // console.log(idQ)
-    // console.log(jawab)
+    console.log(req.body)
+    console.log(body)
+    console.log(tipe)
+    console.log(idQ)
+    console.log(jawab)
     let V = Object.keys(jawab).length
     // const newArr = Object.entries(jawab);
 
@@ -62,10 +62,10 @@ router.post('/', ensureAuth, async (req, res) => {
     }
     console.log(objs)
 
-    await new Vx({
-      user: req.user.id,
-      response: objs
-    }).save()
+    // await new Vx({
+    //   user: req.user.id,
+    //   response: objs
+    // }).save()
     res.redirect('/viewer')
   } catch (error) {
     console.error(error)
