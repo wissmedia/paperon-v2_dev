@@ -35,7 +35,7 @@ var func = {
         return `Tipe > ${tipe} < perlu tambahan switch change case di helper`
     }
   },
-  typeRender: function (idQ, tipe, useWajib, useEtc, useOpsi, body, opsiy, opsix) {
+  typeRender: function (idQ, tipe, useWajib, useEtc, useOpsi, body, opsiy, opsix, sl, label) {
     let isWajib = ''
     let isEtc = ''
     let objs = []
@@ -165,7 +165,7 @@ var func = {
         if (useWajib == 'on') {
           isWajib = 'required'
         }
-       output = opsiy.map((opsi, i) => {
+        output = opsiy.map((opsi, i) => {
           return `
             <option value="${opsi}">${opsi}</option>
           `
@@ -222,10 +222,53 @@ var func = {
         <input type="hidden" name="idQ" value="${idQ}">
         `
       case 'linearScale':
+        let objs = []
+        for(let i = sl[0]; i <= sl[1]; i++){
+          objs.push(i)
+        }
+        
+        function fun() {
+          let str = ""
+          for (let i = sl[0]; i <= objs.length; i++) 
+          { str += `<th>${i}</th>` }
+          return str
+        }
+
+        function fun2() {
+          let str2 = ""
+          for (let i = sl[0]; i <= objs.length; i++) {
+            str2 += `
+            <td class="text-center">
+              <input type="radio" name="${idQ}" />
+            </td>
+          ` }
+          return str2
+        }
+
         return `
         <div class="bungkus-content edit">
           <h2>${body}</h2>
         </div>
+        <div class="bungkus-content">
+        <p class="judul">Jawaban${isWajib ? '*' : ''} : </p>
+          <table class="pilihan-gandav2">
+            <tr class="text-center">
+              <th></th>
+              ${fun()}
+              <th></th>
+            </tr>
+            <tr>
+              <td><span>${label[0]}</span></td>
+              ${fun2()}
+              <td><span>${label[1]}</span></td>
+              </tr>
+          </table>
+
+          <button type="button" class="buttonReset pending">Batalkan Pilihan</button>
+        </div>
+        <input type="hidden" name="body" value="${body}">
+        <input type="hidden" name="tipe" value="${tipe}">
+        <input type="hidden" name="idQ" value="${idQ}">
         `
       case 'tglWaktu':
         if (useWajib == 'on') {
