@@ -50,7 +50,7 @@ $(document).ready(function () {
     $("#jawabSingkat").click(function () {
         let cek = $(".content");
         if (cek.length > 0) {
-            alert("Complete the question before adding more question");
+            alert("Selesaikan pertanyaan saat ini sebelum membuat pertanyaan baru");
         } else {
             $(".setup").append(`
                 <div class="addjawabSingkat">
@@ -85,7 +85,7 @@ $(document).ready(function () {
     $("#jawabPanjang").click(function () {
         let cek = $(".content");
         if (cek.length > 0) {
-            alert("Complete the question before adding more question");
+            alert("Selesaikan pertanyaan saat ini sebelum membuat pertanyaan baru");
         } else {
             $(".setup").append(`
                 <div class="addjawabPanjang">
@@ -120,7 +120,7 @@ $(document).ready(function () {
     $("#pilihanGanda").click(function () {
         let cek = $(".content");
         if (cek.length > 0) {
-            alert("Complete the question before adding more question");
+            alert("Selesaikan pertanyaan saat ini sebelum membuat pertanyaan baru");
         } else {
             $(".setup").append(`
                 <div class="addpilihanGanda">
@@ -167,7 +167,7 @@ $(document).ready(function () {
     $("#kisiPilihanGanda").click(function () {
         let cek = $(".content");
         if (cek.length > 0) {
-            alert("Complete the question before adding more question");
+            alert("Selesaikan pertanyaan saat ini sebelum membuat pertanyaan baru");
         } else {
             $(".setup").append(`
                 <div class="addkisipilihanGanda">
@@ -229,7 +229,7 @@ $(document).ready(function () {
     $("#kotakCentang").click(function () {
         let cek = $(".content");
         if (cek.length > 0) {
-            alert("Complete the question before adding more question");
+            alert("Selesaikan pertanyaan saat ini sebelum membuat pertanyaan baru");
         } else {
             $(".setup").append(`
                 <div class="addkotakCentang">
@@ -277,7 +277,7 @@ $(document).ready(function () {
     $("#petakKotakCentang").click(function () {
         let cek = $(".content");
         if (cek.length > 0) {
-            alert("Complete the question before adding more question");
+            alert("Selesaikan pertanyaan saat ini sebelum membuat pertanyaan baru");
         } else {
             $(".setup").append(`
                 <div class="addpetakkotakCentang">
@@ -339,7 +339,7 @@ $(document).ready(function () {
     $("#dropDown").click(function () {
         let cek = $(".content");
         if (cek.length > 0) {
-            alert("Complete the question before adding more question");
+            alert("Selesaikan pertanyaan saat ini sebelum membuat pertanyaan baru");
         } else {
             $(".setup").append(`
                 <div class="adddropDown">
@@ -386,7 +386,7 @@ $(document).ready(function () {
     $("#tanggal").click(function () {
         let cek = $(".content");
         if (cek.length > 0) {
-            alert("Complete the question before adding more question");
+            alert("Selesaikan pertanyaan saat ini sebelum membuat pertanyaan baru");
         } else {
             $(".setup").append(`
                 <div class="addTanggal">
@@ -421,7 +421,7 @@ $(document).ready(function () {
     $("#waktu").click(function () {
         let cek = $(".content");
         if (cek.length > 0) {
-            alert("Complete the question before adding more question");
+            alert("Selesaikan pertanyaan saat ini sebelum membuat pertanyaan baru");
         } else {
             $(".setup").append(`
                 <div class="addWaktu">
@@ -456,7 +456,7 @@ $(document).ready(function () {
     $("#tglwaktu").click(function () {
         let cek = $(".content");
         if (cek.length > 0) {
-            alert("Complete the question before adding more question");
+            alert("Selesaikan pertanyaan saat ini sebelum membuat pertanyaan baru");
         } else {
             $(".setup").append(`
                 <div class="addTglWaktu">
@@ -491,7 +491,7 @@ $(document).ready(function () {
     $("#skalaLinear").click(function () {
         let cek = $(".content");
         if (cek.length > 0) {
-            alert("Complete the question before adding more question");
+            alert("Selesaikan pertanyaan saat ini sebelum membuat pertanyaan baru");
         } else {
             $(".setup").append(`
                 <div class="addskalaLinier">
@@ -502,8 +502,8 @@ $(document).ready(function () {
                             <p>Pertanyaan Skala Linier</p>
                             <input type="text" name="body" class="text" placeholder="Masukan pertanyaan untuk jawaban dengan skala" required>
                             <select name="sl" class="dropdown ddA">
-                                <option value="0">0</option>
-                                <option value="1">1</option>
+                            <option value="0">0</option>
+                            <option value="1">1</option>
                             </select>
 
                             <span>sampai</span>
