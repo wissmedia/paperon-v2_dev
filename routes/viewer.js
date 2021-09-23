@@ -37,10 +37,7 @@ router.post('/', ensureAuth, async (req, res) => {
     // console.log(idQ)
     // console.log(jawab)
     let V = Object.keys(jawab).length
-    // console.log(objx)
-    const newArr = Object.entries(jawab);
-    // console.log(newArr[0])
-    // console.log(newArr[0][0])
+    // const newArr = Object.entries(jawab);
 
     if (V == 1) {
       for (let i = 0; i < V; i++) {
