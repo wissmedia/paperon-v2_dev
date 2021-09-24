@@ -222,6 +222,10 @@ var func = {
         <input type="hidden" name="idQ" value="${idQ}">
         `
       case 'linearScale':
+        if (useWajib == 'on') {
+          isWajib = 'required'
+        }
+
         let objs = []
         for(let i = sl[0]; i <= sl[1]; i++){
           objs.push(i)
@@ -239,7 +243,7 @@ var func = {
           for (let i = sl[0]; i <= objs.length; i++) {
             str2 += `
             <td class="text-center">
-              <input type="radio" name="${idQ}" />
+              <input type="radio" name="${idQ}" value="${i}" ${isWajib} />
             </td>
           ` }
           return str2
@@ -263,7 +267,7 @@ var func = {
               <td><span>${label[1]}</span></td>
               </tr>
           </table>
-
+          ${isWajib ? '' : `<input type="radio" hidden name="${idQ}" value="" checked ${isWajib}>`}
           <button type="button" class="buttonReset pending">Batalkan Pilihan</button>
         </div>
         <input type="hidden" name="body" value="${body}">
