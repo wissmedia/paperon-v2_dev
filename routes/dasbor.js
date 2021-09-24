@@ -3,6 +3,7 @@ const router = express.Router()
 const { ensureAuth, ensureGuest } = require('../middleware/auth')
 const Author = require('../models/user')
 const QForm = require('../models/qform')
+const Question = require('../models/question')
 
 // @desc    Login/Landing Page
 // @route   GET /
@@ -23,12 +24,14 @@ router.get('/dasbor', ensureAuth, async (req, res) => {
   try {
     let author = Author.estimatedDocumentCount()
     let qform = QForm.estimatedDocumentCount()
+    let question = Question.estimatedDocumentCount()
 
-    let [a, b] = await Promise.all([author, qform])
+    let [a, b, c] = await Promise.all([author, qform, question])
 
     const estimate = {
       author: a,
-      qform: b
+      qform: b,
+      question: c
     }
 
     res.render('dashboard/index', {
