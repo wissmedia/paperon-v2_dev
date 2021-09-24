@@ -1,58 +1,58 @@
 // Pop Up Modal Add di halaman Setup.
 $(document).ready(function () {
-    $("#add").click(function () {
-        $("#modalAddQuestion").show();
-        $("#modalAddQuestion .modal-content").slideDown();
-    });
+	$("#add").click(function () {
+		$("#modalAddQuestion").show();
+		$("#modalAddQuestion .modal-content").slideDown();
+	});
 });
 
 // Hide Modal saat klik close
 $(document).ready(function () {
-    $(".close").click(function () {
-        $("#modalAddQuestion").fadeOut();
-        $("#modalAddQuestion .modal-content").slideUp();
-    });
+	$(".close").click(function () {
+		$("#modalAddQuestion").fadeOut();
+		$("#modalAddQuestion .modal-content").slideUp();
+	});
 });
 
 // Hide Modal saat klik diluar
 window.onclick = function (event) {
-    modalAdd = document.getElementById("modalAddQuestion");
+	modalAdd = document.getElementById("modalAddQuestion");
 
-    modalMenu = document.getElementById("modalMenuAkun");
+	modalMenu = document.getElementById("modalMenuAkun");
 
-    modalPertanyaan = document.getElementById("modalPilihPertanyaan");
+	modalPertanyaan = document.getElementById("modalPilihPertanyaan");
 
-    if (event.target == modalAdd) {
-        modalAdd.style.display = "none";
-        $("#modalAddQuestion .modal-content").slideUp();
-    } else if (event.target == modalMenu) {
-        modalMenu.style.display = "none";
-        $("#modalMenuAkun .modal-content").slideUp();
-    } else if (event.target == modalPertanyaan) {
-        modalPertanyaan.style.display = "none";
-        $("#modalPilihPertanyaan .modal-content").slideUp();
-    }
+	if (event.target == modalAdd) {
+		modalAdd.style.display = "none";
+		$("#modalAddQuestion .modal-content").slideUp();
+	} else if (event.target == modalMenu) {
+		modalMenu.style.display = "none";
+		$("#modalMenuAkun .modal-content").slideUp();
+	} else if (event.target == modalPertanyaan) {
+		modalPertanyaan.style.display = "none";
+		$("#modalPilihPertanyaan .modal-content").slideUp();
+	}
 }
 
 // Hide Pop Up menu saat klik outside content
 $(document).mouseup(function (e) {
-    var container = $(".add-list");
+	var container = $(".add-list");
 
-    // if the target of the click isn't the container nor a descendant of the container
-    if (!container.is(e.target) && container.has(e.target).length === 0) {
-        container.hide();
-    }
+	// if the target of the click isn't the container nor a descendant of the container
+	if (!container.is(e.target) && container.has(e.target).length === 0) {
+		container.hide();
+	}
 });
 
 // Tambah Pertanyaan
 $(document).ready(function () {
-    // Jawab Singkat
-    $("#jawabSingkat").click(function () {
-        let cek = $(".content");
-        if (cek.length > 0) {
-            alert("Selesaikan pertanyaan saat ini sebelum membuat pertanyaan baru");
-        } else {
-            $(".setup").append(`
+	// Jawab Singkat
+	$("#jawabSingkat").click(function () {
+		let cek = $(".content");
+		if (cek.length > 0) {
+			alert("Selesaikan pertanyaan saat ini sebelum membuat pertanyaan baru");
+		} else {
+			$(".setup").append(`
                 <div class="addjawabSingkat">
                     <div class="content" id="addjawabSingkat">
                         <div class="line"></div>
@@ -72,22 +72,22 @@ $(document).ready(function () {
                 </div>
             `).hide().fadeIn();
 
-            // Hide Pop Up Menu Add setelah pilih
-            $("#modalAddQuestion").fadeOut();
-            $("#modalAddQuestion .modal-content").slideUp();
+			// Hide Pop Up Menu Add setelah pilih
+			$("#modalAddQuestion").fadeOut();
+			$("#modalAddQuestion .modal-content").slideUp();
 
-            // Hide Info Content setelah add question
-            $(".info-content").hide().fadeOut();
-        }
-    });
+			// Hide Info Content setelah add question
+			$(".info-content").hide().fadeOut();
+		}
+	});
 
-    // Jawab Panjang
-    $("#jawabPanjang").click(function () {
-        let cek = $(".content");
-        if (cek.length > 0) {
-            alert("Selesaikan pertanyaan saat ini sebelum membuat pertanyaan baru");
-        } else {
-            $(".setup").append(`
+	// Jawab Panjang
+	$("#jawabPanjang").click(function () {
+		let cek = $(".content");
+		if (cek.length > 0) {
+			alert("Selesaikan pertanyaan saat ini sebelum membuat pertanyaan baru");
+		} else {
+			$(".setup").append(`
                 <div class="addjawabPanjang">
                     <div class="content" id="addjawabPanjang">
                         <div class="line"></div>
@@ -107,22 +107,22 @@ $(document).ready(function () {
                 </div>
             `).hide().fadeIn();
 
-            // Hide Pop Up Menu Add setelah pilih
-            $("#modalAddQuestion").fadeOut();
-            $("#modalAddQuestion .modal-content").slideUp();
+			// Hide Pop Up Menu Add setelah pilih
+			$("#modalAddQuestion").fadeOut();
+			$("#modalAddQuestion .modal-content").slideUp();
 
-            // Hide Info Content setelah add question
-            $(".info-content").hide().fadeOut();
-        }
-    });
+			// Hide Info Content setelah add question
+			$(".info-content").hide().fadeOut();
+		}
+	});
 
-    // Pilihan Ganda
-    $("#pilihanGanda").click(function () {
-        let cek = $(".content");
-        if (cek.length > 0) {
-            alert("Selesaikan pertanyaan saat ini sebelum membuat pertanyaan baru");
-        } else {
-            $(".setup").append(`
+	// Pilihan Ganda
+	$("#pilihanGanda").click(function () {
+		let cek = $(".content");
+		if (cek.length > 0) {
+			alert("Selesaikan pertanyaan saat ini sebelum membuat pertanyaan baru");
+		} else {
+			$(".setup").append(`
                 <div class="addpilihanGanda">
                     <div class="content" id="addPilihanGanda">
                         <div class="line"></div>
@@ -154,35 +154,35 @@ $(document).ready(function () {
                 </div>
             `).hide().fadeIn();
 
-            // Hide Pop Up Menu Add setelah pilih
-            $("#modalAddQuestion").fadeOut();
-            $("#modalAddQuestion .modal-content").slideUp();
+			// Hide Pop Up Menu Add setelah pilih
+			$("#modalAddQuestion").fadeOut();
+			$("#modalAddQuestion .modal-content").slideUp();
 
-            // Hide Info Content setelah add question
-            $(".info-content").hide().fadeOut();
-        }
-    });
+			// Hide Info Content setelah add question
+			$(".info-content").hide().fadeOut();
+		}
+	});
 
-    // Kisi Pilihan Ganda
-    $("#kisiPilihanGanda").click(function () {
-        let cek = $(".content");
-        if (cek.length > 0) {
-            alert("Selesaikan pertanyaan saat ini sebelum membuat pertanyaan baru");
-        } else {
-            $(".setup").append(`
+	// Kisi Pilihan Ganda
+	$("#kisiPilihanGanda").click(function () {
+		let cek = $(".content");
+		if (cek.length > 0) {
+			alert("Selesaikan pertanyaan saat ini sebelum membuat pertanyaan baru");
+		} else {
+			$(".setup").append(`
                 <div class="addkisipilihanGanda">
                     <div class="content" id="addkisipilihanGanda">
                         <div class="line"></div>
                         <div class="bungkus-content edit">
-                        <input type="hidden" name="tipe" value="radioGrid">
+						<input type="hidden" name="tipe" value="radioGrid">
                         <input type="hidden" name="useOpsi" value="on">
-                            <p>Pertanyaan dengan 1 pilihan berbentuk baris dan kolom</p>
-                            <input type="text" name="body" id="pilihanganda" class="text" placeholder="Masukan pertanyaan kisi pilihan ganda" required>
+                            <p>Pertanyaan pilihan ganda bentuk baris dan kolom</p>
+                            <input type="text" name="body" id="pilihanganda" class="text" placeholder="Masukan pertanyaan pilihan ganda">
                             <div class="baris">
                                 <label for="">Baris</label>
                                 <div class="edit-group setInput">
                                     <input type="radio" name="pilih" id="pilih1" disabled>
-                                    <input type="text" name="opsix" id="opsi" class="text" placeholder="Ketik opsi baris disini" required>
+                                    <input type="text" name="opsix" id="opsi" class="text" placeholder="Ketik opsi baris disini">
                                     <button class="del"><i class="fas fa-times"></i></button>
                                 </div>
 
@@ -195,7 +195,7 @@ $(document).ready(function () {
                                 <label for="">Kolom</label>
                                 <div class="edit-group setInput">
                                     <input type="radio" name="pilih" id="pilih1" disabled>
-                                    <input type="text" name="opsiy" id="opsi" class="text" placeholder="Ketik opsi kolom disini" required>
+                                    <input type="text" name="opsiy" id="opsi" class="text" placeholder="Ketik opsi kolom disini">
                                     <button class="del"><i class="fas fa-times"></i></button>
                                 </div>
 
@@ -205,10 +205,12 @@ $(document).ready(function () {
                                 </div>
                             </div>
 
-                            <div class="control-edit">
-                                <button class="remove" type="button"><i class="fas fa-trash"></i></button>
-                                <span class="divider">|</span>
-                                <span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
+                            <div class="container-control-edit">
+                                <div class="control-edit">
+                                    <span class="wajib"><input type="checkbox" name="wajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
+                                    <span class="divider">|</span>
+                                    <button class="remove" type="button"><i class="fas fa-trash"></i></button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -216,22 +218,22 @@ $(document).ready(function () {
                 </div>
             `).hide().fadeIn();
 
-            // Hide Pop Up Menu Add setelah pilih
-            $("#modalAddQuestion").fadeOut();
-            $("#modalAddQuestion .modal-content").slideUp();
+			// Hide Pop Up Menu Add setelah pilih
+			$("#modalAddQuestion").fadeOut();
+			$("#modalAddQuestion .modal-content").slideUp();
 
-            // Hide Info Content setelah add question
-            $(".info-content").hide().fadeOut();
-        }
-    });
+			// Hide Info Content setelah add question
+			$(".info-content").hide().fadeOut();
+		}
+	});
 
-    // Kotak Centang
-    $("#kotakCentang").click(function () {
-        let cek = $(".content");
-        if (cek.length > 0) {
-            alert("Selesaikan pertanyaan saat ini sebelum membuat pertanyaan baru");
-        } else {
-            $(".setup").append(`
+	// Kotak Centang
+	$("#kotakCentang").click(function () {
+		let cek = $(".content");
+		if (cek.length > 0) {
+			alert("Selesaikan pertanyaan saat ini sebelum membuat pertanyaan baru");
+		} else {
+			$(".setup").append(`
                 <div class="addkotakCentang">
                     <div class="content" id="addkotakCentang">
                         <div class="line"></div>
@@ -264,22 +266,22 @@ $(document).ready(function () {
                 </div>
             `).hide().fadeIn();
 
-            // Hide Pop Up Menu Add setelah pilih
-            $("#modalAddQuestion").fadeOut();
-            $("#modalAddQuestion .modal-content").slideUp();
+			// Hide Pop Up Menu Add setelah pilih
+			$("#modalAddQuestion").fadeOut();
+			$("#modalAddQuestion .modal-content").slideUp();
 
-            // Hide Info Content setelah add question
-            $(".info-content").hide().fadeOut();
-        }
-    });
+			// Hide Info Content setelah add question
+			$(".info-content").hide().fadeOut();
+		}
+	});
 
-    // Petak Kotak Centang
-    $("#petakKotakCentang").click(function () {
-        let cek = $(".content");
-        if (cek.length > 0) {
-            alert("Selesaikan pertanyaan saat ini sebelum membuat pertanyaan baru");
-        } else {
-            $(".setup").append(`
+	// Petak Kotak Centang
+	$("#petakKotakCentang").click(function () {
+		let cek = $(".content");
+		if (cek.length > 0) {
+			alert("Selesaikan pertanyaan saat ini sebelum membuat pertanyaan baru");
+		} else {
+			$(".setup").append(`
                 <div class="addpetakkotakCentang">
                     <div class="content" id="addpetakkotakCentang">
                         <div class="line"></div>
@@ -326,22 +328,22 @@ $(document).ready(function () {
                 </div>
             `).hide().fadeIn();
 
-            // Hide Pop Up Menu Add setelah pilih
-            $("#modalAddQuestion").fadeOut();
-            $("#modalAddQuestion .modal-content").slideUp();
+			// Hide Pop Up Menu Add setelah pilih
+			$("#modalAddQuestion").fadeOut();
+			$("#modalAddQuestion .modal-content").slideUp();
 
-            // Hide Info Content setelah add question
-            $(".info-content").hide().fadeOut();
-        }
-    });
+			// Hide Info Content setelah add question
+			$(".info-content").hide().fadeOut();
+		}
+	});
 
-    // Daftar Pilihan
-    $("#dropDown").click(function () {
-        let cek = $(".content");
-        if (cek.length > 0) {
-            alert("Selesaikan pertanyaan saat ini sebelum membuat pertanyaan baru");
-        } else {
-            $(".setup").append(`
+	// Daftar Pilihan
+	$("#dropDown").click(function () {
+		let cek = $(".content");
+		if (cek.length > 0) {
+			alert("Selesaikan pertanyaan saat ini sebelum membuat pertanyaan baru");
+		} else {
+			$(".setup").append(`
                 <div class="adddropDown">
                     <div class="content" id="adddropDown">
                         <div class="line"></div>
@@ -373,22 +375,22 @@ $(document).ready(function () {
                 </div>
             `).hide().fadeIn();
 
-            // Hide Pop Up Menu Add setelah pilih
-            $("#modalAddQuestion").fadeOut();
-            $("#modalAddQuestion .modal-content").slideUp();
+			// Hide Pop Up Menu Add setelah pilih
+			$("#modalAddQuestion").fadeOut();
+			$("#modalAddQuestion .modal-content").slideUp();
 
-            // Hide Info Content setelah add question
-            $(".info-content").hide().fadeOut();
-        }
-    });
+			// Hide Info Content setelah add question
+			$(".info-content").hide().fadeOut();
+		}
+	});
 
-    // Tanggal
-    $("#tanggal").click(function () {
-        let cek = $(".content");
-        if (cek.length > 0) {
-            alert("Selesaikan pertanyaan saat ini sebelum membuat pertanyaan baru");
-        } else {
-            $(".setup").append(`
+	// Tanggal
+	$("#tanggal").click(function () {
+		let cek = $(".content");
+		if (cek.length > 0) {
+			alert("Selesaikan pertanyaan saat ini sebelum membuat pertanyaan baru");
+		} else {
+			$(".setup").append(`
                 <div class="addTanggal">
                     <div class="content" id="addTanggal">
                         <div class="line"></div>
@@ -408,22 +410,22 @@ $(document).ready(function () {
                 </div>
             `).hide().fadeIn();
 
-            // Hide Pop Up Menu Add setelah pilih
-            $("#modalAddQuestion").fadeOut();
-            $("#modalAddQuestion .modal-content").slideUp();
+			// Hide Pop Up Menu Add setelah pilih
+			$("#modalAddQuestion").fadeOut();
+			$("#modalAddQuestion .modal-content").slideUp();
 
-            // Hide Info Content setelah add question
-            $(".info-content").hide().fadeOut();
-        }
-    });
+			// Hide Info Content setelah add question
+			$(".info-content").hide().fadeOut();
+		}
+	});
 
-    // Waktu
-    $("#waktu").click(function () {
-        let cek = $(".content");
-        if (cek.length > 0) {
-            alert("Selesaikan pertanyaan saat ini sebelum membuat pertanyaan baru");
-        } else {
-            $(".setup").append(`
+	// Waktu
+	$("#waktu").click(function () {
+		let cek = $(".content");
+		if (cek.length > 0) {
+			alert("Selesaikan pertanyaan saat ini sebelum membuat pertanyaan baru");
+		} else {
+			$(".setup").append(`
                 <div class="addWaktu">
                     <div class="content" id="addWaktu">
                         <div class="line"></div>
@@ -443,22 +445,22 @@ $(document).ready(function () {
                 </div>
             `).hide().fadeIn();
 
-            // Hide Pop Up Menu Add setelah pilih
-            $("#modalAddQuestion").fadeOut();
-            $("#modalAddQuestion .modal-content").slideUp();
+			// Hide Pop Up Menu Add setelah pilih
+			$("#modalAddQuestion").fadeOut();
+			$("#modalAddQuestion .modal-content").slideUp();
 
-            // Hide Info Content setelah add question
-            $(".info-content").hide().fadeOut();
-        }
-    });
+			// Hide Info Content setelah add question
+			$(".info-content").hide().fadeOut();
+		}
+	});
 
-    // Tanggal dan Waktu
-    $("#tglwaktu").click(function () {
-        let cek = $(".content");
-        if (cek.length > 0) {
-            alert("Selesaikan pertanyaan saat ini sebelum membuat pertanyaan baru");
-        } else {
-            $(".setup").append(`
+	// Tanggal dan Waktu
+	$("#tglwaktu").click(function () {
+		let cek = $(".content");
+		if (cek.length > 0) {
+			alert("Selesaikan pertanyaan saat ini sebelum membuat pertanyaan baru");
+		} else {
+			$(".setup").append(`
                 <div class="addTglWaktu">
                     <div class="content" id="addTglWaktu">
                         <div class="line"></div>
@@ -478,22 +480,22 @@ $(document).ready(function () {
                 </div>
             `).hide().fadeIn();
 
-            // Hide Pop Up Menu Add setelah pilih
-            $("#modalAddQuestion").fadeOut();
-            $("#modalAddQuestion .modal-content").slideUp();
+			// Hide Pop Up Menu Add setelah pilih
+			$("#modalAddQuestion").fadeOut();
+			$("#modalAddQuestion .modal-content").slideUp();
 
-            // Hide Info Content setelah add question
-            $(".info-content").hide().fadeOut();
-        }
-    });
+			// Hide Info Content setelah add question
+			$(".info-content").hide().fadeOut();
+		}
+	});
 
-    // Skala Linear
-    $("#skalaLinear").click(function () {
-        let cek = $(".content");
-        if (cek.length > 0) {
-            alert("Selesaikan pertanyaan saat ini sebelum membuat pertanyaan baru");
-        } else {
-            $(".setup").append(`
+	// Skala Linear
+	$("#skalaLinear").click(function () {
+		let cek = $(".content");
+		if (cek.length > 0) {
+			alert("Selesaikan pertanyaan saat ini sebelum membuat pertanyaan baru");
+		} else {
+			$(".setup").append(`
                 <div class="addskalaLinier">
                     <div class="content" id="addskalaLinier">
                         <div class="line"></div>
@@ -539,183 +541,183 @@ $(document).ready(function () {
                 </div>
             `).hide().fadeIn();
 
-            // Hide Pop Up Menu Add setelah pilih
-            $("#modalAddQuestion").fadeOut();
-            $("#modalAddQuestion .modal-content").slideUp();
+			// Hide Pop Up Menu Add setelah pilih
+			$("#modalAddQuestion").fadeOut();
+			$("#modalAddQuestion .modal-content").slideUp();
 
-            // Hide Info Content setelah add question
-            $(".info-content").hide().fadeOut();
-        }
-    });
+			// Hide Info Content setelah add question
+			$(".info-content").hide().fadeOut();
+		}
+	});
 });
 
 // Hapus Pertanyaan
 $(document).ready(function () {
-    $("body").on("click", ".remove", function () {
-        $(this).parents(".addjawabSingkat").fadeOut(function () {
-            $(this).remove();
-        });
-        $(".info-content").show().fadeIn();
-    });
+	$("body").on("click", ".remove", function () {
+		$(this).parents(".addjawabSingkat").fadeOut(function () {
+			$(this).remove();
+		});
+		$(".info-content").show().fadeIn();
+	});
 
-    $("body").on("click", ".remove", function () {
-        $(this).parents(".addjawabPanjang").fadeOut(function () {
-            $(this).remove();
-        });
-        $(".info-content").show().fadeIn();
-    });
+	$("body").on("click", ".remove", function () {
+		$(this).parents(".addjawabPanjang").fadeOut(function () {
+			$(this).remove();
+		});
+		$(".info-content").show().fadeIn();
+	});
 
-    $("body").on("click", ".remove", function () {
-        $(this).parents(".addpilihanGanda").fadeOut(function () {
-            $(this).remove();
-        });
-        $(".info-content").show().fadeIn();
-    });
+	$("body").on("click", ".remove", function () {
+		$(this).parents(".addpilihanGanda").fadeOut(function () {
+			$(this).remove();
+		});
+		$(".info-content").show().fadeIn();
+	});
 
-    $("body").on("click", ".remove", function () {
-        $(this).parents(".addkisipilihanGanda").fadeOut(function () {
-            $(this).remove();
-        });
-        $(".info-content").show().fadeIn();
-    });
+	$("body").on("click", ".remove", function () {
+		$(this).parents(".addkisipilihanGanda").fadeOut(function () {
+			$(this).remove();
+		});
+		$(".info-content").show().fadeIn();
+	});
 
-    $("body").on("click", ".remove", function () {
-        $(this).parents(".addkotakCentang").fadeOut(function () {
-            $(this).remove();
-        });
-        $(".info-content").show().fadeIn();
-    });
+	$("body").on("click", ".remove", function () {
+		$(this).parents(".addkotakCentang").fadeOut(function () {
+			$(this).remove();
+		});
+		$(".info-content").show().fadeIn();
+	});
 
-    $("body").on("click", ".remove", function () {
-        $(this).parents(".addpetakkotakCentang").fadeOut(function () {
-            $(this).remove();
-        });
-        $(".info-content").show().fadeIn();
-    });
+	$("body").on("click", ".remove", function () {
+		$(this).parents(".addpetakkotakCentang").fadeOut(function () {
+			$(this).remove();
+		});
+		$(".info-content").show().fadeIn();
+	});
 
-    $("body").on("click", ".remove", function () {
-        $(this).parents(".adddropDown").fadeOut(function () {
-            $(this).remove();
-        });
-        $(".info-content").show().fadeIn();
-    });
+	$("body").on("click", ".remove", function () {
+		$(this).parents(".adddropDown").fadeOut(function () {
+			$(this).remove();
+		});
+		$(".info-content").show().fadeIn();
+	});
 
-    $("body").on("click", ".remove", function () {
-        $(this).parents(".addTanggal").fadeOut(function () {
-            $(this).remove();
-        });
-        $(".info-content").show().fadeIn();
-    });
+	$("body").on("click", ".remove", function () {
+		$(this).parents(".addTanggal").fadeOut(function () {
+			$(this).remove();
+		});
+		$(".info-content").show().fadeIn();
+	});
 
-    $("body").on("click", ".remove", function () {
-        $(this).parents(".addWaktu").fadeOut(function () {
-            $(this).remove();
-        });
-        $(".info-content").show().fadeIn();
-    });
+	$("body").on("click", ".remove", function () {
+		$(this).parents(".addWaktu").fadeOut(function () {
+			$(this).remove();
+		});
+		$(".info-content").show().fadeIn();
+	});
 
-    $("body").on("click", ".remove", function () {
-        $(this).parents(".addTglWaktu").fadeOut(function () {
-            $(this).remove();
-        });
-        $(".info-content").show().fadeIn();
-    });
+	$("body").on("click", ".remove", function () {
+		$(this).parents(".addTglWaktu").fadeOut(function () {
+			$(this).remove();
+		});
+		$(".info-content").show().fadeIn();
+	});
 
-    $("body").on("click", ".remove", function () {
-        $(this).parents(".addskalaLinier").fadeOut(function () {
-            $(this).remove();
-        });
-        $(".info-content").show().fadeIn();
-    });
+	$("body").on("click", ".remove", function () {
+		$(this).parents(".addskalaLinier").fadeOut(function () {
+			$(this).remove();
+		});
+		$(".info-content").show().fadeIn();
+	});
 });
 
 // Copy Pertanyaan
 $(document).ready(function () {
-    $("body").on("click", ".copy", function () {
-        $(this).parents(".addjawabSingkat").clone().appendTo(".setup").hide().fadeIn();
-    });
+	$("body").on("click", ".copy", function () {
+		$(this).parents(".addjawabSingkat").clone().appendTo(".setup").hide().fadeIn();
+	});
 
-    $("body").on("click", ".copy", function () {
-        $(this).parents(".addjawabPanjang").clone().appendTo(".setup").hide().fadeIn();
-    });
+	$("body").on("click", ".copy", function () {
+		$(this).parents(".addjawabPanjang").clone().appendTo(".setup").hide().fadeIn();
+	});
 
-    $("body").on("click", ".copy", function () {
-        $(this).parents(".addpilihanGanda").clone().appendTo(".setup").hide().fadeIn();
-    });
+	$("body").on("click", ".copy", function () {
+		$(this).parents(".addpilihanGanda").clone().appendTo(".setup").hide().fadeIn();
+	});
 
-    $("body").on("click", ".copy", function () {
-        $(this).parents(".addkisipilihanGanda").clone().appendTo(".setup").hide().fadeIn();
-    });
+	$("body").on("click", ".copy", function () {
+		$(this).parents(".addkisipilihanGanda").clone().appendTo(".setup").hide().fadeIn();
+	});
 
-    $("body").on("click", ".copy", function () {
-        $(this).parents(".addkotakCentang").clone().appendTo(".setup").hide().fadeIn();
-    });
+	$("body").on("click", ".copy", function () {
+		$(this).parents(".addkotakCentang").clone().appendTo(".setup").hide().fadeIn();
+	});
 
-    $("body").on("click", ".copy", function () {
-        $(this).parents(".addpetakkotakCentang").clone().appendTo(".setup").hide().fadeIn();
-    });
+	$("body").on("click", ".copy", function () {
+		$(this).parents(".addpetakkotakCentang").clone().appendTo(".setup").hide().fadeIn();
+	});
 
-    $("body").on("click", ".copy", function () {
-        $(this).parents(".adddropDown").clone().appendTo(".setup").hide().fadeIn();
-    });
+	$("body").on("click", ".copy", function () {
+		$(this).parents(".adddropDown").clone().appendTo(".setup").hide().fadeIn();
+	});
 
-    $("body").on("click", ".copy", function () {
-        $(this).parents(".addTanggal").clone().appendTo(".setup").hide().fadeIn();
-    });
+	$("body").on("click", ".copy", function () {
+		$(this).parents(".addTanggal").clone().appendTo(".setup").hide().fadeIn();
+	});
 
-    $("body").on("click", ".copy", function () {
-        $(this).parents(".addWaktu").clone().appendTo(".setup").hide().fadeIn();
-    });
+	$("body").on("click", ".copy", function () {
+		$(this).parents(".addWaktu").clone().appendTo(".setup").hide().fadeIn();
+	});
 
-    $("body").on("click", ".copy", function () {
-        $(this).parents(".addTglWaktu").clone().appendTo(".setup").hide().fadeIn();
-    });
+	$("body").on("click", ".copy", function () {
+		$(this).parents(".addTglWaktu").clone().appendTo(".setup").hide().fadeIn();
+	});
 
-    $("body").on("click", ".copy", function () {
-        $(this).parents(".addskalaLinier").clone().appendTo(".setup").hide().fadeIn();
+	$("body").on("click", ".copy", function () {
+		$(this).parents(".addskalaLinier").clone().appendTo(".setup").hide().fadeIn();
 
-        // Belum sempurna saat copy ke dua
-        $(".ddA option[value='" + $(".ddA").val() + "'] , .ddB option[value='" + $(".ddB").val() + "']").attr("selected", "selected");
-    });
+		// Belum sempurna saat copy ke dua
+		$(".ddA option[value='" + $(".ddA").val() + "'] , .ddB option[value='" + $(".ddB").val() + "']").attr("selected", "selected");
+	});
 });
 
 // Delete Text Input
 $(document).ready(function () {
-    $("body").on("click", ".del", function () {
-        $(this).parents(".setInput").fadeOut(function () {
-            $(this).remove();
-        });
-    });
+	$("body").on("click", ".del", function () {
+		$(this).parents(".setInput").fadeOut(function () {
+			$(this).remove();
+		});
+	});
 });
 
 // Insert Text Input
-$(document).ready(function(){
+$(document).ready(function () {
 
-    // Input with radio Baris
-    $("body").on("click",".addOpsiBaris",function(){ 
-        $(this).parents(".addInput").before(`
+	// Input with radio Baris
+	$("body").on("click", ".addOpsiBaris", function () {
+		$(this).parents(".addInput").before(`
             <div class="edit-group setInput">
                 <input type="radio" name="pilih" id="pilih1" disabled>
                 <input type="text" name="opsix" id="opsi" class="text" placeholder="Ketik opsi baris disini" required>
                 <button class="del"><i class="fas fa-times"></i></button>
             </div>
         `);
-    });
+	});
 
-    // Input with radio Kolom
-    $("body").on("click",".addOpsiKolom",function(){ 
-        $(this).parents(".addInput").before(`
+	// Input with radio Kolom
+	$("body").on("click", ".addOpsiKolom", function () {
+		$(this).parents(".addInput").before(`
             <div class="edit-group setInput">
                 <input type="radio" name="pilih" id="pilih1" disabled>
                 <input type="text" name="opsiy" id="opsi" class="text" placeholder="Ketik opsi kolom disini" required>
                 <button class="del"><i class="fas fa-times"></i></button>
             </div>
         `);
-    });
+	});
 
-    // Input AddLain-radio
-    $("body").on("click",".addLain-radio",function(){ 
-        $(this).parents(".addInput").before(`
+	// Input AddLain-radio
+	$("body").on("click", ".addLain-radio", function () {
+		$(this).parents(".addInput").before(`
             <div class="edit-group setInput">
                 <input type="radio" name="pilih" id="pilih1" disabled>
                 <div class="label">Lainnya :</div>
@@ -723,33 +725,33 @@ $(document).ready(function(){
                 <button class="del"><i class="fas fa-times"></i></button>
             </div>
         `);
-    });
+	});
 
-    // Input with checkbox Baris
-    $("body").on("click",".addOpsiCheckBaris",function(){ 
-        $(this).parents(".addInput").before(`
+	// Input with checkbox Baris
+	$("body").on("click", ".addOpsiCheckBaris", function () {
+		$(this).parents(".addInput").before(`
             <div class="edit-group setInput">
                 <input type="checkbox" name="pilih" id="pilih1" disabled>
                 <input type="text" name="opsix" id="opsi" class="text" placeholder="Ketik opsi baris disini" required>
                 <button class="del"><i class="fas fa-times"></i></button>
             </div>
         `);
-    });
+	});
 
-    // Input with checkbox Kolom
-    $("body").on("click",".addOpsiCheckKolom",function(){ 
-        $(this).parents(".addInput").before(`
+	// Input with checkbox Kolom
+	$("body").on("click", ".addOpsiCheckKolom", function () {
+		$(this).parents(".addInput").before(`
             <div class="edit-group setInput">
                 <input type="checkbox" name="pilih" id="pilih1" disabled>
                 <input type="text" name="opsiy" id="opsi" class="text" placeholder="Ketik opsi kolom disini" required>
                 <button class="del"><i class="fas fa-times"></i></button>
             </div>
         `);
-    });
+	});
 
-    // Input AddLain-check
-    $("body").on("click",".addLain-check",function(){ 
-        $(this).parents(".addInput").before(`
+	// Input AddLain-check
+	$("body").on("click", ".addLain-check", function () {
+		$(this).parents(".addInput").before(`
             <div class="edit-group setInput">
                 <input type="checkbox" name="pilih" id="pilih1" disabled>
                 <div class="label">Lainnya :</div>
@@ -757,44 +759,44 @@ $(document).ready(function(){
                 <button class="del"><i class="fas fa-times"></i></button>
             </div>
         `);
-    });
+	});
 
-    // Input with number
-    $("body").on("click",".addOpsiDaftar",function(){
-        $(this).parents(".addInput").before(`
+	// Input with number
+	$("body").on("click", ".addOpsiDaftar", function () {
+		$(this).parents(".addInput").before(`
             <div class="edit-group setInput">
                 <span id="nomor" class="nomor">&#9672;</span>
                 <input type="text" name="opsiy" id="opsi" class="text" placeholder="Ketik opsi disini">
                 <button class="del"><i class="fas fa-times"></i></button>
             </div>
         `);
-    });
+	});
 });
 //myFunc
 // Add Attribute ID on tambah lainnya checkbox
 $(document).ready(function () {
-    $("body").on("click", ".lainnyalabel", function () {
+	$("body").on("click", ".lainnyalabel", function () {
 
-        if ($(this).prev().is(":checked")) {
-            $(this).prev().prop("checked", false);
-        } else {
-            $(this).prev().prop("checked", true);
-        }
-    });
+		if ($(this).prev().is(":checked")) {
+			$(this).prev().prop("checked", false);
+		} else {
+			$(this).prev().prop("checked", true);
+		}
+	});
 
 });
 
 // Onchange Dropdown Skala Linear
 $(document).ready(function () {
-    $("body").on("change", ".ddA", function () {
-        let va = $(this).val();
-        console.log(va);
-        $(this).parents(".bungkus-content").find(".skala-a").text(va);
-    });
+	$("body").on("change", ".ddA", function () {
+		let va = $(this).val();
+		console.log(va);
+		$(this).parents(".bungkus-content").find(".skala-a").text(va);
+	});
 
-    $("body").on("change", ".ddB", function () {
-        let va = $(this).val();
-        console.log(va);
-        $(this).parents(".bungkus-content").find(".skala-b").text(va);
-    });
+	$("body").on("change", ".ddB", function () {
+		let va = $(this).val();
+		console.log(va);
+		$(this).parents(".bungkus-content").find(".skala-b").text(va);
+	});
 });

@@ -113,9 +113,82 @@ var func = {
         </div>
         `
       case 'radioGrid':
+        if (useWajib == 'on') {
+          isWajib = 'required'
+        }
+
+        // inputX = opsix.map((opsi, i) => {
+        //   return `
+        //       <td class="text-center">
+        //         <input type="radio" name="${opsi}" value="${opsi}-${i}" />
+        //       </td>
+        //   `
+        // }).join('')
+        // function fun() {
+        //   let str = ""
+        //   for (let i = sl[0]; i <= objs.length; i++) { str += `<th>${i}</th>` }
+        //   return str
+        // }
+
+        // function fun2() {
+        //   let str2 = ""
+        //   for (let i = sl[0]; i <= objs.length; i++) {
+        //     str2 += `
+        //     <td class="text-center">
+        //       <input type="radio" name="${idQ}" value="${i}" ${isWajib} />
+        //     </td>
+        //   ` }
+        //   return str2
+        // }
+        function inputX(index) {
+          let str = ""
+          for (let i = 0; i < opsix.length; i++) { 
+            str += `
+            <td class="text-center">
+              <input type="radio" name="${idQ,opsiy[index]}" value="${opsiy[index]}-${opsix[i]}" />
+            </td>
+            ${isWajib ? '' : `<input type="radio" hidden name="${idQ,opsiy[index]}" value="" checked ${isWajib}>`}
+            ` 
+          }
+          return str
+        }
+
+        outputY = opsiy.map((opsi, index) => {
+          return `
+          <tr>
+            <td>${opsi}</td>
+            ${inputX(index)}
+          </tr>
+          `
+        }).join('')
+
+        outputX = opsix.map((opsi, i) => {
+          return `
+            <th>${opsi}</th>
+          `
+        }).join('')
+
         return `
         <div class="bungkus-content edit">
           <h2>${body}</h2>
+        </div>
+        <div class="bungkus-content edit">
+          <p class="judul">Jawaban${isWajib ? '*' : ''} : </p>
+          
+
+          <table class="pilihan-gandav2">
+            <tr class="text-center">
+              <th></th>
+              ${outputX}
+            </tr>
+            ${outputY}
+          </table>
+
+          <input type="hidden" name="body" value="${body}">
+          <input type="hidden" name="tipe" value="${tipe}">
+          <input type="hidden" name="idQ" value="${idQ}">
+
+          <button type="button" class="buttonReset">Batalkan Pilihan</button>
         </div>
         `
       case 'checkBox':
@@ -227,14 +300,13 @@ var func = {
         }
 
         let objs = []
-        for(let i = sl[0]; i <= sl[1]; i++){
+        for (let i = sl[0]; i <= sl[1]; i++) {
           objs.push(i)
         }
-        
+
         function fun() {
           let str = ""
-          for (let i = sl[0]; i <= objs.length; i++) 
-          { str += `<th>${i}</th>` }
+          for (let i = sl[0]; i <= objs.length; i++) { str += `<th>${i}</th>` }
           return str
         }
 
