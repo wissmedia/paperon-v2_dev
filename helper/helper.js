@@ -145,7 +145,7 @@ var func = {
           for (let i = 0; i < opsix.length; i++) { 
             str += `
             <td class="text-center">
-              <input type="radio" name="${opsiy[index]}" value="${opsix[i]}" />
+              <input type="radio" name="${[idQ,opsiy[index]]}" value="${opsix[i]}" />
             </td>
             
             ` 
@@ -175,7 +175,6 @@ var func = {
         <div class="bungkus-content edit">
           <p class="judul">Jawaban${isWajib ? '*' : ''} : </p>
           
-
           <table class="pilihan-gandav2">
             <tr class="text-center">
               <th></th>
