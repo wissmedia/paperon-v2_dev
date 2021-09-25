@@ -1,4 +1,4 @@
-let query = {
+let query2 = {
   '614d9c4b848ed87db77aef03,kolom 1': 'baris 1',
   '614d9c4b848ed87db77aef03,kolom 2': 'baris 2',
   body: ['kisi pilihan ganda', 'kisi2'],
@@ -8,7 +8,17 @@ let query = {
   '614da2f9ec23e68501cfcaab,b': '3'
 }
 
-const { body, tipe, idQ, ...jawab } = query
+let query1 = {
+  '614d9c4b848ed87db77aef03,kolom 1': 'baris 1',
+  '614d9c4b848ed87db77aef03,kolom 2': 'baris 2',
+  body: 'kisi pilihan ganda',
+  tipe: 'radioGrid',
+  idQ: '614d9c4b848ed87db77aef03'
+}
+
+console.log(query1.body.constructor)
+
+const { body, tipe, idQ, ...jawab } = query2
 let X = Object.keys(jawab)
 let Y = Object.values(jawab)
 let Z = []
@@ -47,4 +57,4 @@ for (let i = 0; i < objx.length; i++) {
   }
 }
 
-console.log(JSON.stringify(objx, null, 2))
+// console.log(JSON.stringify(objx, null, 2))
