@@ -36,8 +36,11 @@ router.post('/', ensureAuth, async (req, res) => {
     let objs = []
     let objy = []
 
+    // Create response object for pre-save
+    // check if more than 1 Q
     if (tipe.constructor === Array) {
       for (let i = 0; i < tipe.length; i++) {
+        // check if tipe is radioGrid
         if (tipe[i] == 'radioGrid') {
           let obj = {
             idQ: idQ[i],
@@ -47,7 +50,9 @@ router.post('/', ensureAuth, async (req, res) => {
           }
           objs.push(obj)
 
-        } else {
+        } 
+        // other tipe 
+        else {
           let obj = {
             idQ: idQ[i],
             body: body[i],
@@ -57,7 +62,10 @@ router.post('/', ensureAuth, async (req, res) => {
           objs.push(obj)
         }
       }
-    } else {
+    } 
+    // for Q = 1
+    else {
+      //check if radioGrid
       if (tipe == 'radioGrid') {
         let obj = {
           idQ: idQ,
@@ -66,7 +74,9 @@ router.post('/', ensureAuth, async (req, res) => {
           jawaban: []
         }
         objs.push(obj)
-      } else {
+      } 
+      //other tipe
+      else {
         let obj = {
           idQ: idQ,
           body: body,
@@ -76,14 +86,14 @@ router.post('/', ensureAuth, async (req, res) => {
         objs.push(obj)
       }
     }
-    // 
 
+    // Split jawaban (for radioGrid)
     for (let i = 0; i < X.length; i++) {
       Z.push(X[i].split(','))
       Z[i].push(Y[i])
     }
-    // 
 
+    // Create jawaban object (for radioGrid)
     for (let i = 0; i < Z.length; i++) {
       let obj = {
         induk: Z[i][0],
@@ -92,8 +102,8 @@ router.post('/', ensureAuth, async (req, res) => {
       }
       objy.push(obj)
     }
-    // 
 
+    // Push jawaban to radioGrid jawaban by compare idQ
     for (let i = 0; i < objs.length; i++) {
       for (let j = 0; j < objy.length; j++) {
         if (objs[i].idQ == objy[j].induk && objs[i].tipe == 'radioGrid') {
