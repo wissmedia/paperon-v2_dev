@@ -216,7 +216,7 @@ var func = {
         <div class="bungkus-content">
           <p class="judul">Jawaban : </p>
           ${output}
-          <input type="checkBox" hidden name="${idQ}" value="" checked>
+          <input type="hidden" name="${idQ}" value="" checked>
 
           <!-- ${isEtc} -->
 
