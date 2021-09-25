@@ -36,10 +36,8 @@ router.post('/', ensureAuth, async (req, res) => {
     let objs = []
     let objy = []
 
-
     if (tipe.constructor === Array) {
       for (let i = 0; i < tipe.length; i++) {
-        // console.log(tipe[i])
         if (tipe[i] == 'radioGrid') {
           let obj = {
             idQ: idQ[i],
@@ -78,14 +76,12 @@ router.post('/', ensureAuth, async (req, res) => {
         objs.push(obj)
       }
     }
-    // console.log(objs)
     // 
 
     for (let i = 0; i < X.length; i++) {
       Z.push(X[i].split(','))
       Z[i].push(Y[i])
     }
-    // console.log(Z)
     // 
 
     for (let i = 0; i < Z.length; i++) {
@@ -96,7 +92,6 @@ router.post('/', ensureAuth, async (req, res) => {
       }
       objy.push(obj)
     }
-    // console.log(objy)
     // 
 
     for (let i = 0; i < objs.length; i++) {
@@ -106,6 +101,14 @@ router.post('/', ensureAuth, async (req, res) => {
         }
       }
     }
+
+    // Remove '' from jawaban checkBox
+    for (let i = 0; i < objs.length; i++) {
+      if (objs[i].tipe == 'checkBox' && objs[i].jawaban.length > 1) {
+        objs[i].jawaban.pop()
+      }
+    }
+
     console.log(JSON.stringify(objs, null, 2))
 
     // await new Vx({
