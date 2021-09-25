@@ -29,17 +29,46 @@ router.get('/', ensureAuth, async (req, res) => {
 // @route   POST /viewer
 router.post('/', ensureAuth, async (req, res) => {
   try {
-    let objs = []
     const { body, tipe, idQ, ...jawab } = req.body
-    // console.log(req.body)
-    // console.log(body)
-    // console.log(tipe)
-    // console.log(idQ)
-    // console.log(jawab)
-    let V = Object.keys(jawab).length
+    let X = Object.keys(jawab)
+    let Y = Object.values(jawab)
+    let Z = []
+    let objs = []
+    let objy = []
 
-    if (V == 1) {
-      for (let i = 0; i < V; i++) {
+
+    if (tipe.constructor === Array) {
+      for (let i = 0; i < tipe.length; i++) {
+        // console.log(tipe[i])
+        if (tipe[i] == 'radioGrid') {
+          let obj = {
+            idQ: idQ[i],
+            body: body[i],
+            tipe: tipe[i],
+            jawaban: []
+          }
+          objs.push(obj)
+
+        } else {
+          let obj = {
+            idQ: idQ[i],
+            body: body[i],
+            tipe: tipe[i],
+            jawaban: jawab[idQ[i]]
+          }
+          objs.push(obj)
+        }
+      }
+    } else {
+      if (tipe == 'radioGrid') {
+        let obj = {
+          idQ: idQ,
+          body: body,
+          tipe: tipe,
+          jawaban: []
+        }
+        objs.push(obj)
+      } else {
         let obj = {
           idQ: idQ,
           body: body,
@@ -48,18 +77,36 @@ router.post('/', ensureAuth, async (req, res) => {
         }
         objs.push(obj)
       }
-    } else {
-      for (let i = 0; i < V; i++) {
-        let obj = {
-          idQ: idQ[i],
-          body: body[i],
-          tipe: tipe[i],
-          jawaban: jawab[idQ[i]]
+    }
+    // console.log(objs)
+    // 
+
+    for (let i = 0; i < X.length; i++) {
+      Z.push(X[i].split(','))
+      Z[i].push(Y[i])
+    }
+    // console.log(Z)
+    // 
+
+    for (let i = 0; i < Z.length; i++) {
+      let obj = {
+        induk: Z[i][0],
+        tanya: Z[i][1],
+        jawab: Z[i][2],
+      }
+      objy.push(obj)
+    }
+    // console.log(objy)
+    // 
+
+    for (let i = 0; i < objs.length; i++) {
+      for (let j = 0; j < objy.length; j++) {
+        if (objs[i].idQ == objy[j].induk && objs[i].tipe == 'radioGrid') {
+          objs[i].jawaban.push(objy[j])
         }
-        objs.push(obj)
       }
     }
-    console.log(objs)
+    console.log(JSON.stringify(objs, null, 2))
 
     // await new Vx({
     //   user: req.user.id,
