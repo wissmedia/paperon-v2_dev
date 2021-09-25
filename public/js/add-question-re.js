@@ -465,7 +465,7 @@ $(document).ready(function () {
                     <div class="content" id="addTglWaktu">
                         <div class="line"></div>
                         <div class="bungkus-content edit">
-                        <input type="hidden" name="tipe" value="tglWaktu">
+                        <input type="hidden" name="tipe" value="dateTime">
                             <p>Pertanyaan Tanggal dan Waktu</p>
                             <input type="text" name="body" id="tanya" class="text" placeholder="Masukan pertanyaan untuk jawaban tanggal & waktu" required>
 

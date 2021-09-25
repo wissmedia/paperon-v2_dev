@@ -29,7 +29,7 @@ var func = {
         return 'Waktu'
       case 'linearScale':
         return 'Skala Linier'
-      case 'tglWaktu':
+      case 'dateTime':
         return 'Tanggal dan Waktu'
       default:
         return `Tipe > ${tipe} < perlu tambahan switch change case di helper`
@@ -345,7 +345,7 @@ var func = {
         <input type="hidden" name="tipe" value="${tipe}">
         <input type="hidden" name="idQ" value="${idQ}">
         `
-      case 'tglWaktu':
+      case 'dateTime':
         if (useWajib == 'on') {
           isWajib = 'required'
         }
