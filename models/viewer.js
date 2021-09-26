@@ -5,7 +5,7 @@ const responseSchema = new Schema({
   idQ: { type: String },
   body: { type: String },
   tipe: { type: String },
-  jawaban: [String]
+  jawaban: []
 }, { _id: false })
 
 const viewerSchema = new Schema({
