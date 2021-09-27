@@ -254,12 +254,13 @@ $(document).ready(function () {
                                 <input type="text" class="text addOpsiCheckKolom" placeholder="Tambah opsi" readonly>
                             </div>
 
-                            <div class="control-edit">
-                            <!-- <span class="wajib"><input type="checkbox" name="useEtc" class="wajibisi"><label class="lainnyalabel">Tambahkan Lainnya</label></span>  -->
-                            <!-- <span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span> -->
-                            <!-- <span class="divider">|</span> -->
-                            <button class="remove" type="button"><i class="fas fa-trash"></i></button>
-                            </div>
+														<div class="control-edit">
+															<!-- <span class="wajib"><input type="checkbox" name="useEtc" class="wajibisi"><label class="lainnyalabel">Tambahkan Lainnya</label></span>  -->
+															<span class="wajib"><input type="checkbox" disabled name="useWajib" class="wajibisi"><label class="wajiblabel"><s>Wajib diisi</s></label></span>
+															<span class="divider">|</span>
+															<button class="remove" type="button"><i class="fas fa-trash"></i></button>
+														</div>
+
                         </div>
                     </div>
                     <center><button class="tombol-md tmb-utama bunder fadeInBawah">Simpan</button></center>
@@ -318,9 +319,9 @@ $(document).ready(function () {
                             </div>
 
                             <div class="control-edit">
-                            <span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
-                            <span class="divider">|</span>
-                            <button class="remove" type="button"><i class="fas fa-trash"></i></button>
+                                <span class="wajib"><input type="checkbox" disabled name="useWajib" class="wajibisi"><label class="wajiblabel"><s>Wajib diisi</s></label></span>
+                                <span class="divider">|</span>
+                                <button class="remove" type="button"><i class="fas fa-trash"></i></button>
                             </div>
                         </div>
                     </div>
