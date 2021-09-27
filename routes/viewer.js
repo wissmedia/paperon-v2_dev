@@ -29,18 +29,73 @@ router.get('/', ensureAuth, async (req, res) => {
 // @route   POST /viewer
 router.post('/', ensureAuth, async (req, res) => {
   try {
-    let objs = []
     const { body, tipe, idQ, ...jawab } = req.body
-    console.log(req.body)
-    console.log(body)
-    console.log(tipe)
-    console.log(idQ)
-    console.log(jawab)
-    let V = Object.keys(jawab).length
-    // const newArr = Object.entries(jawab);
+    let X = Object.keys(jawab)
+    let Y = Object.values(jawab)
+    let Z = []
+    let objs = []
+    let objy = []
 
-    if (V == 1) {
-      for (let i = 0; i < V; i++) {
+    // Create response object for pre-save
+    // check if more than 1 Q
+    if (tipe.constructor === Array) {
+      for (let i = 0; i < tipe.length; i++) {
+        // check if tipe is radioGrid
+        if (tipe[i] == 'radioGrid') {
+          let obj = {
+            idQ: idQ[i],
+            body: body[i],
+            tipe: tipe[i],
+            jawaban: []
+          }
+          objs.push(obj)
+        }
+        // check if tipe is checkGrid
+        else if (tipe[i] == 'checkGrid') {
+          let obj = {
+            idQ: idQ[i],
+            body: body[i],
+            tipe: tipe[i],
+            jawaban: []
+          }
+          objs.push(obj)
+        }
+        // other tipe 
+        else {
+          let obj = {
+            idQ: idQ[i],
+            body: body[i],
+            tipe: tipe[i],
+            jawaban: jawab[idQ[i]]
+          }
+          objs.push(obj)
+        }
+      }
+    }
+    // for Q = 1
+    else {
+      //check if radioGrid
+      if (tipe == 'radioGrid') {
+        let obj = {
+          idQ: idQ,
+          body: body,
+          tipe: tipe,
+          jawaban: []
+        }
+        objs.push(obj)
+      }
+      //check if checkGrid
+      if (tipe == 'checkGrid') {
+        let obj = {
+          idQ: idQ,
+          body: body,
+          tipe: tipe,
+          jawaban: []
+        }
+        objs.push(obj)
+      }
+      //other tipe
+      else {
         let obj = {
           idQ: idQ,
           body: body,
@@ -49,18 +104,44 @@ router.post('/', ensureAuth, async (req, res) => {
         }
         objs.push(obj)
       }
-    } else {
-      for (let i = 0; i < V; i++) {
-        let obj = {
-          idQ: idQ[i],
-          body: body[i],
-          tipe: tipe[i],
-          jawaban: jawab[idQ[i]]
+    }
+
+    // Split jawaban (for Grid)
+    for (let i = 0; i < X.length; i++) {
+      Z.push(X[i].split(','))
+      Z[i].push(Y[i])
+    }
+
+    // Create jawaban object (for Grid)
+    for (let i = 0; i < Z.length; i++) {
+      let obj = {
+        induk: Z[i][0],
+        tanya: Z[i][1],
+        jawab: Z[i][2],
+      }
+      objy.push(obj)
+    }
+
+    // Push jawaban to Grid jawaban by compare idQ
+    for (let i = 0; i < objs.length; i++) {
+      for (let j = 0; j < objy.length; j++) {
+        if (objs[i].idQ == objy[j].induk && objs[i].tipe == 'radioGrid') {
+          objs[i].jawaban.push(objy[j])
         }
-        objs.push(obj)
+        if (objs[i].idQ == objy[j].induk && objs[i].tipe == 'checkGrid') {
+          objs[i].jawaban.push(objy[j])
+        }
       }
     }
-    console.log(objs)
+
+    // Remove '' from jawaban (only checkBox)
+    for (let i = 0; i < objs.length; i++) {
+      if (objs[i].tipe == 'checkBox' && objs[i].jawaban.length > 1) {
+        objs[i].jawaban.pop()
+      }
+    }
+
+    console.log(JSON.stringify(objs, null, 2))
 
     // await new Vx({
     //   user: req.user.id,

@@ -29,7 +29,7 @@ var func = {
         return 'Waktu'
       case 'linearScale':
         return 'Skala Linier'
-      case 'tglWaktu':
+      case 'dateTime':
         return 'Tanggal dan Waktu'
       default:
         return `Tipe > ${tipe} < perlu tambahan switch change case di helper`
@@ -38,8 +38,7 @@ var func = {
   typeRender: function (idQ, tipe, useWajib, useEtc, useOpsi, body, opsiy, opsix, sl, label) {
     let isWajib = ''
     let isEtc = ''
-    let objs = []
-    let output = {}
+    // let output = {}
     switch (tipe) {
       case 'shortText':
         if (useWajib == 'on') {
@@ -85,7 +84,7 @@ var func = {
           </div>
           `
         }
-        output = opsiy.map((opsi, i) => {
+        outputR = opsiy.map((opsi, i) => {
           return `
           <p>
             <input type="radio" name="${idQ}" id="${opsi}" value="${opsi}" ${isWajib}>
@@ -101,9 +100,7 @@ var func = {
         <div class="bungkus-content edit">
           <p class="judul">Jawaban${isWajib ? '*' : ''} : </p>
           ${isWajib ? '' : `<input type="radio" hidden name="${idQ}" value="" checked ${isWajib}>`}
-          ${output}
-          
-          <!-- ${isEtc} -->
+          ${outputR}
 
           <input type="hidden" name="body" value="${body}">
           <input type="hidden" name="tipe" value="${tipe}">
@@ -113,9 +110,57 @@ var func = {
         </div>
         `
       case 'radioGrid':
+        if (useWajib == 'on') {
+          isWajib = 'required'
+        }
+
+        function inputRGX(index) {
+          let strRG = ""
+          for (let i = 0; i < opsix.length; i++) {
+            strRG += `
+            <td class="text-center">
+              <input type="radio" name="${[idQ, opsiy[index]]}" value="${opsix[i]}" />
+            </td>
+            `
+          }
+          return strRG
+        }
+
+        outputRGY = opsiy.map((opsi, index) => {
+          return `
+          <tr>
+            <td>${opsi}</td>
+            ${inputRGX(index)}
+          </tr>
+          `
+        }).join('')
+
+        outputRGX = opsix.map((opsi, i) => {
+          return `
+            <th>${opsi}</th>
+          `
+        }).join('')
+
         return `
         <div class="bungkus-content edit">
           <h2>${body}</h2>
+        </div>
+        <div class="bungkus-content edit">
+          <p class="judul">Jawaban${isWajib ? '*' : ''} : </p>
+          
+          <table class="pilihan-gandav2">
+            <tr class="text-center">
+              <th></th>
+              ${outputRGX}
+            </tr>
+            ${outputRGY}
+          </table>
+
+          <input type="hidden" name="body" value="${body}">
+          <input type="hidden" name="tipe" value="${tipe}">
+          <input type="hidden" name="idQ" value="${idQ}">
+
+          <button type="button" class="buttonReset">Batalkan Pilihan</button>
         </div>
         `
       case 'checkBox':
@@ -129,7 +174,7 @@ var func = {
           </div>
           `
         }
-        output = opsiy.map((opsi, i) => {
+        outputCB = opsiy.map((opsi, i) => {
           return `
           <p>
             <input type="checkBox" name="${idQ}" id="${opsi}" value="${opsi}">
@@ -143,10 +188,8 @@ var func = {
         </div>
         <div class="bungkus-content">
           <p class="judul">Jawaban : </p>
-          ${output}
-          <input type="checkBox" hidden name="${idQ}" value="" checked>
-
-          <!-- ${isEtc} -->
+          ${outputCB}
+          <input type="hidden" name="${idQ}" value="" checked>
 
           <input type="hidden" name="body" value="${body}">
           <input type="hidden" name="tipe" value="${tipe}">
@@ -156,16 +199,64 @@ var func = {
         </div>
         `
       case 'checkGrid':
+        if (useWajib == 'on') {
+          isWajib = 'required'
+        }
+
+        function inputCGX(index) {
+          let strCG = ""
+          for (let i = 0; i < opsix.length; i++) {
+            strCG += `
+            <td class="text-center">
+              <input type="checkbox" name="${[idQ, opsiy[index]]}" value="${opsix[i]}" />
+            </td>
+            `
+          }
+          return strCG
+        }
+
+        outputCGY = opsiy.map((opsi, index) => {
+          return `
+          <tr>
+            <td>${opsi}</td>
+            ${inputCGX(index)}
+          </tr>
+          `
+        }).join('')
+
+        outputCGX = opsix.map((opsi, i) => {
+          return `
+            <th>${opsi}</th>
+          `
+        }).join('')
+
         return `
         <div class="bungkus-content edit">
           <h2>${body}</h2>
+        </div>
+        <div class="bungkus-content edit">
+          <p class="judul">Jawaban : </p>
+          
+          <table class="pilihan-gandav2">
+            <tr class="text-center">
+              <th></th>
+              ${outputCGX}
+            </tr>
+            ${outputCGY}
+          </table>
+
+          <input type="hidden" name="body" value="${body}">
+          <input type="hidden" name="tipe" value="${tipe}">
+          <input type="hidden" name="idQ" value="${idQ}">
+
+          <button type="button" class="buttonReset">Batalkan Pilihan</button>
         </div>
         `
       case 'dropDown':
         if (useWajib == 'on') {
           isWajib = 'required'
         }
-        output = opsiy.map((opsi, i) => {
+        outputDD = opsiy.map((opsi, i) => {
           return `
             <option value="${opsi}">${opsi}</option>
           `
@@ -178,7 +269,7 @@ var func = {
           <p class="judul">Jawaban${isWajib ? '*' : ''} : </p>
           <select name="${idQ}" id="${idQ}" class="dropdown" ${isWajib}>
             <option hidden selected value="">-- Pilihan</option>
-            ${output}
+            ${outputDD}
           </select>
         </div>
         <input type="hidden" name="body" value="${body}">
@@ -212,10 +303,10 @@ var func = {
           <h2>${body}</h2>
         </div>
         <div class="bungkus-content">
-            <div class="form_group">
-              <p class="judul">Jawaban${isWajib ? '*' : ''} : </p>
-              <input type="time" name="${idQ}" id="${idQ}" ${isWajib}>
-            </div>
+          <div class="form_group">
+            <p class="judul">Jawaban${isWajib ? '*' : ''} : </p>
+            <input type="time" name="${idQ}" id="${idQ}" ${isWajib}>
+          </div>
         </div>
         <input type="hidden" name="body" value="${body}">
         <input type="hidden" name="tipe" value="${tipe}">
@@ -227,14 +318,13 @@ var func = {
         }
 
         let objs = []
-        for(let i = sl[0]; i <= sl[1]; i++){
+        for (let i = sl[0]; i <= sl[1]; i++) {
           objs.push(i)
         }
-        
+
         function fun() {
           let str = ""
-          for (let i = sl[0]; i <= objs.length; i++) 
-          { str += `<th>${i}</th>` }
+          for (let i = sl[0]; i <= objs.length; i++) { str += `<th>${i}</th>` }
           return str
         }
 
@@ -274,7 +364,7 @@ var func = {
         <input type="hidden" name="tipe" value="${tipe}">
         <input type="hidden" name="idQ" value="${idQ}">
         `
-      case 'tglWaktu':
+      case 'dateTime':
         if (useWajib == 'on') {
           isWajib = 'required'
         }
@@ -283,10 +373,10 @@ var func = {
           <h2>${body}</h2>
         </div>
         <div class="bungkus-content">
-            <div class="form_group">
-              <p class="judul">Jawaban${isWajib ? '*' : ''} : </p>
-              <input type="datetime-local" name="${idQ}" id="${idQ}" ${isWajib}>
-            </div>
+          <div class="form_group">
+            <p class="judul">Jawaban${isWajib ? '*' : ''} : </p>
+            <input type="datetime-local" name="${idQ}" id="${idQ}" ${isWajib}>
+          </div>
         </div>
         <input type="hidden" name="body" value="${body}">
         <input type="hidden" name="tipe" value="${tipe}">
