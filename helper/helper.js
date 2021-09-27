@@ -45,10 +45,8 @@ var func = {
         return `Tipe > ${tipe} < perlu tambahan switch change case di helper`
     }
   },
-  typeRender: function (idQ, tipe, useWajib, useEtc, useOpsi, body, opsiy, opsix, sl, label) {
+  typeRender: function (idQ, tipe, body, opsiy, opsix, sl, label, useWajib) {
     let isWajib = ''
-    let isEtc = ''
-    // let output = {}
     switch (tipe) {
       case 'shortText':
         if (useWajib == 'on') {
@@ -177,13 +175,7 @@ var func = {
         if (useWajib == 'on') {
           isWajib = 'required'
         }
-        if (useEtc == 'on') {
-          isEtc = `
-          <div class="control-edit addInput">
-              <button type="button" id="add-lain" class="add-lain addLain-check">Tambahkan "Lainnya"</button>
-          </div>
-          `
-        }
+
         outputCB = opsiy.map((opsi, i) => {
           return `
           <p>
