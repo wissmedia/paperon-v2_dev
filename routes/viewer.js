@@ -49,9 +49,9 @@ router.post('/', ensureAuth, async (req, res) => {
             jawaban: []
           }
           objs.push(obj)
-        } 
+        }
         // check if tipe is checkGrid
-        if (tipe[i] == 'checkGrid') {
+        else if (tipe[i] == 'checkGrid') {
           let obj = {
             idQ: idQ[i],
             body: body[i],
@@ -59,7 +59,7 @@ router.post('/', ensureAuth, async (req, res) => {
             jawaban: []
           }
           objs.push(obj)
-        } 
+        }
         // other tipe 
         else {
           let obj = {
@@ -71,7 +71,7 @@ router.post('/', ensureAuth, async (req, res) => {
           objs.push(obj)
         }
       }
-    } 
+    }
     // for Q = 1
     else {
       //check if radioGrid
@@ -83,8 +83,8 @@ router.post('/', ensureAuth, async (req, res) => {
           jawaban: []
         }
         objs.push(obj)
-      } 
-       //check if checkGrid
+      }
+      //check if checkGrid
       if (tipe == 'checkGrid') {
         let obj = {
           idQ: idQ,
@@ -93,7 +93,7 @@ router.post('/', ensureAuth, async (req, res) => {
           jawaban: []
         }
         objs.push(obj)
-      } 
+      }
       //other tipe
       else {
         let obj = {
