@@ -39,7 +39,7 @@ var func = {
     let isWajib = ''
     let isEtc = ''
     let objs = []
-    let output = {}
+    // let output = {}
     switch (tipe) {
       case 'shortText':
         if (useWajib == 'on') {
@@ -85,7 +85,7 @@ var func = {
           </div>
           `
         }
-        output = opsiy.map((opsi, i) => {
+        outputR = opsiy.map((opsi, i) => {
           return `
           <p>
             <input type="radio" name="${idQ}" id="${opsi}" value="${opsi}" ${isWajib}>
@@ -101,7 +101,7 @@ var func = {
         <div class="bungkus-content edit">
           <p class="judul">Jawaban${isWajib ? '*' : ''} : </p>
           ${isWajib ? '' : `<input type="radio" hidden name="${idQ}" value="" checked ${isWajib}>`}
-          ${output}
+          ${outputR}
           
           <!-- ${isEtc} -->
 
@@ -140,29 +140,29 @@ var func = {
         //   ` }
         //   return str2
         // }
-        function inputX(index) {
-          let str = ""
+        function inputRGX(index) {
+          let strRG = ""
           for (let i = 0; i < opsix.length; i++) {
-            str += `
+            strRG += `
             <td class="text-center">
               <input type="radio" name="${[idQ, opsiy[index]]}" value="${opsix[i]}" />
             </td>
             
             `
           }
-          return str
+          return strRG
         }
 
-        outputY = opsiy.map((opsi, index) => {
+        outputRGY = opsiy.map((opsi, index) => {
           return `
           <tr>
             <td>${opsi}</td>
-            ${inputX(index)}
+            ${inputRGX(index)}
           </tr>
           `
         }).join('')
 
-        outputX = opsix.map((opsi, i) => {
+        outputRGX = opsix.map((opsi, i) => {
           return `
             <th>${opsi}</th>
           `
@@ -178,9 +178,9 @@ var func = {
           <table class="pilihan-gandav2">
             <tr class="text-center">
               <th></th>
-              ${outputX}
+              ${outputRGX}
             </tr>
-            ${outputY}
+            ${outputRGY}
           </table>
 
           <input type="hidden" name="body" value="${body}">
@@ -201,7 +201,7 @@ var func = {
           </div>
           `
         }
-        output = opsiy.map((opsi, i) => {
+        outputCB = opsiy.map((opsi, i) => {
           return `
           <p>
             <input type="checkBox" name="${idQ}" id="${opsi}" value="${opsi}">
@@ -215,7 +215,7 @@ var func = {
         </div>
         <div class="bungkus-content">
           <p class="judul">Jawaban : </p>
-          ${output}
+          ${outputCB}
           <input type="hidden" name="${idQ}" value="" checked>
 
           <!-- ${isEtc} -->
@@ -232,28 +232,28 @@ var func = {
           isWajib = 'required'
         }
 
-        function inputX(index) {
-          let str = ""
+        function inputCGX(index) {
+          let strCG = ""
           for (let i = 0; i < opsix.length; i++) {
-            str += `
+            strCG += `
             <td class="text-center">
-              <input type="radio" name="${[idQ, opsiy[index]]}" value="${opsix[i]}" />
+              <input type="checkbox" name="${[idQ, opsiy[index]]}" value="${opsix[i]}" />
             </td>
             `
           }
-          return str
+          return strCG
         }
 
-        outputY = opsiy.map((opsi, index) => {
+        outputCGY = opsiy.map((opsi, index) => {
           return `
           <tr>
             <td>${opsi}</td>
-            ${inputX(index)}
+            ${inputCGX(index)}
           </tr>
           `
         }).join('')
 
-        outputX = opsix.map((opsi, i) => {
+        outputCGX = opsix.map((opsi, i) => {
           return `
             <th>${opsi}</th>
           `
@@ -269,9 +269,9 @@ var func = {
           <table class="pilihan-gandav2">
             <tr class="text-center">
               <th></th>
-              ${outputX}
+              ${outputCGX}
             </tr>
-            ${outputY}
+            ${outputCGY}
           </table>
 
           <input type="hidden" name="body" value="${body}">
@@ -285,7 +285,7 @@ var func = {
         if (useWajib == 'on') {
           isWajib = 'required'
         }
-        output = opsiy.map((opsi, i) => {
+        outputDD = opsiy.map((opsi, i) => {
           return `
             <option value="${opsi}">${opsi}</option>
           `
@@ -298,7 +298,7 @@ var func = {
           <p class="judul">Jawaban${isWajib ? '*' : ''} : </p>
           <select name="${idQ}" id="${idQ}" class="dropdown" ${isWajib}>
             <option hidden selected value="">-- Pilihan</option>
-            ${output}
+            ${outputDD}
           </select>
         </div>
         <input type="hidden" name="body" value="${body}">
