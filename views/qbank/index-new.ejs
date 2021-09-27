@@ -29,10 +29,9 @@
                         <td>
                           <%= index+1 %>
                         </td>
-                        <td><a class="pending" href="/pertanyaan/<%= question._id %>">
+                        <td><a href="/pertanyaan/<%= question._id %>">
                             <%= helper.truncate(question.body, 30) %>
                               <%= (question.useWajib=='on' ? '*' : '' ) %>
-                              <%= (question.useEtc=='on' ? '^' : '' ) %>
                           </a></td>
                         <td>
                           <%= helper.typeChange(question.tipe) %>
