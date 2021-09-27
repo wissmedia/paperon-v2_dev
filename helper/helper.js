@@ -42,7 +42,40 @@ var func = {
       case 'dateTime':
         return 'Tanggal dan Waktu'
       default:
-        return `Tipe > ${tipe} < perlu tambahan switch change case di helper`
+        return `
+          <div class="bungkus-content edit">
+            <p>Tipe > ${tipe} < perlu tambahan switch render case di helper</p>
+          </div>
+          `
+    }
+  },
+  typeEdit: function (tipe, body, opsiy, opsix, sl, label, useWajib) {
+    switch (tipe) {
+      case 'shortText':
+        return 'Jawaban Pendek'
+      case 'longText':
+        return 'Jawaban Panjang'
+      case 'radio':
+        return 'Pilihan Ganda'
+      case 'radioGrid':
+        return 'Kisi Pilihan Ganda'
+      case 'checkBox':
+        return 'Kotak Centang'
+      case 'checkGrid':
+        return 'Petak Kotak Centang'
+      case 'dropDown':
+        return 'Daftar Pilihan'
+      case 'date':
+        return 'Tanggal'
+      case 'time':
+        return 'Waktu'
+      case 'linearScale':
+        return 'Skala Linier'
+      case 'dateTime':
+        return 'Tanggal dan Waktu'
+      default:
+        return `<p>Tipe > ${tipe} < perlu tambahan switch change case di helper</p>`
+
     }
   },
   typeRender: function (idQ, tipe, body, opsiy, opsix, sl, label, useWajib) {
@@ -385,7 +418,11 @@ var func = {
         <input type="hidden" name="idQ" value="${idQ}">
         `
       default:
-        return `Tipe > ${tipe} < perlu tambahan switch render case di helper`
+        return `
+        <div class="bungkus-content edit">
+          <p>Tipe > ${tipe} < perlu tambahan switch render case di helper</p>
+        </div>
+        `
     }
   }
 }
