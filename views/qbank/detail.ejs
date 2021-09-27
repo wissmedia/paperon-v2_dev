@@ -38,7 +38,7 @@
               <div class="bungkus-content edit">
                 <p>Preview</p>
                 <%- helper.typeRender(question._id, question.tipe, question.body, question.opsiy, question.opsix,
-                    question.sl, question.label, question.useWajib) %>
+                  question.sl, question.label, question.useWajib) %>
               </div>
             </div>
             <% } else { %>
@@ -58,6 +58,7 @@
         <%- include('../partials/footer.ejs') %>
           <!-- SCRIPT PARTIALS -->
           <%- include('../partials/script.ejs') %>
+            <script src="/js/quesioner-view.js"></script>
 
   </body>
 
