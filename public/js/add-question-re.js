@@ -53,24 +53,26 @@ $(document).ready(function () {
 			alert("Selesaikan pertanyaan saat ini sebelum membuat pertanyaan baru");
 		} else {
 			$(".setup").append(`
-                <div class="addjawabSingkat">
-                    <div class="content" id="addjawabSingkat">
-                        <div class="line"></div>
-                        <div class="bungkus-content edit">
-                            <input type="hidden" name="tipe" value="shortText">
-                            <p>Pertanyaan dengan jawaban singkat</p>
-                            <input type="text" name="body" id="tanya" class="text tanya" placeholder="Masukan pertanyaan jawaban singkat" required>
+			<div class="addjawabSingkat">
+				<div class="content" id="addjawabSingkat">
+					<div class="line"></div>
+					<div class="bungkus-content edit">
+						<input type="hidden" name="tipe" value="shortText">
+						<p>Pertanyaan dengan jawaban singkat</p>
+						<input type="text" name="body" id="tanya" class="text tanya" placeholder="Masukan pertanyaan jawaban singkat"
+							required>
 
-                            <div class="control-edit">
-                            <span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
-                            <span class="divider">|</span>
-                            <button class="remove" type="button"><i class="fas fa-trash"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                    <center><button class="tombol-md tmb-utama bunder fadeInBawah">Simpan</button></center>
-                </div>
-            `).hide().fadeIn();
+						<div class="control-edit">
+							<span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Wajib
+									diisi</label></span>
+							<span class="divider">|</span>
+							<button class="remove" type="button"><i class="fas fa-trash"></i></button>
+						</div>
+					</div>
+				</div>
+				<center><button class="tombol-md tmb-utama bunder fadeInBawah">Simpan</button></center>
+			</div>
+			`).hide().fadeIn();
 
 			// Hide Pop Up Menu Add setelah pilih
 			$("#modalAddQuestion").fadeOut();
@@ -88,24 +90,26 @@ $(document).ready(function () {
 			alert("Selesaikan pertanyaan saat ini sebelum membuat pertanyaan baru");
 		} else {
 			$(".setup").append(`
-                <div class="addjawabPanjang">
-                    <div class="content" id="addjawabPanjang">
-                        <div class="line"></div>
-                        <div class="bungkus-content edit">
-                        <input type="hidden" name="tipe" value="longText">
-                            <p>Pertanyaan dengan jawaban panjang</p>
-                            <input type="text" name="body" id="tanyapanjang" class="text" placeholder="Masukan pertanyaan jawaban panjang" required>
-
-                            <div class="control-edit">
-                            <span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
-                            <span class="divider">|</span>
-                            <button class="remove" type="button"><i class="fas fa-trash"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                    <center><button class="tombol-md tmb-utama bunder fadeInBawah">Simpan</button></center>
-                </div>
-            `).hide().fadeIn();
+			<div class="addjawabPanjang">
+				<div class="content" id="addjawabPanjang">
+					<div class="line"></div>
+					<div class="bungkus-content edit">
+						<input type="hidden" name="tipe" value="longText">
+						<p>Pertanyaan dengan jawaban panjang</p>
+						<input type="text" name="body" id="tanyapanjang" class="text" placeholder="Masukan pertanyaan jawaban panjang"
+							required>
+			
+						<div class="control-edit">
+							<span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Wajib
+									diisi</label></span>
+							<span class="divider">|</span>
+							<button class="remove" type="button"><i class="fas fa-trash"></i></button>
+						</div>
+					</div>
+				</div>
+				<center><button class="tombol-md tmb-utama bunder fadeInBawah">Simpan</button></center>
+			</div>
+			`).hide().fadeIn();
 
 			// Hide Pop Up Menu Add setelah pilih
 			$("#modalAddQuestion").fadeOut();
@@ -123,36 +127,38 @@ $(document).ready(function () {
 			alert("Selesaikan pertanyaan saat ini sebelum membuat pertanyaan baru");
 		} else {
 			$(".setup").append(`
-                <div class="addpilihanGanda">
-                    <div class="content" id="addPilihanGanda">
-                        <div class="line"></div>
-                        <div class="bungkus-content edit">
-                        <input type="hidden" name="tipe" value="radio">
-                        <input type="hidden" name="useOpsi" value="on">
-                            <p>Pertanyaan dengan 1 pilihan jawaban</p>
-                            <input type="text" name="body" id="pilihanganda" class="text" placeholder="Masukan pertanyaan pilihan ganda" required>
-                            
-                            <div class="edit-group setInput">
-                                <input type="radio" name="pilih" id="pilih1" disabled>
-                                <input type="text" name="opsiy" id="opsi" class="text" placeholder="Ketik opsi kolom disini" required>
-                            </div>
-                            
-                            <div class="edit-group addInput">
-                                <input type="radio" name="pilih" id="pilih1" disabled>
-                                <input type="text" class="text addOpsiKolom" placeholder="Tambah opsi" readonly>
-                            </div>
+			<div class="addpilihanGanda">
+				<div class="content" id="addPilihanGanda">
+					<div class="line"></div>
+					<div class="bungkus-content edit">
+						<input type="hidden" name="tipe" value="radio">
+						<input type="hidden" name="useOpsi" value="on">
+						<p>Pertanyaan dengan 1 pilihan jawaban</p>
+						<input type="text" name="body" id="pilihanganda" class="text" placeholder="Masukan pertanyaan pilihan ganda"
+							required>
 
-                            <div class="control-edit">
-                            <!-- <span class="wajib"><input type="checkbox" name="useEtc" class="wajibisi"><label class="lainnyalabel">Tambahkan Lainnya</label></span>  -->
-                            <span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
-                            <span class="divider">|</span>
-                            <button class="remove" type="button"><i class="fas fa-trash"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                    <center><button class="tombol-md tmb-utama bunder fadeInBawah">Simpan</button></center>
-                </div>
-            `).hide().fadeIn();
+						<div class="edit-group setInput">
+							<input type="radio" name="pilih" id="pilih1" disabled>
+							<input type="text" name="opsiy" id="opsi" class="text" placeholder="Ketik opsi kolom disini" required>
+						</div>
+
+						<div class="edit-group addInput">
+							<input type="radio" name="pilih" id="pilih1" disabled>
+							<input type="text" class="text addOpsiKolom" placeholder="Tambah opsi" readonly>
+						</div>
+
+						<div class="control-edit">
+							<!-- <span class="wajib"><input type="checkbox" name="useEtc" class="wajibisi"><label class="lainnyalabel">Tambahkan Lainnya</label></span>  -->
+							<span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Wajib
+									diisi</label></span>
+							<span class="divider">|</span>
+							<button class="remove" type="button"><i class="fas fa-trash"></i></button>
+						</div>
+					</div>
+				</div>
+				<center><button class="tombol-md tmb-utama bunder fadeInBawah">Simpan</button></center>
+			</div>
+			`).hide().fadeIn();
 
 			// Hide Pop Up Menu Add setelah pilih
 			$("#modalAddQuestion").fadeOut();
@@ -170,53 +176,54 @@ $(document).ready(function () {
 			alert("Selesaikan pertanyaan saat ini sebelum membuat pertanyaan baru");
 		} else {
 			$(".setup").append(`
-                <div class="addkisipilihanGanda">
-                    <div class="content" id="addkisipilihanGanda">
-                        <div class="line"></div>
-                        <div class="bungkus-content edit">
+      <div class="addkisipilihanGanda">
+				<div class="content" id="addkisipilihanGanda">
+					<div class="line"></div>
+					<div class="bungkus-content edit">
 						<input type="hidden" name="tipe" value="radioGrid">
-                        <input type="hidden" name="useOpsi" value="on">
-                            <p>Pertanyaan pilihan ganda bentuk baris dan kolom</p>
-                            <input type="text" name="body" id="pilihanganda" class="text" placeholder="Masukan pertanyaan pilihan ganda">
-                            <div class="baris">
-                                <label for="">Baris</label>
-                                <div class="edit-group setInput">
-                                    <input type="radio" name="pilih" id="pilih1" disabled>
-                                    <input type="text" name="opsix" id="opsi" class="text" placeholder="Ketik opsi baris disini">
-                                    <button class="del"><i class="fas fa-times"></i></button>
-                                </div>
+						<input type="hidden" name="useOpsi" value="on">
+						<p>Pertanyaan pilihan ganda bentuk baris dan kolom</p>
+						<input type="text" name="body" id="pilihanganda" class="text" placeholder="Masukan pertanyaan pilihan ganda">
+						<div class="baris">
+							<label for="">Baris</label>
+							<div class="edit-group setInput">
+								<input type="radio" name="pilih" id="pilih1" disabled>
+								<input type="text" name="opsix" id="opsi" class="text" placeholder="Ketik opsi baris disini">
+								<button class="del"><i class="fas fa-times"></i></button>
+							</div>
 
-                                <div class="edit-group addInput">
-                                    <input type="radio" name="pilih" id="pilih1" disabled>
-                                    <input type="text" class="text addOpsiBaris" placeholder="Tambah baris" readonly>
-                                </div>
-                            </div>
-                            <div class="kolom">
-                                <label for="">Kolom</label>
-                                <div class="edit-group setInput">
-                                    <input type="radio" name="pilih" id="pilih1" disabled>
-                                    <input type="text" name="opsiy" id="opsi" class="text" placeholder="Ketik opsi kolom disini">
-                                    <button class="del"><i class="fas fa-times"></i></button>
-                                </div>
+							<div class="edit-group addInput">
+								<input type="radio" name="pilih" id="pilih1" disabled>
+								<input type="text" class="text addOpsiBaris" placeholder="Tambah baris" readonly>
+							</div>
+						</div>
+						<div class="kolom">
+							<label for="">Kolom</label>
+							<div class="edit-group setInput">
+								<input type="radio" name="pilih" id="pilih1" disabled>
+								<input type="text" name="opsiy" id="opsi" class="text" placeholder="Ketik opsi kolom disini">
+								<button class="del"><i class="fas fa-times"></i></button>
+							</div>
 
-                                <div class="edit-group addInput">
-                                    <input type="radio" name="pilih" id="pilih1" disabled>
-                                    <input type="text" class="text addOpsiKolom" placeholder="Tambah kolom" readonly>
-                                </div>
-                            </div>
+							<div class="edit-group addInput">
+								<input type="radio" name="pilih" id="pilih1" disabled>
+								<input type="text" class="text addOpsiKolom" placeholder="Tambah kolom" readonly>
+							</div>
+						</div>
 
-                            <div class="container-control-edit">
-                                <div class="control-edit">
-                                    <span class="wajib"><input type="checkbox" name="wajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
-                                    <span class="divider">|</span>
-                                    <button class="remove" type="button"><i class="fas fa-trash"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <center><button class="tombol-md tmb-utama bunder fadeInBawah">Simpan</button></center>
-                </div>
-            `).hide().fadeIn();
+						<div class="container-control-edit">
+							<div class="control-edit">
+								<span class="wajib"><input type="checkbox" name="wajib" class="wajibisi"><label class="wajiblabel">Wajib
+										diisi</label></span>
+								<span class="divider">|</span>
+								<button class="remove" type="button"><i class="fas fa-trash"></i></button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<center><button class="tombol-md tmb-utama bunder fadeInBawah">Simpan</button></center>
+			</div>      
+			`).hide().fadeIn();
 
 			// Hide Pop Up Menu Add setelah pilih
 			$("#modalAddQuestion").fadeOut();
@@ -234,38 +241,39 @@ $(document).ready(function () {
 			alert("Selesaikan pertanyaan saat ini sebelum membuat pertanyaan baru");
 		} else {
 			$(".setup").append(`
-                <div class="addkotakCentang">
-                    <div class="content" id="addkotakCentang">
-                        <div class="line"></div>
-                        <div class="bungkus-content edit">
-                        <input type="hidden" name="tipe" value="checkBox">
-                        <input type="hidden" name="useOpsi" value="on">
-                            <p>Pertanyaan dengan banyak pilihan</p>
-                            <input type="text" name="body" id="pilihanganda" class="text" placeholder="Masukan pertanyaan pilihan kotak centang" required>
-                                
-                            <div class="edit-group setInput">
-                                <input type="checkbox" name="pilih" id="pilih1" disabled>
-                                <input type="text" name="opsiy" id="opsi" class="text" placeholder="Ketik opsi kolom disini" required>
-                                <button class="del"><i class="fas fa-times"></i></button>
-                            </div>
+			<div class="addkotakCentang">
+				<div class="content" id="addkotakCentang">
+					<div class="line"></div>
+					<div class="bungkus-content edit">
+						<input type="hidden" name="tipe" value="checkBox">
+						<input type="hidden" name="useOpsi" value="on">
+						<p>Pertanyaan dengan banyak pilihan</p>
+						<input type="text" name="body" id="pilihanganda" class="text"
+							placeholder="Masukan pertanyaan pilihan kotak centang" required>
 
-                            <div class="edit-group addInput">
-                                <input type="checkbox" name="pilih" id="pilih1" disabled>
-                                <input type="text" class="text addOpsiCheckKolom" placeholder="Tambah opsi" readonly>
-                            </div>
+						<div class="edit-group setInput">
+							<input type="checkbox" name="pilih" id="pilih1" disabled>
+							<input type="text" name="opsiy" id="opsi" class="text" placeholder="Ketik opsi kolom disini" required>
+							<button class="del"><i class="fas fa-times"></i></button>
+						</div>
 
-														<div class="control-edit">
-															<!-- <span class="wajib"><input type="checkbox" name="useEtc" class="wajibisi"><label class="lainnyalabel">Tambahkan Lainnya</label></span>  -->
-															<span class="wajib"><input type="checkbox" disabled name="useWajib" class="wajibisi"><label class="wajiblabel"><s>Wajib diisi</s></label></span>
-															<span class="divider">|</span>
-															<button class="remove" type="button"><i class="fas fa-trash"></i></button>
-														</div>
+						<div class="edit-group addInput">
+							<input type="checkbox" name="pilih" id="pilih1" disabled>
+							<input type="text" class="text addOpsiCheckKolom" placeholder="Tambah opsi" readonly>
+						</div>
 
-                        </div>
-                    </div>
-                    <center><button class="tombol-md tmb-utama bunder fadeInBawah">Simpan</button></center>
-                </div>
-            `).hide().fadeIn();
+						<div class="control-edit">
+							<!-- <span class="wajib"><input type="checkbox" name="useEtc" class="wajibisi"><label class="lainnyalabel">Tambahkan Lainnya</label></span>  -->
+							<span class="wajib"><input type="checkbox" disabled name="useWajib" class="wajibisi"><label class="wajiblabel"><s>Wajib diisi</s></label></span>
+							<span class="divider">|</span>
+							<button class="remove" type="button"><i class="fas fa-trash"></i></button>
+						</div>
+
+					</div>
+				</div>
+				<center><button class="tombol-md tmb-utama bunder fadeInBawah">Simpan</button></center>
+			</div>
+			`).hide().fadeIn();
 
 			// Hide Pop Up Menu Add setelah pilih
 			$("#modalAddQuestion").fadeOut();
@@ -283,51 +291,52 @@ $(document).ready(function () {
 			alert("Selesaikan pertanyaan saat ini sebelum membuat pertanyaan baru");
 		} else {
 			$(".setup").append(`
-                <div class="addpetakkotakCentang">
-                    <div class="content" id="addpetakkotakCentang">
-                        <div class="line"></div>
-                        <div class="bungkus-content edit">
-                        <input type="hidden" name="tipe" value="checkGrid">
-                        <input type="hidden" name="useOpsi" value="on">
-                            <p>Pertanyaan pilihan petak kotak centang</p>
-                            <input type="text" name="body" id="pilihanganda" class="text" placeholder="Masukan pertanyaan pilihan petak kotak centang" required>
-                            <div class="baris">
-                                <label for="">Baris</label>
-                                <div class="edit-group setInput">
-                                    <input type="checkbox" name="pilih" id="pilih1" disabled>
-                                    <input type="text" name="opsix" id="opsi" class="text" placeholder="Ketik opsi baris disini">
-                                    <button class="del"><i class="fas fa-times"></i></button>
-                                </div>
+			<div class="addpetakkotakCentang">
+				<div class="content" id="addpetakkotakCentang">
+					<div class="line"></div>
+					<div class="bungkus-content edit">
+						<input type="hidden" name="tipe" value="checkGrid">
+						<input type="hidden" name="useOpsi" value="on">
+						<p>Pertanyaan pilihan petak kotak centang</p>
+						<input type="text" name="body" id="pilihanganda" class="text"
+							placeholder="Masukan pertanyaan pilihan petak kotak centang" required>
+						<div class="baris">
+							<label for="">Baris</label>
+							<div class="edit-group setInput">
+								<input type="checkbox" name="pilih" id="pilih1" disabled>
+								<input type="text" name="opsix" id="opsi" class="text" placeholder="Ketik opsi baris disini">
+								<button class="del"><i class="fas fa-times"></i></button>
+							</div>
 
-                                <div class="edit-group addInput">
-                                    <input type="checkbox" name="pilih" id="pilih1" disabled>
-                                    <input type="text" class="text addOpsiCheckBaris" placeholder="Tambah baris" readonly>
-                                </div>
-                            </div>
-                            <div class="kolom">
-                                <label for="">Kolom</label>
-                                <div class="edit-group setInput">
-                                    <input type="checkbox" name="pilih" id="pilih1" disabled>
-                                    <input type="text" name="opsiy" id="opsi" class="text" placeholder="Ketik opsi kolom disini">
-                                    <button class="del"><i class="fas fa-times"></i></button>
-                                </div>
+							<div class="edit-group addInput">
+								<input type="checkbox" name="pilih" id="pilih1" disabled>
+								<input type="text" class="text addOpsiCheckBaris" placeholder="Tambah baris" readonly>
+							</div>
+						</div>
+						<div class="kolom">
+							<label for="">Kolom</label>
+							<div class="edit-group setInput">
+								<input type="checkbox" name="pilih" id="pilih1" disabled>
+								<input type="text" name="opsiy" id="opsi" class="text" placeholder="Ketik opsi kolom disini">
+								<button class="del"><i class="fas fa-times"></i></button>
+							</div>
 
-                                <div class="edit-group addInput">
-                                    <input type="checkbox" name="pilih" id="pilih1" disabled>
-                                    <input type="text" class="text addOpsiCheckKolom" placeholder="Tambah kolom" readonly>
-                                </div>
-                            </div>
+							<div class="edit-group addInput">
+								<input type="checkbox" name="pilih" id="pilih1" disabled>
+								<input type="text" class="text addOpsiCheckKolom" placeholder="Tambah kolom" readonly>
+							</div>
+						</div>
 
-                            <div class="control-edit">
-                                <span class="wajib"><input type="checkbox" disabled name="useWajib" class="wajibisi"><label class="wajiblabel"><s>Wajib diisi</s></label></span>
-                                <span class="divider">|</span>
-                                <button class="remove" type="button"><i class="fas fa-trash"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                    <center><button class="tombol-md tmb-utama bunder fadeInBawah">Simpan</button></center>
-                </div>
-            `).hide().fadeIn();
+						<div class="control-edit">
+							<span class="wajib"><input type="checkbox" disabled name="useWajib" class="wajibisi"><label class="wajiblabel"><s>Wajib diisi</s></label></span>
+							<span class="divider">|</span>
+							<button class="remove" type="button"><i class="fas fa-trash"></i></button>
+						</div>
+					</div>
+				</div>
+				<center><button class="tombol-md tmb-utama bunder fadeInBawah">Simpan</button></center>
+			</div>
+			`).hide().fadeIn();
 
 			// Hide Pop Up Menu Add setelah pilih
 			$("#modalAddQuestion").fadeOut();
@@ -345,36 +354,37 @@ $(document).ready(function () {
 			alert("Selesaikan pertanyaan saat ini sebelum membuat pertanyaan baru");
 		} else {
 			$(".setup").append(`
-                <div class="adddropDown">
-                    <div class="content" id="adddropDown">
-                        <div class="line"></div>
-                        <div class="bungkus-content edit">
-                        <input type="hidden" name="tipe" value="dropDown">
-                        <input type="hidden" name="useOpsi" value="on">
-                            <p>Pertanyaan Pilihan Dropdown</p>
-                            <input type="text" name="body" id="pilihdropdown" class="text" placeholder="Masukan pertanyaan daftar pilihan" required>
-                                
-                            <div class="edit-group setInput">
-                                <span id="nomor" class="nomor">&#9672;</span>
-                                <input type="text" name="opsiy" id="opsi" class="text" placeholder="Ketik opsi disini" required>
-                                <button class="del"><i class="fas fa-times"></i></button>
-                            </div>
+			<div class="adddropDown">
+				<div class="content" id="adddropDown">
+					<div class="line"></div>
+					<div class="bungkus-content edit">
+						<input type="hidden" name="tipe" value="dropDown">
+						<input type="hidden" name="useOpsi" value="on">
+						<p>Pertanyaan Pilihan Dropdown</p>
+						<input type="text" name="body" id="pilihdropdown" class="text" placeholder="Masukan pertanyaan daftar pilihan"
+							required>
 
-                            <div class="edit-group addInput">
-                                <span id="nomor">&#9672;</span>
-                                <input type="text" class="text addOpsiDaftar" placeholder="Tambah opsi" readonly>
-                            </div>
+						<div class="edit-group setInput">
+							<span id="nomor" class="nomor">&#9672;</span>
+							<input type="text" name="opsiy" id="opsi" class="text" placeholder="Ketik opsi disini" required>
+							<button class="del"><i class="fas fa-times"></i></button>
+						</div>
 
-                            <div class="control-edit">
-                            <span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
-                            <span class="divider">|</span>
-                            <button class="remove" type="button"><i class="fas fa-trash"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                    <center><button class="tombol-md tmb-utama bunder fadeInBawah">Simpan</button></center>
-                </div>
-            `).hide().fadeIn();
+						<div class="edit-group addInput">
+							<span id="nomor">&#9672;</span>
+							<input type="text" class="text addOpsiDaftar" placeholder="Tambah opsi" readonly>
+						</div>
+
+						<div class="control-edit">
+							<span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
+							<span class="divider">|</span>
+							<button class="remove" type="button"><i class="fas fa-trash"></i></button>
+						</div>
+					</div>
+				</div>
+				<center><button class="tombol-md tmb-utama bunder fadeInBawah">Simpan</button></center>
+			</div>
+			`).hide().fadeIn();
 
 			// Hide Pop Up Menu Add setelah pilih
 			$("#modalAddQuestion").fadeOut();
@@ -392,24 +402,25 @@ $(document).ready(function () {
 			alert("Selesaikan pertanyaan saat ini sebelum membuat pertanyaan baru");
 		} else {
 			$(".setup").append(`
-                <div class="addTanggal">
-                    <div class="content" id="addTanggal">
-                        <div class="line"></div>
-                        <div class="bungkus-content edit">
-                        <input type="hidden" name="tipe" value="date">
-                            <p>Pertanyaan Tanggal</p>
-                            <input type="text" name="body" id="tanya" class="text" placeholder="Masukan pertanyaan untuk jawaban tanggal" required>
+			<div class="addTanggal">
+				<div class="content" id="addTanggal">
+					<div class="line"></div>
+					<div class="bungkus-content edit">
+						<input type="hidden" name="tipe" value="date">
+						<p>Pertanyaan Tanggal</p>
+						<input type="text" name="body" id="tanya" class="text" placeholder="Masukan pertanyaan untuk jawaban tanggal"
+							required>
 
-                            <div class="control-edit">
-                            <span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
-                            <span class="divider">|</span>
-                            <button class="remove" type="button"><i class="fas fa-trash"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                    <center><button class="tombol-md tmb-utama bunder fadeInBawah">Simpan</button></center>
-                </div>
-            `).hide().fadeIn();
+						<div class="control-edit">
+							<span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
+							<span class="divider">|</span>
+							<button class="remove" type="button"><i class="fas fa-trash"></i></button>
+						</div>
+					</div>
+				</div>
+				<center><button class="tombol-md tmb-utama bunder fadeInBawah">Simpan</button></center>
+			</div>
+			`).hide().fadeIn();
 
 			// Hide Pop Up Menu Add setelah pilih
 			$("#modalAddQuestion").fadeOut();
@@ -427,24 +438,25 @@ $(document).ready(function () {
 			alert("Selesaikan pertanyaan saat ini sebelum membuat pertanyaan baru");
 		} else {
 			$(".setup").append(`
-                <div class="addWaktu">
-                    <div class="content" id="addWaktu">
-                        <div class="line"></div>
-                        <div class="bungkus-content edit">
-                        <input type="hidden" name="tipe" value="time">
-                            <p>Pertanyaan Waktu</p>
-                            <input type="text" name="body" id="tanya" class="text" placeholder="Masukan pertanyaan untuk jawaban waktu" required>
+			<div class="addWaktu">
+				<div class="content" id="addWaktu">
+					<div class="line"></div>
+					<div class="bungkus-content edit">
+						<input type="hidden" name="tipe" value="time">
+						<p>Pertanyaan Waktu</p>
+						<input type="text" name="body" id="tanya" class="text" placeholder="Masukan pertanyaan untuk jawaban waktu"
+							required>
 
-                            <div class="control-edit">
-                            <span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
-                            <span class="divider">|</span>
-                            <button class="remove" type="button"><i class="fas fa-trash"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                    <center><button class="tombol-md tmb-utama bunder fadeInBawah">Simpan</button></center>
-                </div>
-            `).hide().fadeIn();
+						<div class="control-edit">
+							<span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
+							<span class="divider">|</span>
+							<button class="remove" type="button"><i class="fas fa-trash"></i></button>
+						</div>
+					</div>
+				</div>
+				<center><button class="tombol-md tmb-utama bunder fadeInBawah">Simpan</button></center>
+			</div>
+			`).hide().fadeIn();
 
 			// Hide Pop Up Menu Add setelah pilih
 			$("#modalAddQuestion").fadeOut();
@@ -462,24 +474,25 @@ $(document).ready(function () {
 			alert("Selesaikan pertanyaan saat ini sebelum membuat pertanyaan baru");
 		} else {
 			$(".setup").append(`
-                <div class="addTglWaktu">
-                    <div class="content" id="addTglWaktu">
-                        <div class="line"></div>
-                        <div class="bungkus-content edit">
-                        <input type="hidden" name="tipe" value="dateTime">
-                            <p>Pertanyaan Tanggal dan Waktu</p>
-                            <input type="text" name="body" id="tanya" class="text" placeholder="Masukan pertanyaan untuk jawaban tanggal & waktu" required>
+			<div class="addTglWaktu">
+				<div class="content" id="addTglWaktu">
+					<div class="line"></div>
+					<div class="bungkus-content edit">
+						<input type="hidden" name="tipe" value="dateTime">
+						<p>Pertanyaan Tanggal dan Waktu</p>
+						<input type="text" name="body" id="tanya" class="text"
+							placeholder="Masukan pertanyaan untuk jawaban tanggal & waktu" required>
 
-                            <div class="control-edit">
-                            <span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
-                            <span class="divider">|</span>
-                            <button class="remove" type="button"><i class="fas fa-trash"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                    <center><button class="tombol-md tmb-utama bunder fadeInBawah">Simpan</button></center>
-                </div>
-            `).hide().fadeIn();
+						<div class="control-edit">
+							<span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
+							<span class="divider">|</span>
+							<button class="remove" type="button"><i class="fas fa-trash"></i></button>
+						</div>
+					</div>
+				</div>
+				<center><button class="tombol-md tmb-utama bunder fadeInBawah">Simpan</button></center>
+			</div>
+      `).hide().fadeIn();
 
 			// Hide Pop Up Menu Add setelah pilih
 			$("#modalAddQuestion").fadeOut();
@@ -497,50 +510,50 @@ $(document).ready(function () {
 			alert("Selesaikan pertanyaan saat ini sebelum membuat pertanyaan baru");
 		} else {
 			$(".setup").append(`
-                <div class="addskalaLinier">
-                    <div class="content" id="addskalaLinier">
-                        <div class="line"></div>
-                        <div class="bungkus-content edit">
-                        <input type="hidden" name="tipe" value="linearScale">
-                            <p>Pertanyaan Skala Linier</p>
-                            <input type="text" name="body" class="text" placeholder="Masukan pertanyaan untuk jawaban dengan skala" required>
-                            <select name="sl" class="dropdown ddA">
-                            <option value="0">0</option>
-                            <option value="1">1</option>
-                            </select>
+			<div class="addskalaLinier">
+				<div class="content" id="addskalaLinier">
+					<div class="line"></div>
+					<div class="bungkus-content edit">
+						<input type="hidden" name="tipe" value="linearScale">
+						<p>Pertanyaan Skala Linier</p>
+						<input type="text" name="body" class="text" placeholder="Masukan pertanyaan untuk jawaban dengan skala" required>
+						<select name="sl" class="dropdown ddA">
+							<option value="0">0</option>
+							<option value="1">1</option>
+						</select>
 
-                            <span>sampai</span>
+						<span>sampai</span>
 
-                            <select name="sl" class="dropdown ddB">
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                            </select>
-                            <div class="label-skala">
-                                <span id="skala-a" class="skala-a">0</span>
-                                <input type="text" name="label" class="" placeholder="Label (optional)">
-                            </div>
-                            <div class="label-skala">
-                                <span id="skala-b" class="skala-b">10</span>
-                                <input type="text" name="label" class="" placeholder="Label (optional)">
-                            </div>
+						<select name="sl" class="dropdown ddB">
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+						</select>
+						<div class="label-skala">
+							<span id="skala-a" class="skala-a">0</span>
+							<input type="text" name="label" class="" placeholder="Label (optional)">
+						</div>
+						<div class="label-skala">
+							<span id="skala-b" class="skala-b">10</span>
+							<input type="text" name="label" class="" placeholder="Label (optional)">
+						</div>
 
-                            <div class="control-edit">
-                            <span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
-                            <span class="divider">|</span>
-                            <button class="remove" type="button"><i class="fas fa-trash"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                    <center><button class="tombol-md tmb-utama bunder fadeInBawah">Simpan</button></center>
-                </div>
-            `).hide().fadeIn();
+						<div class="control-edit">
+							<span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
+							<span class="divider">|</span>
+							<button class="remove" type="button"><i class="fas fa-trash"></i></button>
+						</div>
+					</div>
+				</div>
+				<center><button class="tombol-md tmb-utama bunder fadeInBawah">Simpan</button></center>
+			</div>
+			`).hide().fadeIn();
 
 			// Hide Pop Up Menu Add setelah pilih
 			$("#modalAddQuestion").fadeOut();
