@@ -49,7 +49,16 @@ router.post('/', ensureAuth, async (req, res) => {
             jawaban: []
           }
           objs.push(obj)
-
+        } 
+        // check if tipe is checkGrid
+        if (tipe[i] == 'checkGrid') {
+          let obj = {
+            idQ: idQ[i],
+            body: body[i],
+            tipe: tipe[i],
+            jawaban: []
+          }
+          objs.push(obj)
         } 
         // other tipe 
         else {
@@ -75,6 +84,16 @@ router.post('/', ensureAuth, async (req, res) => {
         }
         objs.push(obj)
       } 
+       //check if checkGrid
+      if (tipe == 'checkGrid') {
+        let obj = {
+          idQ: idQ,
+          body: body,
+          tipe: tipe,
+          jawaban: []
+        }
+        objs.push(obj)
+      } 
       //other tipe
       else {
         let obj = {
@@ -87,13 +106,13 @@ router.post('/', ensureAuth, async (req, res) => {
       }
     }
 
-    // Split jawaban (for radioGrid)
+    // Split jawaban (for Grid)
     for (let i = 0; i < X.length; i++) {
       Z.push(X[i].split(','))
       Z[i].push(Y[i])
     }
 
-    // Create jawaban object (for radioGrid)
+    // Create jawaban object (for Grid)
     for (let i = 0; i < Z.length; i++) {
       let obj = {
         induk: Z[i][0],
@@ -103,16 +122,19 @@ router.post('/', ensureAuth, async (req, res) => {
       objy.push(obj)
     }
 
-    // Push jawaban to radioGrid jawaban by compare idQ
+    // Push jawaban to Grid jawaban by compare idQ
     for (let i = 0; i < objs.length; i++) {
       for (let j = 0; j < objy.length; j++) {
         if (objs[i].idQ == objy[j].induk && objs[i].tipe == 'radioGrid') {
           objs[i].jawaban.push(objy[j])
         }
+        if (objs[i].idQ == objy[j].induk && objs[i].tipe == 'checkGrid') {
+          objs[i].jawaban.push(objy[j])
+        }
       }
     }
 
-    // Remove '' from jawaban checkBox
+    // Remove '' from jawaban (only checkBox)
     for (let i = 0; i < objs.length; i++) {
       if (objs[i].tipe == 'checkBox' && objs[i].jawaban.length > 1) {
         objs[i].jawaban.pop()
