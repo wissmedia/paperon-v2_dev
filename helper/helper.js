@@ -38,7 +38,6 @@ var func = {
   typeRender: function (idQ, tipe, useWajib, useEtc, useOpsi, body, opsiy, opsix, sl, label) {
     let isWajib = ''
     let isEtc = ''
-    let objs = []
     // let output = {}
     switch (tipe) {
       case 'shortText':
@@ -102,8 +101,6 @@ var func = {
           <p class="judul">Jawaban${isWajib ? '*' : ''} : </p>
           ${isWajib ? '' : `<input type="radio" hidden name="${idQ}" value="" checked ${isWajib}>`}
           ${outputR}
-          
-          <!-- ${isEtc} -->
 
           <input type="hidden" name="body" value="${body}">
           <input type="hidden" name="tipe" value="${tipe}">
@@ -117,29 +114,6 @@ var func = {
           isWajib = 'required'
         }
 
-        // inputX = opsix.map((opsi, i) => {
-        //   return `
-        //       <td class="text-center">
-        //         <input type="radio" name="${opsi}" value="${opsi}-${i}" />
-        //       </td>
-        //   `
-        // }).join('')
-        // function fun() {
-        //   let str = ""
-        //   for (let i = sl[0]; i <= objs.length; i++) { str += `<th>${i}</th>` }
-        //   return str
-        // }
-
-        // function fun2() {
-        //   let str2 = ""
-        //   for (let i = sl[0]; i <= objs.length; i++) {
-        //     str2 += `
-        //     <td class="text-center">
-        //       <input type="radio" name="${idQ}" value="${i}" ${isWajib} />
-        //     </td>
-        //   ` }
-        //   return str2
-        // }
         function inputRGX(index) {
           let strRG = ""
           for (let i = 0; i < opsix.length; i++) {
@@ -147,7 +121,6 @@ var func = {
             <td class="text-center">
               <input type="radio" name="${[idQ, opsiy[index]]}" value="${opsix[i]}" />
             </td>
-            
             `
           }
           return strRG
@@ -217,8 +190,6 @@ var func = {
           <p class="judul">Jawaban : </p>
           ${outputCB}
           <input type="hidden" name="${idQ}" value="" checked>
-
-          <!-- ${isEtc} -->
 
           <input type="hidden" name="body" value="${body}">
           <input type="hidden" name="tipe" value="${tipe}">
@@ -332,10 +303,10 @@ var func = {
           <h2>${body}</h2>
         </div>
         <div class="bungkus-content">
-            <div class="form_group">
-              <p class="judul">Jawaban${isWajib ? '*' : ''} : </p>
-              <input type="time" name="${idQ}" id="${idQ}" ${isWajib}>
-            </div>
+          <div class="form_group">
+            <p class="judul">Jawaban${isWajib ? '*' : ''} : </p>
+            <input type="time" name="${idQ}" id="${idQ}" ${isWajib}>
+          </div>
         </div>
         <input type="hidden" name="body" value="${body}">
         <input type="hidden" name="tipe" value="${tipe}">
@@ -402,10 +373,10 @@ var func = {
           <h2>${body}</h2>
         </div>
         <div class="bungkus-content">
-            <div class="form_group">
-              <p class="judul">Jawaban${isWajib ? '*' : ''} : </p>
-              <input type="datetime-local" name="${idQ}" id="${idQ}" ${isWajib}>
-            </div>
+          <div class="form_group">
+            <p class="judul">Jawaban${isWajib ? '*' : ''} : </p>
+            <input type="datetime-local" name="${idQ}" id="${idQ}" ${isWajib}>
+          </div>
         </div>
         <input type="hidden" name="body" value="${body}">
         <input type="hidden" name="tipe" value="${tipe}">
