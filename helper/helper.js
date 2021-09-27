@@ -142,7 +142,7 @@ var func = {
         }).join('')
 
         return `
-        <div class="bungkus-content edit">
+        <div class="bungkus-content edit x-auto">
           <h2>${body}</h2>
         </div>
         <div class="bungkus-content edit">
@@ -234,7 +234,7 @@ var func = {
         <div class="bungkus-content edit">
           <h2>${body}</h2>
         </div>
-        <div class="bungkus-content edit">
+        <div class="bungkus-content edit x-auto">
           <p class="judul">Jawaban : </p>
           
           <table class="pilihan-gandav2">
@@ -343,7 +343,7 @@ var func = {
         <div class="bungkus-content edit">
           <h2>${body}</h2>
         </div>
-        <div class="bungkus-content">
+        <div class="bungkus-content x-auto">
         <p class="judul">Jawaban${isWajib ? '*' : ''} : </p>
           <table class="pilihan-gandav2">
             <tr class="text-center">

@@ -45,6 +45,12 @@ a {
 }
 /* END Data Tables Custom */
 
+/* Responsive slide kanan kiri */
+.x-auto{
+  overflow-x: auto;
+}
+/* END Responsive slide kanan kiri */
+
 /* Input untuk dark theme */
 input {
   background-color: transparent;
