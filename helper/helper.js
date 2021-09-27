@@ -142,13 +142,13 @@ var func = {
         // }
         function inputX(index) {
           let str = ""
-          for (let i = 0; i < opsix.length; i++) { 
+          for (let i = 0; i < opsix.length; i++) {
             str += `
             <td class="text-center">
-              <input type="radio" name="${[idQ,opsiy[index]]}" value="${opsix[i]}" />
+              <input type="radio" name="${[idQ, opsiy[index]]}" value="${opsix[i]}" />
             </td>
             
-            ` 
+            `
           }
           return str
         }
@@ -228,9 +228,57 @@ var func = {
         </div>
         `
       case 'checkGrid':
+        if (useWajib == 'on') {
+          isWajib = 'required'
+        }
+
+        function inputX(index) {
+          let str = ""
+          for (let i = 0; i < opsix.length; i++) {
+            str += `
+            <td class="text-center">
+              <input type="radio" name="${[idQ, opsiy[index]]}" value="${opsix[i]}" />
+            </td>
+            `
+          }
+          return str
+        }
+
+        outputY = opsiy.map((opsi, index) => {
+          return `
+          <tr>
+            <td>${opsi}</td>
+            ${inputX(index)}
+          </tr>
+          `
+        }).join('')
+
+        outputX = opsix.map((opsi, i) => {
+          return `
+            <th>${opsi}</th>
+          `
+        }).join('')
+
         return `
         <div class="bungkus-content edit">
           <h2>${body}</h2>
+        </div>
+        <div class="bungkus-content edit">
+          <p class="judul">Jawaban : </p>
+          
+          <table class="pilihan-gandav2">
+            <tr class="text-center">
+              <th></th>
+              ${outputX}
+            </tr>
+            ${outputY}
+          </table>
+
+          <input type="hidden" name="body" value="${body}">
+          <input type="hidden" name="tipe" value="${tipe}">
+          <input type="hidden" name="idQ" value="${idQ}">
+
+          <button type="button" class="buttonReset">Batalkan Pilihan</button>
         </div>
         `
       case 'dropDown':
