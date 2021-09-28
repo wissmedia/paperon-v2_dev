@@ -12,31 +12,26 @@
             <input type="hidden" name="_method" value="PUT">
             <div class="content fadeInKiri">
               <div class="line"></div>
-              <div class="bungkus-content edit">
-                <label for="now">Tipe Saat Ini :</label>
-                <input type="text" id="now" class="text" disabled value="<%= helper.typeChange(question.tipe) %>">
-                <label for="tipe">Edit Tipe Jawaban : </label>
-                <select name="tipe" id="tipe" class="dropdown">
-                  <option disabled hidden selected value="">-- Pilihan</option>
-                  <% if(options.length> 0){ %>
-                    <% options.forEach(option=> { %>
-                      <option value="<%= option.value %>">
-                        <%= option.text %>
-                      </option>
-                      <% }) %>
-                        <% }else{ %>
-                          <option value="">Tidak ada data</option>
-                          <% } %>
-                </select>
+              <div class="bungkus-content">
+                <h3 class="judul">* Tipe pertanyaan tidak dapat diganti</h3>
+                <%- helper.warnMess(question.tipe) %>
               </div>
               <div class="bungkus-content edit">
-                <label for="body">Edit Pertanyaan :</label>
-                <input type="text" name="body" id="body" class="text" value="<%= question.body %>">
+                <label for="tipe">Tipe Pertanyaan :</label>
+                <input type="text" id="tipe" class="text" disabled value="<%= helper.typeChange(question.tipe) %>">
               </div>
-              <center>
-                <button type="submit" class="tombol-md tmb-utama bunder">Simpan</button>
-              </center>
+              <%- helper.typeEdit(question.tipe, question.body, question.opsiy, question.opsix, question.sl,
+                question.label, question.useWajib) %>
+                <div class="bungkus-content edit <%= helper.pendWajib(question.tipe) %>">
+                  <div class="control-edit">
+                    <span class="wajib"><input type="checkbox" <%=helper.isWajibCB(question.useWajib) %> name="useWajib"
+                      class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
+                  </div>
+                </div>
             </div>
+            <center class="fadeInBawah">
+              <button type="submit" class="tombol-md tmb-utama bunder">Simpan</button>
+            </center>
           </form>
         </div>
       </div>
@@ -47,6 +42,8 @@
         <%- include('../partials/footer.ejs') %>
           <!-- SCRIPT PARTIALS -->
           <%- include('../partials/script.ejs') %>
+            <script src="/js/add-question-re.js"></script>
+            <script src="/js/quesioner-view.js"></script>
 
   </body>
 
