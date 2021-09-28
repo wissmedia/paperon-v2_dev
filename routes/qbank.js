@@ -45,8 +45,8 @@ router.post('/', ensureAuth, async (req, res) => {
 // @route   GET /pertanyaan/tambah
 router.get('/tambah', ensureAuth, (req, res) => {
   let navMenus = [
-    { link: '/pertanyaan', icon: 'fas fa-chevron-circle-left', label: 'Kembali', id:'kembali' },
-    { link: 'javascript:;', icon: 'fas fa-plus', label: 'Pilihan', id:'add' },
+    { link: '/pertanyaan', icon: 'fas fa-chevron-circle-left', label: 'Kembali', id: 'kembali' },
+    { link: 'javascript:;', icon: 'fas fa-plus', label: 'Pilihan', id: 'add' },
   ]
   res.render('qbank/add-new', { navTitle: 'Tambah Pertanyaan', navMenus })
 })
@@ -81,13 +81,6 @@ router.get('/edit/:id', ensureAuth, async (req, res) => {
   let navMenus = [
     { link: '/pertanyaan', icon: 'fas fa-chevron-circle-left', label: 'Kembali' },
   ]
-  let options = [
-    { value: 'shortText', text: 'Teks Jawaban Pendek' },
-    { value: 'longText', text: 'Teks Jawaban Panjang' },
-    { value: 'radio', text: 'Pilihan dengan 1 Jawaban' },
-    { value: 'checkBox', text: 'Pilihan dengan Banyak Jawaban' },
-    { value: 'dropDown', text: 'Menu Turun dengan 1 Jawaban' },
-  ]
   try {
     const question = await Question.findOne({
       _id: req.params.id
@@ -100,7 +93,6 @@ router.get('/edit/:id', ensureAuth, async (req, res) => {
     } else {
       res.render('qbank/edit', {
         question,
-        options,
         helper: require('../helper/helper'),
         navTitle: 'Edit Pertanyaan',
         navMenus
@@ -116,6 +108,22 @@ router.get('/edit/:id', ensureAuth, async (req, res) => {
 // @route   PUT /pertanyaan/:id
 router.put('/:id', ensureAuth, async (req, res) => {
   let id = req.params.id
+  // handle if useWajib not checked
+  if (!(req.body.hasOwnProperty('useWajib'))) {
+    req.body.useWajib = ''
+  } 
+  // console.log('BEFORE')
+  // console.log(req.body)
+
+  // remove blank element from opsiy array
+  // this code can be difficult to use because not checking tipe first
+  if(req.body.opsiy.constructor === Array ){
+    req.body.opsiy = req.body.opsiy.filter(item => item)
+  }
+
+  // console.log('AFTER')
+  // console.log(req.body)
+
   try {
     let question = await Question.findById(id).lean()
     if (!question) {
