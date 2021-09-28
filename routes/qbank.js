@@ -112,8 +112,6 @@ router.put('/:id', ensureAuth, async (req, res) => {
   if (!(req.body.hasOwnProperty('useWajib'))) {
     req.body.useWajib = ''
   }
-  // console.log('BEFORE')
-  // console.log(req.body)
 
   // remove blank element from opsiy array
   // this code can be difficult to use because not checking tipe first
@@ -128,9 +126,6 @@ router.put('/:id', ensureAuth, async (req, res) => {
       req.body.opsix = req.body.opsix.filter(item => item)
     }
   }
-
-  // console.log('AFTER')
-  // console.log(req.body)
 
   try {
     let question = await Question.findById(id).lean()
