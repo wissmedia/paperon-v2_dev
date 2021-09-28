@@ -36,11 +36,15 @@
             <div class="content fadeInKiri">
               <div class="line"></div>
               <div class="bungkus-content edit">
-                <p>Preview</p>
+                <p>* Pratinjau pertanyaan</p>
                 <%- helper.typeRender(question._id, question.tipe, question.body, question.opsiy, question.opsix,
                   question.sl, question.label, question.useWajib) %>
               </div>
             </div>
+            <center class="fadeInBawah">
+              <a href="/pertanyaan/edit/<%= question._id %>"><button class="tombol-md tmb-utama bunder"><i
+                    class="fas fa-pencil-alt"></i> Edit</button></a>
+            </center>
             <% } else { %>
               <div class="content fadeInAtas">
                 <div class="line"></div>
