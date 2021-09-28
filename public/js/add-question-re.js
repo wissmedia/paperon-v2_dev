@@ -132,7 +132,6 @@ $(document).ready(function () {
 					<div class="line"></div>
 					<div class="bungkus-content edit">
 						<input type="hidden" name="tipe" value="radio">
-						<input type="hidden" name="useOpsi" value="on">
 						<p>Pertanyaan dengan 1 pilihan jawaban</p>
 						<input type="text" name="body" id="pilihanganda" class="text" placeholder="Masukan pertanyaan pilihan ganda"
 							required>
@@ -181,7 +180,6 @@ $(document).ready(function () {
 					<div class="line"></div>
 					<div class="bungkus-content edit">
 						<input type="hidden" name="tipe" value="radioGrid">
-						<input type="hidden" name="useOpsi" value="on">
 						<p>Pertanyaan pilihan ganda bentuk baris dan kolom</p>
 						<input type="text" name="body" id="pilihanganda" class="text" placeholder="Masukan pertanyaan pilihan ganda">
 						<div class="baris">
@@ -246,7 +244,6 @@ $(document).ready(function () {
 					<div class="line"></div>
 					<div class="bungkus-content edit">
 						<input type="hidden" name="tipe" value="checkBox">
-						<input type="hidden" name="useOpsi" value="on">
 						<p>Pertanyaan dengan banyak pilihan</p>
 						<input type="text" name="body" id="pilihanganda" class="text"
 							placeholder="Masukan pertanyaan pilihan kotak centang" required>
@@ -296,7 +293,6 @@ $(document).ready(function () {
 					<div class="line"></div>
 					<div class="bungkus-content edit">
 						<input type="hidden" name="tipe" value="checkGrid">
-						<input type="hidden" name="useOpsi" value="on">
 						<p>Pertanyaan pilihan petak kotak centang</p>
 						<input type="text" name="body" id="pilihanganda" class="text"
 							placeholder="Masukan pertanyaan pilihan petak kotak centang" required>
@@ -359,7 +355,6 @@ $(document).ready(function () {
 					<div class="line"></div>
 					<div class="bungkus-content edit">
 						<input type="hidden" name="tipe" value="dropDown">
-						<input type="hidden" name="useOpsi" value="on">
 						<p>Pertanyaan Pilihan Dropdown</p>
 						<input type="text" name="body" id="pilihdropdown" class="text" placeholder="Masukan pertanyaan daftar pilihan"
 							required>
