@@ -111,14 +111,22 @@ router.put('/:id', ensureAuth, async (req, res) => {
   // handle if useWajib not checked
   if (!(req.body.hasOwnProperty('useWajib'))) {
     req.body.useWajib = ''
-  } 
+  }
   // console.log('BEFORE')
   // console.log(req.body)
 
   // remove blank element from opsiy array
   // this code can be difficult to use because not checking tipe first
-  if(req.body.opsiy.constructor === Array ){
-    req.body.opsiy = req.body.opsiy.filter(item => item)
+  if (req.body.hasOwnProperty('opsiy')) {
+    if (req.body.opsiy.constructor === Array) {
+      req.body.opsiy = req.body.opsiy.filter(item => item)
+    }
+  }
+  // remove blank element from opsix array
+  if (req.body.hasOwnProperty('opsix')) {
+    if (req.body.opsix.constructor === Array) {
+      req.body.opsix = req.body.opsix.filter(item => item)
+    }
   }
 
   // console.log('AFTER')
