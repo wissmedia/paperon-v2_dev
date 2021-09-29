@@ -28,18 +28,16 @@
                     </p>
                     <p>Status : <%= qform.status %>
                     </p>
-
+                    <a href="/kuesioner/<%= qform._id %>"><button type="button">Detail</button></a>
                   </div>
                 </div>
 
                 <% i++ %>
                   <% }) %>
                     <% }else{ %>
-                      <div class="content fadeInAtas">
-                        <div class="line"></div>
-                        <div class="bungkus-content edit">
-                          <h3>Tidak Ada Data</h3>
-                        </div>
+                      <div class="info-content fadeInAtas">
+                        <p>Belum ada kuesioner dibuat</p>
+                        <p>Klik <strong>Tambah</strong> untuk mulai membuat kuesioner</p>
                       </div>
                       <% } %>
 
