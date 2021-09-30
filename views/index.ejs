@@ -3,21 +3,53 @@
 <!-- HEAD PARTIALS -->
 <%- include('./partials/head.ejs') %>
 
-  <body>
+  <body onload="parent.scrollTo(0,0)">
     <!-- NAV PARTIALS -->
-    <%- include('./partials/nav.ejs') %>
-      <div class="container">
-        <div class="card-container">
-          <div class="data-content fadeInKiri">
-            <h1>Landing Page</h1>
-          </div>
+    <!-- <%- include('./partials/nav.ejs') %> -->
+    <div class="con-landing-page-2">
+      <div class="hero">
+        <div class="hero-title hero-light">
+          <img class="fadeIn" src="/logo/72.png" width="50" height="50" alt="Logo">
+          <h1 class="fadeIn">Paperon</h1>
+          <p class="fadeIn">Survei dan Kuesioner</p>
+          <a href="/responden">
+            <button class="tombol-outline tmb-light-o tmb-banner bunder fadeIn">
+              <i class="fas fa-search left"></i> Mulai menjawab
+            </button>
+          </a>
         </div>
       </div>
+      <div class="hero gambar1">
+        <div class="hero-title hero-light">
+          <img class="fadeIn" src="/logo/72.png" width="50" height="50" alt="Logo">
+          <h1 class="fadeIn">Paperon</h1>
+          <p class="fadeIn">Survei dan Kuesioner</p>
+          <br>
+          <p class="fadeIn">Ingin membuat kuesioner?</p>
+          <a href="/auth/google">
+            <button class="tombol-outline tmb-light-o tmb-banner bunder fadeIn">
+              <i class="fab fa-google left"></i> Masuk dengan Google
+            </button>
+          </a>
+        </div>
+      </div>
+      <div class="hero gambar2">
+        <div class="hero-title hero-light">
+          <img class="fadeIn" src="/logo/72.png" width="50" height="50" alt="Logo">
+          <h1 class="fadeIn">Paperon</h1>
+          <p class="fadeIn">Survei dan Kuesioner</p>
+          <br>
+          <p class="fadeIn">Petunjuk penggunaan</p>
+          <a href="#" class="tombol-outline tmb-light-o tmb-banner bunder fadeInBawah">
+            <i class="fas fa-book"></i> Panduan</a>
+        </div>
+      </div>
+    </div>
 
-      <!-- MODAL MENU -->
-      <%- include('./partials/modal-auth.ejs') %>
-        <!-- SCRIPT PARTIALS -->
-        <%- include('./partials/script.ejs') %>
+    <!-- MODAL MENU -->
+    <%- include('./partials/modal-auth.ejs') %>
+      <!-- SCRIPT PARTIALS -->
+      <%- include('./partials/script.ejs') %>
 
   </body>
 
