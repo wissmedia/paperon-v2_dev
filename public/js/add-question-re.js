@@ -181,7 +181,7 @@ $(document).ready(function () {
 					<div class="bungkus-content edit">
 						<input type="hidden" name="tipe" value="radioGrid">
 						<p>Pertanyaan pilihan ganda bentuk baris dan kolom</p>
-						<input type="text" name="body" id="pilihanganda" class="text" placeholder="Masukan pertanyaan pilihan ganda">
+						<input type="text" name="body" id="pilihanganda" class="text" placeholder="Masukan pertanyaan pilihan ganda" required>
 						<div class="baris">
 							<label for="">Baris</label>
 							<div class="edit-group setInput">

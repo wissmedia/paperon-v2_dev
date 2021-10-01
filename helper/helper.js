@@ -100,7 +100,7 @@ var func = {
         return `
         <div class="bungkus-content edit">
           <label for="tipe">Teks Pertanyaan :</label>
-          <input type="text" name="body" id="body" class="text" value="${body}">
+          <input type="text" name="body" id="body" class="text" value="${body}" required>
         </div>
         `
 
@@ -133,14 +133,14 @@ var func = {
           return `
           <div class="edit-group setInput">
             <input type="checkbox" name="pilih" id="pilih1" disabled>
-            <input type="text" name="opsiy" id="opsi" class="text" value="${opsi}">
+            <input type="text" name="opsiy" id="opsi" class="text" value="${opsi}" required>
           </div>
           `
         }).join('')
         return `
         <div class="bungkus-content edit">
           <label for="tipe">Teks Pertanyaan :</label>
-          <input type="text" name="body" id="body" class="text" value="${body}">
+          <input type="text" name="body" id="body" class="text" value="${body}" required>
         </div>
 
         <div class="bungkus-content edit">
@@ -157,14 +157,14 @@ var func = {
           return `
           <div class="edit-group setInput">
             <span id="nomor" class="nomor">&#9672;</span>
-            <input type="text" name="opsiy" id="opsi" class="text" value="${opsi}">
+            <input type="text" name="opsiy" id="opsi" class="text" value="${opsi}" required>
           </div>
           `
         }).join('')
         return `
         <div class="bungkus-content edit">
           <label for="tipe">Teks Pertanyaan :</label>
-          <input type="text" name="body" id="body" class="text" value="${body}">
+          <input type="text" name="body" id="body" class="text" value="${body}" required>
         </div>
 
         <div class="bungkus-content edit">
@@ -181,7 +181,7 @@ var func = {
           return `
           <div class="edit-group setInput">
             <input type="radio" name="pilih" id="pilih1" disabled>
-            <input type="text" name="opsix" id="opsi" class="text" value="${opsi}">
+            <input type="text" name="opsix" id="opsi" class="text" value="${opsi}" required>
           </div>
           `
         }).join('')
@@ -189,14 +189,14 @@ var func = {
           return `
           <div class="edit-group setInput">
             <input type="radio" name="pilih" id="pilih1" disabled>
-            <input type="text" name="opsiy" id="opsi" class="text" value="${opsi}">
+            <input type="text" name="opsiy" id="opsi" class="text" value="${opsi}" required>
           </div>
           `
         }).join('')
         return `
         <div class="bungkus-content edit">
           <label for="tipe">Teks Pertanyaan :</label>
-          <input type="text" name="body" id="body" class="text" value="${body}">
+          <input type="text" name="body" id="body" class="text" value="${body}" required>
         </div>
 
         <div class="bungkus-content edit">
@@ -224,7 +224,7 @@ var func = {
           return `
           <div class="edit-group setInput">
             <input type="checkbox" name="pilih" id="pilih1" disabled>
-            <input type="text" name="opsix" id="opsi" class="text" value="${opsi}">
+            <input type="text" name="opsix" id="opsi" class="text" value="${opsi}" required>
           </div>
           `
         }).join('')
@@ -232,14 +232,14 @@ var func = {
           return `
           <div class="edit-group setInput">
             <input type="checkbox" name="pilih" id="pilih1" disabled>
-            <input type="text" name="opsiy" id="opsi" class="text" value="${opsi}">
+            <input type="text" name="opsiy" id="opsi" class="text" value="${opsi}" required>
           </div>
           `
         }).join('')
         return `
         <div class="bungkus-content edit">
           <label for="tipe">Teks Pertanyaan :</label>
-          <input type="text" name="body" id="body" class="text" value="${body}">
+          <input type="text" name="body" id="body" class="text" value="${body}" required>
         </div>
 
         <div class="bungkus-content edit">
@@ -261,15 +261,13 @@ var func = {
             </div>
           </div>
         </div>
-
- 
         `
 
       case 'linearScale':
         return `
         <div class="bungkus-content edit">
           <label for="tipe">Teks Pertanyaan :</label>
-          <input type="text" name="body" id="body" class="text" value="${body}">
+          <input type="text" name="body" id="body" class="text" value="${body}" required>
         </div>
 
         <div class="bungkus-content edit">
@@ -395,7 +393,7 @@ var func = {
           for (let i = 0; i < opsix.length; i++) {
             strRG += `
             <td class="text-center">
-              <input type="radio" name="${[idQ, opsiy[index]]}" value="${opsix[i]}" />
+              <input type="radio" name="${[idQ, opsiy[index]]}" value="${opsix[i]}" >
             </td>
             `
           }
