@@ -18,10 +18,10 @@
                       <%= i+1 %>
                     </p>
                     <h2>
-                      <%= qform.title %>
+                      <%= qform.judul %>
                     </h2>
                     <p>
-                      <%= qform.desc %>
+                      <%= qform.subjudul %>
                     </p>
                     <p>
                       <%= qform.body %>
@@ -29,6 +29,7 @@
                     <p>Status : <%= qform.status %>
                     </p>
                     <a href="/kuesioner/<%= qform._id %>"><button type="button">Detail</button></a>
+                    <a href="/kuesioner/edit/<%= qform._id %>"><button type="button">Edit</button></a>
                   </div>
                 </div>
 

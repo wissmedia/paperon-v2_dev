@@ -6,13 +6,14 @@ const qFormSchema = new Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
   },
-  title: {
+  judul: {
     type: String,
     required: true,
     trim: true,
   },
-  desc: {
-    type: String
+  subjudul: {
+    type: String,
+    trim: true
   },
   status: {
     type: String,
