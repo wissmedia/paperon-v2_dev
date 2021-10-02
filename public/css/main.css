@@ -157,6 +157,52 @@ input[type="password"]:focus {
   border-bottom: 1px solid #424874;
 }
 
+/* Nomor Urut */
+.nomor-urut{
+  margin-top: 10px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.nomor-urut label{
+  background-color: var(--bglight);
+  color: var(--dark);
+  display: inline-block;
+  transform: skewX(170deg);
+  font-weight: bold;
+  padding: 0px 10px;
+  border-radius: 5px 0px 0px 5px;
+}
+
+.nomor-urut input{
+  position: absolute;
+  padding: 0px;
+  width: 40px;
+  text-indent: 5px;
+  border: 1px solid var(--light);
+  transform: skewX(170deg);
+  border-radius: 0px 5px 5px 0px;
+}
+
+.nomor-urut input:hover,
+.nomor-urut input:focus{
+  outline: none;
+  border: 1px solid var(--light);
+}
+
+/* Chrome, Safari, Edge, Opera */
+.nomor-urut input::-webkit-outer-spin-button,
+.nomor-urut input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.nomor-urut input[type=number] {
+  -moz-appearance: textfield;
+}
+/* END Nomor Urut */
+
 /* Input Radio */
 input[type="radio"] {
   margin-right: 5px;
