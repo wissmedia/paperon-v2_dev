@@ -19,28 +19,33 @@ router.get('/', ensureAuth, async (req, res) => {
   }
 })
 
-// @desc    Process add Kuesioner
+// @desc    Step 1 - Tambah Kuesioner Page
 // @route   POST /kuesioner
 router.post('/', ensureAuth, async (req, res) => {
   try {
     req.body.user = req.user.id
-    // console.log(req.body)
     const qform = new QForm(req.body)
     await qform.save()
-    res.redirect('/kuesioner')
+    res.redirect('/kuesioner/pilih')
   } catch (error) {
     console.error(error)
     return res.render('error/500')
   }
 })
 
-// @desc    Tambah Kuesioner Page
+// @desc    Step 1 - Tambah Kuesioner Page
 // @route   GET /kuesioner/tambah
 router.get('/tambah', ensureAuth, (req, res) => {
   let navMenus = [
     { link: '/', icon: 'fas fa-chevron-circle-left', label: 'Kembali' },
   ]
   res.render('qform/add', { navTitle: '(1) Buat Kuesioner', navMenus })
+})
+
+// @desc    Step 2 - Pilih Pertanyaan Page
+// @route   GET /kuesioner/pilih
+router.get('/pilih', ensureAuth, (req, res) => {
+  res.render('qform/select', { navTitle: '(2) Tambah Pertanyaan'})
 })
 
 // @desc    Show single kuesioner page
@@ -118,15 +123,6 @@ router.put('/:id', ensureAuth, async (req, res) => {
     console.error(error)
     return res.render('error/500')
   }
-})
-
-// @desc    Tambah Kuesioner Page
-// @route   GET /kuesioner/pilih
-router.get('/pilih', ensureAuth, (req, res) => {
-  let navMenus = [
-
-  ]
-  res.render('qform/select', { navTitle: '(2) Tambah Pertanyaan', navMenus })
 })
 
 // @desc    DELETE Pertanyaan
