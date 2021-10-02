@@ -39,7 +39,7 @@ router.get('/tambah', ensureAuth, (req, res) => {
   let navMenus = [
     { link: '/', icon: 'fas fa-chevron-circle-left', label: 'Kembali' },
   ]
-  res.render('qform/add', { navTitle: 'Buat Kuesioner Baru', navMenus })
+  res.render('qform/add-s1', { navTitle: 'Buat Kuesioner Baru', navMenus })
 })
 
 module.exports = router
