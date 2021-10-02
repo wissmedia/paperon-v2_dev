@@ -585,20 +585,17 @@ var func = {
           isWajib = 'required'
         }
 
-        let objs = []
-        for (let i = sl[0]; i <= sl[1]; i++) {
-          objs.push(i)
-        }
+        let last = sl[sl.length - 1]
 
         function fun() {
           let str = ""
-          for (let i = sl[0]; i <= objs.length; i++) { str += `<th>${i}</th>` }
+          for (let i = sl[0]; i <= last; i++) { str += `<th>${i}</th>` }
           return str
         }
 
         function fun2() {
           let str2 = ""
-          for (let i = sl[0]; i <= objs.length; i++) {
+          for (let i = sl[0]; i <= last; i++) {
             str2 += `
             <td class="text-center">
               <input type="radio" name="${idQ}" value="${i}" ${isWajib} />
