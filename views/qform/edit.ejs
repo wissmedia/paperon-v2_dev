@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- HEAD PARTIALS -->
+<%- include('../partials/head.ejs') %>
+
+  <body>
+    <!-- NAV PARTIALS -->
+    <%- include('../partials/nav.ejs') %>
+      <div class="container">
+        <div class="row-content">
+          <form action="/kuesioner/<%= qform._id %>" method="POST">
+            <input type="hidden" name="_method" value="PUT">
+            <div class="content fadeInKiri">
+              <div class="line"></div>
+              <div class="bungkus-content edit">
+                <label for="judul">Edit Judul :</label>
+                <input type="text" name="judul" id="judul" class="text" value="<%= qform.judul %>" required>
+              </div>
+  
+              <div class="bungkus-content edit">
+                <label for="subjudul">Edit Deskripsi :</label>
+                <textarea name="subjudul" id="subjudul" cols="30" rows="10"><%= qform.subjudul %></textarea>
+              </div>
+
+            </div>
+            <center class="fadeInBawah">
+              <button type="submit" class="tombol-md tmb-utama bunder">Simpan</button>
+            </center>
+          </form>
+        </div>
+      </div>
+
+      <!-- MODAL AUTH -->
+      <%- include('../partials/modal-auth.ejs') %>
+        <!-- FOOTER PARTIALS -->
+        <%- include('../partials/footer.ejs') %>
+          <!-- SCRIPT PARTIALS -->
+          <%- include('../partials/script.ejs') %>
+            <script src="/js/add-question-re.js"></script>
+            <script src="/js/quesioner-view.js"></script>
+
+  </body>
+
+</html>
