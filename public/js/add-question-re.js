@@ -186,7 +186,7 @@ $(document).ready(function () {
 							<label for="">Baris</label>
 							<div class="edit-group setInput">
 								<input type="radio" name="pilih" id="pilih1" disabled>
-								<input type="text" name="opsix" id="opsi" class="text" placeholder="Ketik opsi baris disini">
+								<input type="text" name="opsix" id="opsi" class="text" placeholder="Ketik opsi baris disini" required >
 							</div>
 
 							<div class="edit-group addInput">
@@ -198,7 +198,7 @@ $(document).ready(function () {
 							<label for="">Kolom</label>
 							<div class="edit-group setInput">
 								<input type="radio" name="pilih" id="pilih1" disabled>
-								<input type="text" name="opsiy" id="opsi" class="text" placeholder="Ketik opsi kolom disini">
+								<input type="text" name="opsiy" id="opsi" class="text" placeholder="Ketik opsi kolom disini" required >
 							</div>
 
 							<div class="edit-group addInput">
@@ -297,7 +297,7 @@ $(document).ready(function () {
 							<label for="">Baris</label>
 							<div class="edit-group setInput">
 								<input type="checkbox" name="pilih" id="pilih1" disabled>
-								<input type="text" name="opsix" id="opsi" class="text" placeholder="Ketik opsi baris disini">
+								<input type="text" name="opsix" id="opsi" class="text" placeholder="Ketik opsi baris disini" required >
 							</div>
 
 							<div class="edit-group addInput">
@@ -309,7 +309,7 @@ $(document).ready(function () {
 							<label for="">Kolom</label>
 							<div class="edit-group setInput">
 								<input type="checkbox" name="pilih" id="pilih1" disabled>
-								<input type="text" name="opsiy" id="opsi" class="text" placeholder="Ketik opsi kolom disini">
+								<input type="text" name="opsiy" id="opsi" class="text" placeholder="Ketik opsi kolom disini" required >
 							</div>
 
 							<div class="edit-group addInput">
