@@ -43,9 +43,66 @@ router.get('/tambah', ensureAuth, (req, res) => {
 })
 
 // @desc    Step 2 - Pilih Pertanyaan Page
+// @route   POST /kuesioner/pilih
+router.post('/pilih', ensureAuth, async (req, res) => {
+  try {
+    // req.body.user = req.user.id
+    // const qform = new QForm(req.body)
+    // await qform.save()
+    // res.redirect('/kuesioner/pilih')
+    res.redirect('/kuesioner/urutan')
+  } catch (error) {
+    console.error(error)
+    return res.render('error/500')
+  }
+})
+
+// @desc    Step 2 - Pilih Pertanyaan Page
 // @route   GET /kuesioner/pilih
 router.get('/pilih', ensureAuth, (req, res) => {
   res.render('qform/select', { navTitle: '(2) Tambah Pertanyaan'})
+})
+
+// @desc    Step 3 - Urutkan Pertanyaan Page
+// @route   POST /kuesioner/urutan
+router.post('/urutan', ensureAuth, async (req, res) => {
+  try {
+    // req.body.user = req.user.id
+    // const qform = new QForm(req.body)
+    // await qform.save()
+    // res.redirect('/kuesioner/pilih')
+    res.redirect('/kuesioner/publikasi')
+  } catch (error) {
+    console.error(error)
+    return res.render('error/500')
+  }
+})
+
+// @desc    Step 3 - Urutkan Pertanyaan Page
+// @route   GET /kuesioner/urutan
+router.get('/urutan', ensureAuth, (req, res) => {
+  res.render('qform/queue', { navTitle: '(3) Urutkan Pertanyaan'})
+})
+
+// @desc    Step 4 - Publikasi Kuesioner Page
+// @route   POST /kuesioner/publikasi
+router.post('/publikasi', ensureAuth, async (req, res) => {
+  try {
+    // req.body.user = req.user.id
+    // const qform = new QForm(req.body)
+    // await qform.save()
+    // res.redirect('/kuesioner/pilih')
+    res.redirect('/kuesioner')
+  } catch (error) {
+    console.error(error)
+    return res.render('error/500')
+  }
+})
+
+// @desc    Step 4 - Publikasi Kuesioner Page
+// @route   GET /kuesioner/publikasi
+router.get('/publikasi', ensureAuth, (req, res) => {
+  res.render('qform/publish', { navTitle: '(4) Publikasi Kuesioner'})
 })
 
 // @desc    Show single kuesioner page
