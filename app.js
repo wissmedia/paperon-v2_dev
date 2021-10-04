@@ -25,7 +25,7 @@ const HOST = process.env.HOST || '0.0.0.0'
 app.locals.appNames = {
   title: 'Paperon',
   subtitle: 'Survei dan Kuesioner',
-  version: '1.1.15'
+  version: '1.1.18'
 }
 
 // BODY PARSER
