@@ -115,14 +115,9 @@ router.get('/tambah/:id/pilih', ensureAuth, async (req, res) => {
 // @route   PUT /kuesioner/urutan
 router.put('/urutan', ensureAuth, async (req, res) => {
   try {
-    // console.log(req.body)
-
     let { idF, idQ, order } = req.body
-    // console.log(idF)
-    // console.log(idQ)
-    // console.log(order)
-
     let objs = []
+
     for (let i = 0; i < idQ.length; i++) {
       let obj = {
         idQ: idQ[i],
@@ -130,8 +125,8 @@ router.put('/urutan', ensureAuth, async (req, res) => {
       }
       objs.push(obj)
     }
-    console.log(objs)
     req.body.listQ = objs
+
     let qform = await QForm.findById(idF).lean()
     if (!qform) {
       return res.render('error/404')
@@ -142,12 +137,8 @@ router.put('/urutan', ensureAuth, async (req, res) => {
       qform = await QForm.findOneAndUpdate({ _id: req.body.idF }, req.body, {
         runValidators: true
       })
-
-      // res.redirect(`/kuesioner/tambah/${idF}/urutan`)
       res.redirect(`/kuesioner/tambah/${idF}/publikasi`)
     }
-
-
   } catch (error) {
     console.error(error)
     return res.render('error/500')
@@ -173,14 +164,23 @@ router.get('/tambah/:id/urutan', ensureAuth, async (req, res) => {
 })
 
 // @desc    Step 4 - Publikasi Kuesioner Page
-// @route   POST /kuesioner/publikasi
-router.post('/publikasi', ensureAuth, async (req, res) => {
+// @route   PUT /kuesioner/publikasi
+router.put('/publikasi', ensureAuth, async (req, res) => {
   try {
-    // req.body.user = req.user.id
-    // const qform = new QForm(req.body)
-    // await qform.save()
-    // res.redirect('/kuesioner/pilih')
-    res.redirect('/kuesioner')
+    let { idF } = req.body
+
+    let qform = await QForm.findById(idF).lean()
+    if (!qform) {
+      return res.render('error/404')
+    }
+    if (qform.user != req.user.id) {
+      res.redirect('/pertanyaan')
+    } else {
+      qform = await QForm.findOneAndUpdate({ _id: req.body.idF }, req.body, {
+        runValidators: true
+      })
+      res.redirect('/kuesioner')
+    }
   } catch (error) {
     console.error(error)
     return res.render('error/500')
@@ -189,13 +189,14 @@ router.post('/publikasi', ensureAuth, async (req, res) => {
 
 // @desc    Step 4 - Publikasi Kuesioner Page
 // @route   GET /kuesioner/publikasi
-router.get('/tambah/:id/publikasi', ensureAuth, (req, res) => {
+router.get('/tambah/:id/publikasi', ensureAuth, async (req, res) => {
+  let idNext = req.params.id
   try {
-    let idNext = req.params.id
-    // res.type('json').send(JSON.stringify(qforms, null, 2) + '\n')
+    let qforms = await QForm.findById(req.params.id)
     res.render('qform/publish', {
       navTitle: '(4) Publikasi Kuesioner',
-      idNext
+      idNext,
+      qforms
     })
   } catch (error) {
     console.error(error)
@@ -260,7 +261,6 @@ router.get('/edit/:id', ensureAuth, async (req, res) => {
 // @route   PUT /kuesioner/:id
 router.put('/:id', ensureAuth, async (req, res) => {
   let id = req.params.id
-  console.log(req.body)
   try {
     let qform = await QForm.findById(id).lean()
     if (!qform) {

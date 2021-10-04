@@ -9,19 +9,27 @@
       <div class="container">
         <div class="row-content">
           <form action="/kuesioner/publikasi" method="POST">
+            <input type="hidden" name="_method" value="PUT">
+
             <div class="content fadeInKiri">
               <div class="line"></div>
+              <input type="hidden" name="idF" value="<%= idNext %>">
               <div class="bungkus-content edit">
                 <label for="title">Judul : </label>
-                <input type="text" name="title" id="title" class="text" placeholder="Judul Kuesioner">
+                <input type="text" id="title" class="text" disabled value="<%= qforms.judul %> ">
               </div>
 
               <div class="bungkus-content edit">
-                <label for="desc">Deskripsi : </label>
-                <textarea name="desc" id="desc" cols="30" rows="10" placeholder="Deskripsi Kuesioner"></textarea>
+                <label for="status">Status : </label>
+                <select name="status" id="status" class="dropdown" required>
+                  <option disabled selected value="">-- Pilihan</option>
+                  <option value="private">Private</option>
+                  <option value="public">Public</option>
+                </select>
               </div>
 
             </div>
+            
             <center>
               <button type="submit" class="tombol-md tmb-utama bunder fadeInBawah">Kirim</button>
             </center>
