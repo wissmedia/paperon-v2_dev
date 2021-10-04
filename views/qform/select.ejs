@@ -2,6 +2,7 @@
 <html lang="en">
 <!-- HEAD PARTIALS -->
 <%- include('../partials/head.ejs') %>
+  <link rel="stylesheet" type="text/css" href="/js/datatables.min.css" />
 
   <body>
     <!-- NAV PARTIALS -->
@@ -9,19 +10,55 @@
       <div class="container">
         <div class="row-content">
           <form action="/kuesioner/pilih" method="POST">
+            <input type="hidden" name="_method" value="PUT">
             <div class="content fadeInKiri">
               <div class="line"></div>
+              <input type="hidden" name="idF" value="<%= idNext %>">
               <div class="bungkus-content edit">
                 <label for="title">Judul : </label>
-                <input type="text" name="title" id="title" class="text" placeholder="Judul Kuesioner" >
+                <input type="text" id="title" class="text" disabled value="<%= qform.judul %> ">
               </div>
+            </div>
 
-              <div class="bungkus-content edit">
-                <label for="desc">Deskripsi : </label>
-                <textarea name="desc" id="desc" cols="30" rows="10" placeholder="Deskripsi Kuesioner"></textarea>
-              </div>
+            <div class="data-content fadeInAtas">
+              <% if (questions.length> 0) { %>
+                <table id="dataTable" class="data-table">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>No</th>
+                      <th>Pertanyaan</th>
+                      <th>Tipe</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% questions.forEach((question, index)=> { %>
+                      <tr>
+                        <td><input type="checkbox" name="idQ" value="<%= question._id %>"></td>
+                        <td>
+                          <%= index+1 %>
+                        </td>
+                        <td>
+                          <%= helper.truncate(question.body, 30) %>
+                            <%= (question.useWajib=='on' ? '*' : '' ) %>
+                        </td>
+                        <td>
+                          <%= helper.typeChange(question.tipe) %>
+                        </td>
+                      </tr>
+                      <% }) %>
+                  </tbody>
+                </table>
+                <input type="hidden" name="idQ" value=""></td>
+                <% } else { %>
+                  <div class="info-content fadeInAtas">
+                    <p>Belum ada pertanyaan dibuat</p>
+                    <p>Klik <strong>Tambah</strong> untuk mulai membuat pertanyaan</p>
+                  </div>
+                  <% } %>
 
             </div>
+            <br>
             <center>
               <button type="submit" class="tombol-md tmb-utama bunder fadeInBawah">Kirim</button>
             </center>
@@ -33,6 +70,30 @@
       <%- include('../partials/modal-auth.ejs') %>
         <!-- SCRIPT PARTIALS -->
         <%- include('../partials/script.ejs') %>
+          <script type="text/javascript" src="/js/datatables.min.js"></script>
+          <script>
+            $(document).ready(function () {
+              $('#dataTable').DataTable({
+                columnDefs: [{
+                  orderable: false,
+                  className: 'select-checkbox',
+                  targets: 0,
+                },
+                ],
+                select: {
+                  style: 'os',
+                  selector: 'td:first-child'
+                },
+                scrollX: true,
+                lengthMenu: [[5, 10, 20, -1], [5, 10, 20, "All"]],
+                language: {
+                  lengthMenu: "Tampilkan _MENU_ per halaman",
+                  info: "Tampilkan _START_ sampai _END_ dari _TOTAL_ data",
+                  search: "Cari : ",
+                }
+              });
+            });
+          </script>
 
   </body>
 

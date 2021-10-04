@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const { ensureAuth } = require('../middleware/auth')
 const QForm = require('../models/qform')
+const Question = require('../models/question')
 
 // @desc    List Kuesioner Page
 // @route   GET /kuesioner
@@ -25,8 +26,9 @@ router.post('/', ensureAuth, async (req, res) => {
   try {
     req.body.user = req.user.id
     const qform = new QForm(req.body)
+    let id = qform._id
     await qform.save()
-    res.redirect('/kuesioner/pilih')
+    res.redirect(`/kuesioner/tambah/${id}/pilih`)
   } catch (error) {
     console.error(error)
     return res.render('error/500')
@@ -43,14 +45,41 @@ router.get('/tambah', ensureAuth, (req, res) => {
 })
 
 // @desc    Step 2 - Pilih Pertanyaan Page
-// @route   POST /kuesioner/pilih
-router.post('/pilih', ensureAuth, async (req, res) => {
+// @route   PUT /kuesioner/pilih
+router.put('/pilih', ensureAuth, async (req, res) => {
+  // remove blank element from idQ array
+  if (req.body.hasOwnProperty('idQ')) {
+    if (req.body.idQ.constructor === Array) {
+      req.body.idQ = req.body.idQ.filter(item => item)
+    }
+  }
+
   try {
-    // req.body.user = req.user.id
-    // const qform = new QForm(req.body)
-    // await qform.save()
-    // res.redirect('/kuesioner/pilih')
-    res.redirect('/kuesioner/urutan')
+    let { idF, idQ } = req.body
+    let objs = []
+
+    if (idQ.constructor === Array) {
+      for (let i = 0; i < idQ.length; i++) {
+        let obj = {
+          idQ: idQ[i],
+          order: null
+        }
+        objs.push(obj)
+      }
+    }
+    req.body.listQ = objs
+    let qform = await QForm.findById(idF).lean()
+    if (!qform) {
+      return res.render('error/404')
+    }
+    if (qform.user != req.user.id) {
+      res.redirect('/pertanyaan')
+    } else {
+      qform = await QForm.findOneAndUpdate({ _id: req.body.idF }, req.body, {
+        runValidators: true
+      })
+      res.redirect(`/kuesioner/tambah/${idF}/urutan`)
+    }
   } catch (error) {
     console.error(error)
     return res.render('error/500')
@@ -58,20 +87,67 @@ router.post('/pilih', ensureAuth, async (req, res) => {
 })
 
 // @desc    Step 2 - Pilih Pertanyaan Page
-// @route   GET /kuesioner/pilih
-router.get('/pilih', ensureAuth, (req, res) => {
-  res.render('qform/select', { navTitle: '(2) Tambah Pertanyaan'})
+// @route   GET /kuesioner/:id/pilih
+router.get('/tambah/:id/pilih', ensureAuth, async (req, res) => {
+  try {
+    let idNext = req.params.id
+    let a = Question.find({ user: req.user.id })
+      .sort({ createdAt: 'desc' })
+      .lean()
+    let b = QForm.findById(req.params.id).lean()
+
+    let [questions, qform] = await Promise.all([a, b])
+
+    res.render('qform/select', {
+      navTitle: '(2) Tambah Pertanyaan',
+      idNext,
+      questions,
+      qform,
+      helper: require('../helper/helper'),
+    })
+  } catch (error) {
+    console.error(error)
+    return res.render('error/500')
+  }
 })
 
 // @desc    Step 3 - Urutkan Pertanyaan Page
-// @route   POST /kuesioner/urutan
-router.post('/urutan', ensureAuth, async (req, res) => {
+// @route   PUT /kuesioner/urutan
+router.put('/urutan', ensureAuth, async (req, res) => {
   try {
-    // req.body.user = req.user.id
-    // const qform = new QForm(req.body)
-    // await qform.save()
-    // res.redirect('/kuesioner/pilih')
-    res.redirect('/kuesioner/publikasi')
+    // console.log(req.body)
+
+    let { idF, idQ, order } = req.body
+    // console.log(idF)
+    // console.log(idQ)
+    // console.log(order)
+
+    let objs = []
+    for (let i = 0; i < idQ.length; i++) {
+      let obj = {
+        idQ: idQ[i],
+        order: order[i]
+      }
+      objs.push(obj)
+    }
+    console.log(objs)
+    req.body.listQ = objs
+    let qform = await QForm.findById(idF).lean()
+    if (!qform) {
+      return res.render('error/404')
+    }
+    if (qform.user != req.user.id) {
+      res.redirect('/pertanyaan')
+    } else {
+      qform = await QForm.findOneAndUpdate({ _id: req.body.idF }, req.body, {
+        runValidators: true
+      })
+
+      // res.redirect(`/kuesioner/tambah/${idF}/urutan`)
+      res.redirect(`/kuesioner/tambah/${idF}/publikasi`)
+    }
+
+
   } catch (error) {
     console.error(error)
     return res.render('error/500')
@@ -80,8 +156,20 @@ router.post('/urutan', ensureAuth, async (req, res) => {
 
 // @desc    Step 3 - Urutkan Pertanyaan Page
 // @route   GET /kuesioner/urutan
-router.get('/urutan', ensureAuth, (req, res) => {
-  res.render('qform/queue', { navTitle: '(3) Urutkan Pertanyaan'})
+router.get('/tambah/:id/urutan', ensureAuth, async (req, res) => {
+  let idNext = req.params.id
+  try {
+    let qforms = await QForm.findById(req.params.id).populate('listQ.idQ').lean()
+    res.render('qform/queue', {
+      navTitle: '(3) Urutkan Pertanyaan',
+      idNext,
+      qforms,
+      helper: require('../helper/helper'),
+    })
+  } catch (error) {
+    console.error(error)
+    return res.render('error/500')
+  }
 })
 
 // @desc    Step 4 - Publikasi Kuesioner Page
@@ -101,8 +189,18 @@ router.post('/publikasi', ensureAuth, async (req, res) => {
 
 // @desc    Step 4 - Publikasi Kuesioner Page
 // @route   GET /kuesioner/publikasi
-router.get('/publikasi', ensureAuth, (req, res) => {
-  res.render('qform/publish', { navTitle: '(4) Publikasi Kuesioner'})
+router.get('/tambah/:id/publikasi', ensureAuth, (req, res) => {
+  try {
+    let idNext = req.params.id
+    // res.type('json').send(JSON.stringify(qforms, null, 2) + '\n')
+    res.render('qform/publish', {
+      navTitle: '(4) Publikasi Kuesioner',
+      idNext
+    })
+  } catch (error) {
+    console.error(error)
+    return res.render('error/500')
+  }
 })
 
 // @desc    Show single kuesioner page

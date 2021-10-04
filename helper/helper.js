@@ -86,6 +86,231 @@ var func = {
           `
     }
   },
+  orderSet: function (tipe, body, opsiy, opsix, sl, label, useWajib) {
+    let isWajib = ''
+    if (useWajib == 'on') {
+      isWajib = 'checked'
+    }
+    switch (tipe) {
+      case 'shortText':
+      case 'longText':
+      case 'date':
+      case 'time':
+      case 'dateTime':
+        return `
+        <div class="bungkus-content edit">
+          <label for="tipe">Teks Pertanyaan :</label>
+          <input type="text" id="body" class="text" value="${body}" readonly>
+        </div>
+        `
+
+      case 'radio':
+        outputRB = opsiy.map((opsi, i) => {
+          return `
+          <div class="edit-group setInput">
+            <input type="radio" id="pilih1" disabled>
+            <input type="text" id="opsi" class="text" value="${opsi}" readonly>
+          </div>
+          `
+        }).join('')
+        return `
+        <div class="bungkus-content edit">
+          <label for="tipe">Teks Pertanyaan :</label>
+          <input type="text" id="body" class="text" value="${body}" readonly>
+        </div>
+
+        <div class="bungkus-content edit">
+          <label for="">Opsi :</label>
+          ${outputRB}
+          <div class="edit-group addInput">
+            <input type="radio" id="pilih1" disabled>
+            <input type="text" class="text addOpsiKolom" placeholder="Tambah opsi" readonly>
+          </div>
+        </div>
+        `
+      case 'checkBox':
+        outputCB = opsiy.map((opsi, i) => {
+          return `
+          <div class="edit-group setInput">
+            <input type="checkbox" id="pilih1" disabled>
+            <input type="text" id="opsi" class="text" value="${opsi}" required>
+          </div>
+          `
+        }).join('')
+        return `
+        <div class="bungkus-content edit">
+          <label for="tipe">Teks Pertanyaan :</label>
+          <input type="text" id="body" class="text" value="${body}" required>
+        </div>
+
+        <div class="bungkus-content edit">
+          <label for="">Opsi :</label>
+          ${outputCB}
+          <div class="edit-group addInput">
+            <input type="checkbox" id="pilih1" disabled>
+            <input type="text" class="text addOpsiCheckKolom" placeholder="Tambah opsi" readonly>
+          </div>
+        </div>
+        `
+      case 'dropDown':
+        outputDD = opsiy.map((opsi, i) => {
+          return `
+          <div class="edit-group setInput">
+            <span id="nomor" class="nomor">&#9672;</span>
+            <input type="text" id="opsi" class="text" value="${opsi}" required>
+          </div>
+          `
+        }).join('')
+        return `
+        <div class="bungkus-content edit">
+          <label for="tipe">Teks Pertanyaan :</label>
+          <input type="text" name="body" id="body" class="text" value="${body}" required>
+        </div>
+
+        <div class="bungkus-content edit">
+          <label for="">Opsi :</label>
+          ${outputDD}
+          <div class="edit-group addInput">
+            <span id="nomor">&#9672;</span>
+            <input type="text" class="text addOpsiDaftar" placeholder="Tambah opsi" readonly>
+          </div>
+        </div>
+        `
+      case 'radioGrid':
+        outputRGX = opsix.map((opsi, i) => {
+          return `
+          <div class="edit-group setInput">
+            <input type="radio" name="pilih" id="pilih1" disabled>
+            <input type="text" name="opsix" id="opsi" class="text" value="${opsi}" required>
+          </div>
+          `
+        }).join('')
+        outputRGY = opsiy.map((opsi, i) => {
+          return `
+          <div class="edit-group setInput">
+            <input type="radio" name="pilih" id="pilih1" disabled>
+            <input type="text" name="opsiy" id="opsi" class="text" value="${opsi}" required>
+          </div>
+          `
+        }).join('')
+        return `
+        <div class="bungkus-content edit">
+          <label for="tipe">Teks Pertanyaan :</label>
+          <input type="text" name="body" id="body" class="text" value="${body}" required>
+        </div>
+
+        <div class="bungkus-content edit">
+          <div class="baris">
+            <label for="">Baris</label>
+            ${outputRGX}
+            <div class="edit-group addInput">
+              <input type="radio" name="pilih" id="pilih1" disabled>
+              <input type="text" class="text addOpsiBaris" placeholder="Tambah baris" readonly>
+            </div>
+          </div>
+
+          <div class="kolom">
+            <label for="">Kolom</label>
+            ${outputRGY}
+            <div class="edit-group addInput">
+              <input type="radio" name="pilih" id="pilih1" disabled>
+              <input type="text" class="text addOpsiKolom" placeholder="Tambah kolom" readonly>
+            </div>
+          </div>
+        </div>
+        `
+      case 'checkGrid':
+        outputRGX = opsix.map((opsi, i) => {
+          return `
+          <div class="edit-group setInput">
+            <input type="checkbox" name="pilih" id="pilih1" disabled>
+            <input type="text" id="opsi" class="text" value="${opsi}" readonly>
+          </div>
+          `
+        }).join('')
+        outputRGY = opsiy.map((opsi, i) => {
+          return `
+          <div class="edit-group setInput">
+            <input type="checkbox" name="pilih" id="pilih1" disabled>
+            <input type="text" id="opsi" class="text" value="${opsi}" readonly>
+          </div>
+          `
+        }).join('')
+        return `
+        <div class="bungkus-content edit">
+          <label for="tipe">Teks Pertanyaan :</label>
+          <input type="text" id="body" class="text" value="${body}" readonly>
+        </div>
+
+        <div class="bungkus-content edit">
+          <div class="baris">
+            <label for="">Baris</label>
+            ${outputRGX}
+            <div class="edit-group addInput">
+              <input type="checkbox" id="pilih1" disabled>
+              <input type="text" class="text addOpsiBaris" placeholder="Tambah baris" readonly>
+            </div>
+          </div>
+
+          <div class="kolom">
+            <label for="">Kolom</label>
+            ${outputRGY}
+            <div class="edit-group addInput">
+              <input type="checkbox" id="pilih1" disabled>
+              <input type="text" class="text addOpsiKolom" placeholder="Tambah kolom" readonly>
+            </div>
+          </div>
+        </div>
+        `
+
+      case 'linearScale':
+        return `
+        <div class="bungkus-content edit">
+          <label for="tipe">Teks Pertanyaan :</label>
+          <input type="text" id="body" class="text" value="${body}" readonly>
+        </div>
+
+        <div class="bungkus-content edit">
+          <label for="">Jumlah opsi : </label>
+          <br>
+          <select name="sl" class="dropdown ddA">
+            <option value="0" ${sl[0] == 0 ? 'selected' : ''}>0</option>
+            <option value="1" ${sl[0] == 1 ? 'selected' : ''}>1</option>
+          </select>
+
+          <span>sampai</span>
+
+          <select name="sl" class="dropdown ddB">
+            <option value="2" ${sl[1] == 2 ? 'selected' : ''}>2</option>
+            <option value="3" ${sl[1] == 3 ? 'selected' : ''}>3</option>
+            <option value="4" ${sl[1] == 4 ? 'selected' : ''}>4</option>
+            <option value="5" ${sl[1] == 5 ? 'selected' : ''}>5</option>
+            <option value="6" ${sl[1] == 6 ? 'selected' : ''}>6</option>
+            <option value="7" ${sl[1] == 7 ? 'selected' : ''}>7</option>
+            <option value="8" ${sl[1] == 8 ? 'selected' : ''}>8</option>
+            <option value="9" ${sl[1] == 9 ? 'selected' : ''}>9</option>
+            <option value="10" ${sl[1] == 10 ? 'selected' : ''}>10</option>
+          </select>
+        </div>
+        
+        <div class="bungkus-content edit">
+          <label for="">Label (opsional) : </label>
+          <div class="label-skala">
+            <span id="skala-a" class="skala-a">0</span>
+            <input type="text" class="" value="${label[0]}">
+          </div>
+          <div class="label-skala">
+            <span id="skala-b" class="skala-b">10</span>
+            <input type="text" class="" value="${label[1]}">
+          </div>
+        </div>
+        `
+
+      default:
+        return `<p>Tipe > ${tipe} < perlu tambahan switch change case di helper</p>`
+
+    }
+  },
   typeEdit: function (tipe, body, opsiy, opsix, sl, label, useWajib) {
     let isWajib = ''
     if (useWajib == 'on') {

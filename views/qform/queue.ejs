@@ -9,22 +9,41 @@
       <div class="container">
         <div class="row-content">
           <form action="/kuesioner/urutan" method="POST">
+            <input type="hidden" name="_method" value="PUT">
+
             <div class="content fadeInKiri">
               <div class="line"></div>
-              <div class="bungkus-content edit">
+              <input type="hidden" name="idF" value="<%= idNext %>">
+              <div class="bungkus-content">
                 <label for="title">Judul : </label>
-                <input type="text" name="title" id="title" class="text" placeholder="Judul Kuesioner">
+                <input type="text" id="title" class="text" disabled value="<%= qforms.judul %> ">
               </div>
-
-              <div class="bungkus-content edit">
-                <label for="desc">Deskripsi : </label>
-                <textarea name="desc" id="desc" cols="30" rows="10" placeholder="Deskripsi Kuesioner"></textarea>
-              </div>
-
             </div>
-            <center>
-              <button type="submit" class="tombol-md tmb-utama bunder fadeInBawah">Kirim</button>
-            </center>
+
+            <% qforms.listQ.forEach((qform, index)=> { %>
+              <div class="content fadeInKiri">
+                <div class="line"></div>
+                <div class="bungkus-content">
+                  <div class="nomor-urut">
+                    <label>No :</label>
+                    <input type="number" name="order" class="input-nomor" value="<%= qform.order %>" required>
+                  </div>
+                </div>
+                <input type="hidden" name="idQ" value="<%= qform.idQ._id %>">
+
+                <%- helper.orderSet(qform.idQ.tipe, qform.idQ.body, qform.idQ.opsiy, qform.idQ.opsix, qform.idQ.sl,
+                  qform.idQ.label, qform.idQ.useWajib) %>
+
+                <div class="bungkus-content edit">
+                  <label for="tipe">Tipe Pertanyaan :</label>
+                  <input type="text" id="body" class="text" value="<%= helper.typeChange(qform.idQ.tipe)%>" readonly>
+                </div>
+              </div>
+              <% }) %>
+
+                <center>
+                  <button type="submit" class="tombol-md tmb-utama bunder fadeInBawah">Kirim</button>
+                </center>
           </form>
         </div>
       </div>
