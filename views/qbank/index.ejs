@@ -30,7 +30,7 @@
                         <%= index+1 %>
                       </td>
                       <td><a href="/pertanyaan/<%= question._id %>">
-                          <%= helper.truncate(question.body, 30) %>
+                          <%= helper.truncate(question.body, 35) %>
                             <%= (question.useWajib=='on' ? '*' : '' ) %>
                         </a></td>
                       <td>
