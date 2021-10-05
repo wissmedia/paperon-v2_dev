@@ -14,7 +14,7 @@ router.get('/', ensureAuth, async (req, res) => {
     const questions = await Question.find({ user: req.user.id })
       .sort({ createdAt: 'desc' })
       .lean()
-    res.render('qbank/index-new', {
+    res.render('qbank/index', {
       navTitle: 'List Pertanyaan',
       helper: require('../helper/helper'),
       questions,
@@ -48,7 +48,7 @@ router.get('/tambah', ensureAuth, (req, res) => {
     { link: '/pertanyaan', icon: 'fas fa-chevron-circle-left', label: 'Kembali', id: 'kembali' },
     { link: 'javascript:;', icon: 'fas fa-plus', label: 'Pilihan', id: 'add' },
   ]
-  res.render('qbank/add-new', { navTitle: 'Tambah Pertanyaan', navMenus })
+  res.render('qbank/add', { navTitle: 'Tambah Pertanyaan', navMenus })
 })
 
 // @desc    Show single question page
