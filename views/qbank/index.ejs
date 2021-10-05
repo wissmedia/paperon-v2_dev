@@ -2,49 +2,62 @@
 <html lang="en">
 <!-- HEAD PARTIALS -->
 <%- include('../partials/head.ejs') %>
+  <link rel="stylesheet" type="text/css" href="/js/datatables.min.css" />
 
   <body>
     <!-- NAV PARTIALS -->
     <%- include('../partials/nav.ejs') %>
+
       <div class="container">
         <div class="row-content">
-          <% let i=0 %>
-            <% if(questions.length> 0){ %>
-              <% questions.forEach(question=> { %>
-                <div class="content fadeInKiri">
-                  <div class="line"></div>
-                  <div class="bungkus-content edit">
-                    <p>
-                      <%= i+1 %>
-                    </p>
-                    <h2>
-                      <%= question.body %>
-                        <%= (question.useWajib=='on' ? '*' : '' ) %>
-                        <%= (question.useEtc=='on' ? '^' : '' ) %>
-                    </h2>
-                    <p>
-                      Tipe : <%= helper.typeChange(question.tipe) %>
-                    </p>
-                    <div class="control-edit">
-                      <button type="button"><a href="/pertanyaan/<%= question._id %>"><i
-                            class="fas fa-eye"></i></a></button>
-                      <form action="/pertanyaan/<%= question._id %>" method="POST" id="delete-form">
-                        <button type="button"><a href="/pertanyaan/edit/<%= question._id %>"><i
-                              class="fas fa-edit"></i></a></button>
-                        <input type="hidden" name="_method" value="DELETE">
-                        <button type="submit"><i class="fas fa-trash"></i></button>
-                      </form>
-                    </div>
-                  </div>
+          <div class="data-content fadeInAtas">
+            <!-- responsive table -->
+            <% if (questions.length>0) { %>
+
+              <table id="dataTable" class="data-table">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Pertanyaan</th>
+                    <th>Tipe</th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% questions.forEach((question, index)=> { %>
+                    <tr>
+                      <td>
+                        <%= index+1 %>
+                      </td>
+                      <td><a href="/pertanyaan/<%= question._id %>">
+                          <%= helper.truncate(question.body, 30) %>
+                            <%= (question.useWajib=='on' ? '*' : '' ) %>
+                        </a></td>
+                      <td>
+                        <%= helper.typeChange(question.tipe) %>
+                      </td>
+                      <td>
+                        <form action="/pertanyaan/<%= question._id %>" method="POST" id="delete-form">
+                          <input type="hidden" name="_method" value="DELETE">
+                          <a href="/pertanyaan/edit/<%= question._id %>"><button type="button"
+                              class="tombol tmb-utama bunder"><i class="fas fa-pencil-alt"></i></button></a>
+                          <button type="submit" class="tombol tmb-batal bunder"><i
+                              class="fas fa-trash-alt"></i></button>
+                        </form>
+                      </td>
+                    </tr>
+                    <% }) %>
+                </tbody>
+              </table>
+
+              <% } else { %>
+                <div class="info-content fadeInAtas">
+                  <p>Belum ada pertanyaan dibuat</p>
+                  <p>Klik <strong>Tambah</strong> untuk mulai membuat pertanyaan</p>
                 </div>
-                <% i++ %>
-                  <% }) %>
-                    <% }else{ %>
-                      <div class="info-content fadeInAtas">
-                        <p>Belum ada pertanyaan dibuat</p>
-                        <p>Klik <strong>Tambah</strong> untuk mulai membuat pertanyaan</p>
-                      </div>
-                      <% } %>
+                <% } %>
+
+          </div>
         </div>
       </div>
 
@@ -54,6 +67,31 @@
         <%- include('../partials/footer.ejs') %>
           <!-- SCRIPT PARTIALS -->
           <%- include('../partials/script.ejs') %>
+            <script type="text/javascript" src="/js/datatables.min.js"></script>
+
+            <script>
+              $(document).ready(function () {
+                $('#dataTable').DataTable({
+                  columnDefs: [{
+                    orderable: false,
+                    className: 'select-checkbox',
+                    targets: 0,
+                  },
+                  ],
+                  select: {
+                    style: 'os',
+                    selector: 'td:first-child'
+                  },
+                  scrollX: true,
+                  lengthMenu: [[5, 10, 20, -1], [5, 10, 20, "All"]],
+                  language: {
+                    lengthMenu: "Tampilkan _MENU_ per halaman",
+                    info: "Tampilkan _START_ sampai _END_ dari _TOTAL_ data",
+                    search: "Cari : ",
+                  }
+                });
+              });
+            </script>
 
   </body>
 

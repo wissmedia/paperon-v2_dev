@@ -1,49 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- HEAD PARTIALS -->
 <%- include('../partials/head.ejs') %>
 
   <body>
     <!-- NAV PARTIALS -->
     <%- include('../partials/nav.ejs') %>
+
+      <!-- CONTENT -->
       <div class="container">
         <div class="row-content">
+          <div class="info-content fadeInAtas">
+            <p>Belum ada pertanyaan dipilih</p>
+            <p>Klik <strong>Pilihan</strong> untuk mulai membuat pertanyaan</p>
+          </div>
+
           <form action="/pertanyaan" method="POST">
-            <div class="content fadeInKiri">
-              <div class="line"></div>
-              <div class="bungkus-content">
-                <label for="selectType">Tipe Jawaban : </label>
-                <select name="selectType" id="selectType" class="dropdown" required>
-                  <option disabled hidden selected value="">-- Pilihan</option>
-                  <% if(options.length> 0){ %>
-                    <% options.forEach(option=> { %>
-                      <option value="<%= option.value %>">
-                        <%= option.text %>
-                      </option>
-                      <% }) %>
-                        <% }else{ %>
-                          <option value="">Tidak ada data</option>
-                          <% } %>
-                </select>
-              </div>
-              <div class="bungkus-content edit">
-                <label for="body">Pertanyaan :</label>
-                <input type="text" name="body" id="body" class="text" placeholder="Ketik pertanyaan disini" required>
-              </div>
-              <center>
-                <button type="submit" class="tombol-md tmb-utama bunder">Kirim</button>
-              </center>
-            </div>
+            <div class="setup"></div>
           </form>
         </div>
       </div>
+      <!-- END CONTENT -->
 
-      <!-- MODAL AUTH -->
-      <%- include('../partials/modal-auth.ejs') %>
-        <!-- FOOTER PARTIALS -->
-        <%- include('../partials/footer.ejs') %>
-          <!-- SCRIPT PARTIALS -->
-          <%- include('../partials/script.ejs') %>
+
+      <!-- MODAL QBANK-->
+      <%- include('../partials/modal-qbank.ejs') %>
+        <!-- MODAL AUTH -->
+        <%- include('../partials/modal-auth.ejs') %>
+          <!-- FOOTER-SP PARTIALS -->
+          <%- include('../partials/footer-sp.ejs') %>
+            <!-- SCRIPT PARTIALS -->
+            <%- include('../partials/script.ejs') %>
+              <script src="/js/add-question-re.js"></script>
 
   </body>
 
