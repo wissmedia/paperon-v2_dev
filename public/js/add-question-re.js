@@ -59,7 +59,7 @@ $(document).ready(function () {
 					<div class="bungkus-content edit">
 						<input type="hidden" name="tipe" value="shortText">
 						<p>Pertanyaan dengan jawaban singkat</p>
-						<input type="text" name="body" id="tanya" class="text tanya" placeholder="Masukan pertanyaan jawaban singkat"
+						<input type="text" name="body" id="tanya" class="text tanya" placeholder="Ketik pertanyaan..."
 							required>
 
 						<div class="control-edit">
@@ -96,7 +96,7 @@ $(document).ready(function () {
 					<div class="bungkus-content edit">
 						<input type="hidden" name="tipe" value="longText">
 						<p>Pertanyaan dengan jawaban panjang</p>
-						<input type="text" name="body" id="tanyapanjang" class="text" placeholder="Masukan pertanyaan jawaban panjang"
+						<input type="text" name="body" id="tanyapanjang" class="text" placeholder="Ketik pertanyaan.."
 							required>
 			
 						<div class="control-edit">
@@ -132,13 +132,13 @@ $(document).ready(function () {
 					<div class="line"></div>
 					<div class="bungkus-content edit">
 						<input type="hidden" name="tipe" value="radio">
-						<p>Pertanyaan dengan 1 pilihan jawaban</p>
-						<input type="text" name="body" id="pilihanganda" class="text" placeholder="Masukan pertanyaan pilihan ganda"
+						<p>Pertanyaan dengan jawaban pilihan ganda</p>
+						<input type="text" name="body" id="pilihanganda" class="text" placeholder="Ketik Pertanyaan..."
 							required>
 
 						<div class="edit-group setInput">
 							<input type="radio" name="pilih" id="pilih1" disabled>
-							<input type="text" name="opsiy" id="opsi" class="text" placeholder="Ketik opsi kolom disini" required>
+							<input type="text" name="opsiy" id="opsi" class="text" placeholder="Ketik opsi..." required>
 						</div>
 
 						<div class="edit-group addInput">
@@ -181,12 +181,12 @@ $(document).ready(function () {
 					<div class="bungkus-content edit">
 						<input type="hidden" name="tipe" value="radioGrid">
 						<p>Pertanyaan pilihan ganda bentuk baris dan kolom</p>
-						<input type="text" name="body" id="pilihanganda" class="text" placeholder="Masukan pertanyaan pilihan ganda" required>
+						<input type="text" name="body" id="pilihanganda" class="text" placeholder="Ketik pertanyaan..." required>
 						<div class="baris">
 							<label for="">Baris</label>
 							<div class="edit-group setInput">
 								<input type="radio" name="pilih" id="pilih1" disabled>
-								<input type="text" name="opsix" id="opsi" class="text" placeholder="Ketik opsi baris disini" required >
+								<input type="text" name="opsix" id="opsi" class="text" placeholder="Ketik opsi..." required >
 							</div>
 
 							<div class="edit-group addInput">
@@ -198,7 +198,7 @@ $(document).ready(function () {
 							<label for="">Kolom</label>
 							<div class="edit-group setInput">
 								<input type="radio" name="pilih" id="pilih1" disabled>
-								<input type="text" name="opsiy" id="opsi" class="text" placeholder="Ketik opsi kolom disini" required >
+								<input type="text" name="opsiy" id="opsi" class="text" placeholder="Ketik opsi..." required >
 							</div>
 
 							<div class="edit-group addInput">
@@ -242,13 +242,13 @@ $(document).ready(function () {
 					<div class="line"></div>
 					<div class="bungkus-content edit">
 						<input type="hidden" name="tipe" value="checkBox">
-						<p>Pertanyaan dengan banyak pilihan</p>
+						<p>Pertanyaan dengan jawaban kotak centang</p>
 						<input type="text" name="body" id="pilihanganda" class="text"
-							placeholder="Masukan pertanyaan pilihan kotak centang" required>
+							placeholder="Ketik pertanyaan..." required>
 
 						<div class="edit-group setInput">
 							<input type="checkbox" name="pilih" id="pilih1" disabled>
-							<input type="text" name="opsiy" id="opsi" class="text" placeholder="Ketik opsi kolom disini" required>
+							<input type="text" name="opsiy" id="opsi" class="text" placeholder="Ketik opsi..." required>
 						</div>
 
 						<div class="edit-group addInput">
@@ -292,12 +292,12 @@ $(document).ready(function () {
 						<input type="hidden" name="tipe" value="checkGrid">
 						<p>Pertanyaan pilihan petak kotak centang</p>
 						<input type="text" name="body" id="pilihanganda" class="text"
-							placeholder="Masukan pertanyaan pilihan petak kotak centang" required>
+							placeholder="Ketik pertanyaan..." required>
 						<div class="baris">
 							<label for="">Baris</label>
 							<div class="edit-group setInput">
 								<input type="checkbox" name="pilih" id="pilih1" disabled>
-								<input type="text" name="opsix" id="opsi" class="text" placeholder="Ketik opsi baris disini" required >
+								<input type="text" name="opsix" id="opsi" class="text" placeholder="Ketik opsi..." required >
 							</div>
 
 							<div class="edit-group addInput">
@@ -309,7 +309,7 @@ $(document).ready(function () {
 							<label for="">Kolom</label>
 							<div class="edit-group setInput">
 								<input type="checkbox" name="pilih" id="pilih1" disabled>
-								<input type="text" name="opsiy" id="opsi" class="text" placeholder="Ketik opsi kolom disini" required >
+								<input type="text" name="opsiy" id="opsi" class="text" placeholder="Ketik opsi..." required >
 							</div>
 
 							<div class="edit-group addInput">
@@ -350,13 +350,13 @@ $(document).ready(function () {
 					<div class="line"></div>
 					<div class="bungkus-content edit">
 						<input type="hidden" name="tipe" value="dropDown">
-						<p>Pertanyaan Pilihan Dropdown</p>
-						<input type="text" name="body" id="pilihdropdown" class="text" placeholder="Masukan pertanyaan daftar pilihan"
+						<p>Pertanyaan dengan jawaban daftar pilihan</p>
+						<input type="text" name="body" id="pilihdropdown" class="text" placeholder="Ketik pertanyaan..."
 							required>
 
 						<div class="edit-group setInput">
 							<span id="nomor" class="nomor">&#9672;</span>
-							<input type="text" name="opsiy" id="opsi" class="text" placeholder="Ketik opsi disini" required>
+							<input type="text" name="opsiy" id="opsi" class="text" placeholder="Ketik opsi..." required>
 						</div>
 
 						<div class="edit-group addInput">
@@ -396,8 +396,8 @@ $(document).ready(function () {
 					<div class="line"></div>
 					<div class="bungkus-content edit">
 						<input type="hidden" name="tipe" value="date">
-						<p>Pertanyaan Tanggal</p>
-						<input type="text" name="body" id="tanya" class="text" placeholder="Masukan pertanyaan untuk jawaban tanggal"
+						<p>Pertanyaan dengan jawaban tanggal</p>
+						<input type="text" name="body" id="tanya" class="text" placeholder="Ketik pertanyaan..."
 							required>
 
 						<div class="control-edit">
@@ -432,8 +432,8 @@ $(document).ready(function () {
 					<div class="line"></div>
 					<div class="bungkus-content edit">
 						<input type="hidden" name="tipe" value="time">
-						<p>Pertanyaan Waktu</p>
-						<input type="text" name="body" id="tanya" class="text" placeholder="Masukan pertanyaan untuk jawaban waktu"
+						<p>Pertanyaan dengan jawaban waktu</p>
+						<input type="text" name="body" id="tanya" class="text" placeholder="Ketik pertanyaan..."
 							required>
 
 						<div class="control-edit">
@@ -468,9 +468,9 @@ $(document).ready(function () {
 					<div class="line"></div>
 					<div class="bungkus-content edit">
 						<input type="hidden" name="tipe" value="dateTime">
-						<p>Pertanyaan Tanggal dan Waktu</p>
+						<p>Pertanyaan dengan jawaban tanggal dan waktu</p>
 						<input type="text" name="body" id="tanya" class="text"
-							placeholder="Masukan pertanyaan untuk jawaban tanggal & waktu" required>
+							placeholder="Ketik pertanyaan..." required>
 
 						<div class="control-edit">
 							<span class="wajib"><input type="checkbox" name="useWajib" class="wajibisi"><label class="wajiblabel">Wajib diisi</label></span>
@@ -504,8 +504,8 @@ $(document).ready(function () {
 					<div class="line"></div>
 					<div class="bungkus-content edit">
 						<input type="hidden" name="tipe" value="linearScale">
-						<p>Pertanyaan Skala Linier</p>
-						<input type="text" name="body" class="text" placeholder="Masukan pertanyaan untuk jawaban dengan skala" required>
+						<p>Pertanyaan dengan jawaban bentuk skala</p>
+						<input type="text" name="body" class="text" placeholder="Ketik pertanyaan..." required>
 						<select name="sl" class="dropdown ddA">
 							<option value="0">0</option>
 							<option value="1">1</option>
@@ -701,7 +701,7 @@ $(document).ready(function () {
 		$(this).parents(".addInput").before(`
             <div class="edit-group setInput">
                 <input type="radio" name="pilih" id="pilih1" disabled>
-                <input type="text" name="opsix" id="opsi" class="text" placeholder="Ketik opsi baris disini" required>
+                <input type="text" name="opsix" id="opsi" class="text" placeholder="Ketik opsi..." required>
                 <a class="del btn-del"><i class="fas fa-times"></i></a>
             </div>
         `);
@@ -712,19 +712,7 @@ $(document).ready(function () {
 		$(this).parents(".addInput").before(`
             <div class="edit-group setInput">
                 <input type="radio" name="pilih" id="pilih1" disabled>
-                <input type="text" name="opsiy" id="opsi" class="text" placeholder="Ketik opsi kolom disini" required>
-                <a class="del btn-del"><i class="fas fa-times"></i></a>
-            </div>
-        `);
-	});
-
-	// Input AddLain-radio
-	$("body").on("click", ".addLain-radio", function () {
-		$(this).parents(".addInput").before(`
-            <div class="edit-group setInput">
-                <input type="radio" name="pilih" id="pilih1" disabled>
-                <div class="label">Lainnya :</div>
-                <input type="text" name="opsi" id="opsi" class="text lainnya">
+                <input type="text" name="opsiy" id="opsi" class="text" placeholder="Ketik opsi..." required>
                 <a class="del btn-del"><i class="fas fa-times"></i></a>
             </div>
         `);
@@ -735,7 +723,7 @@ $(document).ready(function () {
 		$(this).parents(".addInput").before(`
             <div class="edit-group setInput">
                 <input type="checkbox" name="pilih" id="pilih1" disabled>
-                <input type="text" name="opsix" id="opsi" class="text" placeholder="Ketik opsi baris disini" required>
+                <input type="text" name="opsix" id="opsi" class="text" placeholder="Ketik opsi..." required>
                 <a class="del btn-del"><i class="fas fa-times"></i></a>
             </div>
         `);
@@ -746,19 +734,7 @@ $(document).ready(function () {
 		$(this).parents(".addInput").before(`
             <div class="edit-group setInput">
                 <input type="checkbox" name="pilih" id="pilih1" disabled>
-                <input type="text" name="opsiy" id="opsi" class="text" placeholder="Ketik opsi kolom disini" required>
-                <a class="del btn-del"><i class="fas fa-times"></i></a>
-            </div>
-        `);
-	});
-
-	// Input AddLain-check
-	$("body").on("click", ".addLain-check", function () {
-		$(this).parents(".addInput").before(`
-            <div class="edit-group setInput">
-                <input type="checkbox" name="pilih" id="pilih1" disabled>
-                <div class="label">Lainnya :</div>
-                <input type="text" name="opsi" id="opsi" class="text lainnya">
+                <input type="text" name="opsiy" id="opsi" class="text" placeholder="Ketik opsi..." required>
                 <a class="del btn-del"><i class="fas fa-times"></i></a>
             </div>
         `);
@@ -769,24 +745,11 @@ $(document).ready(function () {
 		$(this).parents(".addInput").before(`
             <div class="edit-group setInput">
                 <span id="nomor" class="nomor">&#9672;</span>
-                <input type="text" name="opsiy" id="opsi" class="text" placeholder="Ketik opsi disini" required>
+                <input type="text" name="opsiy" id="opsi" class="text" placeholder="Ketik opsi..." required>
                 <a class="del btn-del"><i class="fas fa-times"></i></a>
             </div>
         `);
 	});
-});
-//myFunc
-// Add Attribute ID on tambah lainnya checkbox
-$(document).ready(function () {
-	$("body").on("click", ".lainnyalabel", function () {
-
-		if ($(this).prev().is(":checked")) {
-			$(this).prev().prop("checked", false);
-		} else {
-			$(this).prev().prop("checked", true);
-		}
-	});
-
 });
 
 // Onchange Dropdown Skala Linear
