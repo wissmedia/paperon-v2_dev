@@ -35,12 +35,20 @@
               <div class="line"></div>
               <div class="bungkus-content edit">
                 <p>* Pratinjau kuesioner</p>
-
               </div>
+              <% qform.listQ.forEach(qf=> { %>
+                <div class="bungkus-content edit">
+                  <div class="nomor-urut">
+                    <label>No :</label>
+                    <input type="number" class="input-nomor" placeholder="<%= qf.order %> ">
+                </div>
+                  <%- helper.typeRender(qf._id, qf.tipe, qf.body, qf.opsiy, qf.opsix, qf.sl, qf.label, qf.useWajib) %>
+                </div>
+                <% }) %>
             </div>
             <center class="fadeInBawah">
-              <a href="/kuesioner/edit/<%= qform._id %>"><button class="tombol-md tmb-utama bunder"><i
-                    class="fas fa-pencil-alt"></i> Edit</button></a>
+              <a href="/kuesioner/edit/<%= qform._id %>/urutan"><button class="tombol-md tmb-utama bunder"><i
+                    class="fas fa-pencil-alt"></i> Ubah Urutan</button></a>
             </center>
             <% } else { %>
               <div class="content fadeInAtas">
