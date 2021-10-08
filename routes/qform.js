@@ -13,7 +13,12 @@ router.get('/', ensureAuth, async (req, res) => {
   ]
   try {
     const qforms = await QForm.find({ user: req.user.id }).lean()
-    res.render('qform/index', { qforms, navTitle: 'List Kuesioner', navMenus })
+    res.render('qform/index', {
+      navTitle: 'List Kuesioner',
+      qforms,
+      navMenus,
+      helper: require('../helper/helper'),
+    })
   } catch (error) {
     console.error(error)
     return res.render('error/500')
@@ -211,8 +216,85 @@ router.get('/:id', ensureAuth, async (req, res) => {
     { link: '/kuesioner', icon: 'fas fa-chevron-circle-left', label: 'Kembali' },
   ]
   try {
-    let qform = await QForm.findById(req.params.id)
-      .lean()
+    // Aggregate to order data
+    let qforms = await QForm.aggregate([
+      {
+        '$unwind': {
+          'path': '$listQ'
+        }
+      }, {
+        '$sort': {
+          'listQ.order': 1
+        }
+      }, {
+        '$group': {
+          '_id': '$_id',
+          'judul': {
+            '$first': '$judul'
+          },
+          'subjudul': {
+            '$first': '$subjudul'
+          },
+          'status': {
+            '$first': '$status'
+          },
+          'listQ': {
+            '$push': '$listQ'
+          },
+          'createdAt': {
+            '$first': '$createdAt'
+          },
+          'updatedAt': {
+            '$first': '$updatedAt'
+          }
+        }
+      }, {
+        '$lookup': {
+          'from': 'questions',
+          'localField': 'listQ.idQ',
+          'foreignField': '_id',
+          'as': 'data'
+        }
+      }, {
+        '$project': {
+          'judul': 1,
+          'subjudul': 1,
+          'status': 1,
+          'listQ': {
+            '$map': {
+              'input': '$listQ',
+              'as': 'one',
+              'in': {
+                '$mergeObjects': [
+                  '$$one', {
+                    '$arrayElemAt': [
+                      {
+                        '$filter': {
+                          'input': '$data',
+                          'as': 'two',
+                          'cond': {
+                            '$eq': [
+                              '$$two._id', '$$one.idQ'
+                            ]
+                          }
+                        }
+                      }, 0
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          'createdAt': 1,
+          'updatedAt': 1
+        }
+      }
+    ])
+
+    let qform = qforms[0]
+
+    console.log(JSON.stringify(qform, null, 2))
+
     if (!qform) {
       return res.render('error/404')
     }
@@ -251,6 +333,134 @@ router.get('/edit/:id', ensureAuth, async (req, res) => {
         navMenus
       })
     }
+  } catch (error) {
+    console.error(error)
+    return res.render('error/500')
+  }
+})
+
+// @desc    Process Urutkan Pertanyaan Page
+// @route   PUT /kuesioner/urutan
+router.put('/edit/urutan', ensureAuth, async (req, res) => {
+  try {
+    let { idF, idQ, order } = req.body
+    let objs = []
+
+    for (let i = 0; i < idQ.length; i++) {
+      let obj = {
+        idQ: idQ[i],
+        order: order[i]
+      }
+      objs.push(obj)
+    }
+    req.body.listQ = objs
+
+    let qform = await QForm.findById(idF).lean()
+    if (!qform) {
+      return res.render('error/404')
+    }
+    if (qform.user != req.user.id) {
+      res.redirect('/pertanyaan')
+    } else {
+      qform = await QForm.findOneAndUpdate({ _id: req.body.idF }, req.body, {
+        runValidators: true
+      })
+      res.redirect(`/kuesioner/${idF}`)
+    }
+  } catch (error) {
+    console.error(error)
+    return res.render('error/500')
+  }
+})
+
+// @desc    Edit Urutan Kuesioner Page
+// @route   GET /kuesioner/edit/:id/urutan
+router.get('/edit/:id/urutan', ensureAuth, async (req, res) => {
+  let idNext = req.params.id
+  try {
+    // Aggregate to order data
+    let qforms = await QForm.aggregate([
+      {
+        '$unwind': {
+          'path': '$listQ'
+        }
+      }, {
+        '$sort': {
+          'listQ.order': 1
+        }
+      }, {
+        '$group': {
+          '_id': '$_id',
+          'judul': {
+            '$first': '$judul'
+          },
+          'subjudul': {
+            '$first': '$subjudul'
+          },
+          'status': {
+            '$first': '$status'
+          },
+          'listQ': {
+            '$push': '$listQ'
+          },
+          'createdAt': {
+            '$first': '$createdAt'
+          },
+          'updatedAt': {
+            '$first': '$updatedAt'
+          }
+        }
+      }, {
+        '$lookup': {
+          'from': 'questions',
+          'localField': 'listQ.idQ',
+          'foreignField': '_id',
+          'as': 'data'
+        }
+      }, {
+        '$project': {
+          'judul': 1,
+          'subjudul': 1,
+          'status': 1,
+          'listQ': {
+            '$map': {
+              'input': '$listQ',
+              'as': 'one',
+              'in': {
+                '$mergeObjects': [
+                  '$$one', {
+                    '$arrayElemAt': [
+                      {
+                        '$filter': {
+                          'input': '$data',
+                          'as': 'two',
+                          'cond': {
+                            '$eq': [
+                              '$$two._id', '$$one.idQ'
+                            ]
+                          }
+                        }
+                      }, 0
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          'createdAt': 1,
+          'updatedAt': 1
+        }
+      }
+    ])
+
+    let qform = qforms[0]
+
+    res.render('qform/queue-edit', {
+      navTitle: 'Ubah Urutan Pertanyaan',
+      idNext,
+      qform,
+      helper: require('../helper/helper'),
+    })
   } catch (error) {
     console.error(error)
     return res.render('error/500')
