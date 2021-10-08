@@ -318,10 +318,13 @@ $(document).ready(function () {
 							</div>
 						</div>
 
-						<div class="control-edit">
-							<span class="wajib"><input type="checkbox" disabled name="useWajib" class="wajibisi"><label class="wajiblabel"><s>Wajib diisi</s></label></span>
-							<span class="divider">|</span>
-							<button class="remove" type="button"><i class="fas fa-trash"></i></button>
+						<div class="container-control-edit">
+							<div class="control-edit">
+								<span class="wajib"><input type="checkbox" disabled name="useWajib" class="wajibisi"><label
+										class="wajiblabel"><s>Wajib diisi</s></label></span>
+								<span class="divider">|</span>
+								<button class="remove" type="button"><i class="fas fa-trash"></i></button>
+							</div>
 						</div>
 					</div>
 				</div>
