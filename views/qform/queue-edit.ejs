@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- HEAD PARTIALS -->
+<%- include('../partials/head.ejs') %>
+
+  <body>
+    <!-- NAV PARTIALS -->
+    <%- include('../partials/nav.ejs') %>
+      <div class="container">
+        <div class="row-content">
+          <form action="/kuesioner/edit/urutan" method="POST">
+            <input type="hidden" name="_method" value="PUT">
+
+            <div class="content fadeInKiri">
+              <div class="line"></div>
+              <input type="hidden" name="idF" value="<%= idNext %>">
+              <div class="bungkus-content edit">
+                <label for="title">Judul : </label>
+                <input type="text" id="title" class="text" disabled value="<%= qform.judul %> ">
+              </div>
+            </div>
+
+            <% qform.listQ.forEach(qf=> { %>
+            <div class="content fadeInKiri">
+              <div class="line"></div>
+                <div class="bungkus-content">
+                  <div class="nomor-urut">
+                    <label>No :</label>
+                    <input type="number" name="order" class="input-nomor" value="<%= qf.order %>" required>
+                    <input type="hidden" name="idQ" value="<%= qf.idQ._id %>">
+                  </div>
+                </div>
+
+                <div class="bungkus-content edit">
+                  <label for="body">Pertanyaan :</label>
+                  <input type="text" id="body" class="text" value="<%= qf.body %> " readonly>
+                </div>
+                <div class="bungkus-content edit">
+                  <label for="tipe">Tipe :</label>
+                  <input type="text" id="tipe" class="text" value="<%= helper.typeChange(qf.tipe) %> " readonly>
+                </div>
+              </div>
+              <% }) %>
+
+            <center>
+              <button type="submit" class="tombol-md tmb-utama bunder fadeInBawah">Kirim</button>
+            </center>
+          </form>
+        </div>
+      </div>
+
+      <!-- MODAL AUTH -->
+      <%- include('../partials/modal-auth.ejs') %>
+        <!-- SCRIPT PARTIALS -->
+        <%- include('../partials/script.ejs') %>
+
+  </body>
+
+</html>
