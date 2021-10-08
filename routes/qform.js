@@ -376,6 +376,9 @@ router.put('/edit/urutan', ensureAuth, async (req, res) => {
 // @desc    Edit Urutan Kuesioner Page
 // @route   GET /kuesioner/edit/:id/urutan
 router.get('/edit/:id/urutan', ensureAuth, async (req, res) => {
+  let navMenus = [
+    { link: '/kuesioner', icon: 'fas fa-chevron-circle-left', label: 'Kembali' },
+  ]
   let idNext = req.params.id
   try {
     // Aggregate to order data
@@ -460,6 +463,7 @@ router.get('/edit/:id/urutan', ensureAuth, async (req, res) => {
       idNext,
       qform,
       helper: require('../helper/helper'),
+      navMenus
     })
   } catch (error) {
     console.error(error)
