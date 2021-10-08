@@ -16,10 +16,22 @@
                 <label for="judul">Edit Judul :</label>
                 <input type="text" name="judul" id="judul" class="text" value="<%= qform.judul %>" required>
               </div>
-  
+
               <div class="bungkus-content edit">
                 <label for="subjudul">Edit Deskripsi :</label>
                 <textarea name="subjudul" id="subjudul" cols="30" rows="10"><%= qform.subjudul %></textarea>
+              </div>
+
+              <div class="bungkus-content edit">
+                <label for="status">Status saat ini :</label>
+                <input type="text" id="status" class="text" value="<%= qform.status %>" disabled>
+                <br>
+                <label for="status">Ubah Status : </label>
+                <select name="status" id="status" class="dropdown" required>
+                  <option disabled selected value="">-- Pilihan</option>
+                  <option value="private">Private</option>
+                  <option value="public">Public</option>
+                </select>
               </div>
 
             </div>
