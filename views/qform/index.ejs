@@ -2,46 +2,63 @@
 <html lang="en">
 <!-- HEAD PARTIALS -->
 <%- include('../partials/head.ejs') %>
+  <link rel="stylesheet" type="text/css" href="/js/datatables.min.css" />
 
   <body>
     <!-- NAV PARTIALS -->
     <%- include('../partials/nav.ejs') %>
+
       <div class="container">
         <div class="row-content">
-          <% let i=0 %>
-            <% if(qforms.length> 0){ %>
-              <% qforms.forEach(qform=> { %>
-                <div class="content fadeInAtas" id="<%= qform._id %> ">
-                  <div class="line"></div>
-                  <div class="bungkus-content edit">
-                    <p>
-                      <%= i+1 %>
-                    </p>
-                    <h2>
-                      <%= qform.judul %>
-                    </h2>
-                    <p>
-                      <%= qform.subjudul %>
-                    </p>
-                    <p>
-                      <%= qform.body %>
-                    </p>
-                    <p>Status : <%= qform.status %>
-                    </p>
-                    <a href="/kuesioner/<%= qform._id %>"><button type="button">Detail</button></a>
-                    <a href="/kuesioner/edit/<%= qform._id %>"><button type="button">Edit</button></a>
-                  </div>
+          <div class="data-content fadeInAtas">
+            <!-- responsive table -->
+            <% if (qforms.length>0) { %>
+
+              <table id="dataTable" class="data-table">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Judul</th>
+                    <th>Status</th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% qforms.forEach((qform, index)=> { %>
+                    <tr>
+                      <td>
+                        <%= index+1 %>
+                      </td>
+                      <td>
+                        <a href="/kuesioner/<%= qform._id %>">
+                          <%= helper.truncate(qform.judul, 35) %>
+                        </a>
+                      </td>
+                      <td>
+                        <%= qform.status %> 
+                      </td>
+                      <td>
+                        <form action="/kuesioner/<%= qform._id %>" method="POST" id="delete-form">
+                          <input type="hidden" name="_method" value="DELETE">
+                          <a href="/kuesioner/edit/<%= qform._id %>"><button type="button"
+                              class="tombol tmb-utama bunder"><i class="fas fa-pencil-alt"></i></button></a>
+                          <button type="submit" class="tombol tmb-batal bunder"><i
+                              class="fas fa-trash-alt"></i></button>
+                        </form>
+                      </td>
+                    </tr>
+                    <% }) %>
+                </tbody>
+              </table>
+
+              <% } else { %>
+                <div class="info-content fadeInAtas">
+                  <p>Belum ada pertanyaan dibuat</p>
+                  <p>Klik <strong>Tambah</strong> untuk mulai membuat pertanyaan</p>
                 </div>
+                <% } %>
 
-                <% i++ %>
-                  <% }) %>
-                    <% }else{ %>
-                      <div class="info-content fadeInAtas">
-                        <p>Belum ada kuesioner dibuat</p>
-                        <p>Klik <strong>Tambah</strong> untuk mulai membuat kuesioner</p>
-                      </div>
-                      <% } %>
-
+          </div>
         </div>
       </div>
 
@@ -51,6 +68,32 @@
         <%- include('../partials/footer.ejs') %>
           <!-- SCRIPT PARTIALS -->
           <%- include('../partials/script.ejs') %>
+            <script type="text/javascript" src="/js/datatables.min.js"></script>
+
+            <script>
+              $(document).ready(function () {
+                $('#dataTable').DataTable({
+                  columnDefs: [{
+                    orderable: false,
+                    className: 'select-checkbox',
+                    targets: 0,
+                  },
+                  ],
+                  select: {
+                    style: 'os',
+                    selector: 'td:first-child'
+                  },
+                  scrollX: true,
+                  lengthMenu: [[5, 10, 20, -1], [5, 10, 20, "All"]],
+                  language: {
+                    lengthMenu: "Tampilkan _MENU_ per halaman",
+                    info: "Tampilkan _START_ sampai _END_ dari _TOTAL_ data",
+                    search: "Cari : ",
+                  }
+                });
+              });
+            </script>
+
 
   </body>
 
