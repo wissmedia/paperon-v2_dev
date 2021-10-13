@@ -606,12 +606,41 @@ nav{
     color: var(--darkaksen);
 }
 
+
 .scroll-samping{
-    overflow: hidden;
-    overflow-x: auto;
-    clear: both;
-    width: 100%;
+    overflow-x: scroll;
+    white-space: nowrap;
+
+    /* Custom Scrollbar Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: var(--borderdark) var(--softdark);
 }
+
+/* Custom Scrollbar Chrome*/
+::-webkit-scrollbar{
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track{
+    border-radius: 20px;
+    background-color: var(--softdark);
+}
+
+::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    background-color: var(--borderdark);
+}
+
+::-webkit-scrollbar-thumb:hover{
+    border-radius: 20px;
+    background-color: var(--softdark);
+}
+
+::-webkit-scrollbar-track:hover{
+    background-color: var(--bgdark);
+}
+/* END Custom Scrollbar Chrome*/
 
 .row-menu{
     text-align: center;
@@ -2116,6 +2145,21 @@ table.dataTable tbody td {
         font-size: 50px;
     }
     /* End Modal */
+
+    /* Hide Scrollbar Mobile */
+    .scroll-samping{
+        overflow-x: scroll;
+        white-space: nowrap;
+        /* Hide Scrollbar IE, Edge, Firefox */
+        -ms-overflow-style: none; /* IE & Edge*/
+        scrollbar-width: none; /* Firefox */
+    }
+    
+    .scroll-samping::-webkit-scrollbar{
+        /* Hide Scrollbar Chrome, Safari, Opera */
+        display: none;
+    }
+    /* END Hide Scrollbar Mobile */
 }
 
 /* Ukuran Smartphone S */
@@ -2340,6 +2384,21 @@ table.dataTable tbody td {
         font-size: 50px;
     }
     /* End Modal */
+
+    /* Hide Scrollbar Mobile */
+    .scroll-samping{
+        overflow-x: scroll;
+        white-space: nowrap;
+        /* Hide Scrollbar IE, Edge, Firefox */
+        -ms-overflow-style: none; /* IE & Edge*/
+        scrollbar-width: none; /* Firefox */
+    }
+    
+    .scroll-samping::-webkit-scrollbar{
+        /* Hide Scrollbar Chrome, Safari, Opera */
+        display: none;
+    }
+    /* END Hide Scrollbar Mobile */
 }
 
 @media screen and (max-width: 320px) and (min-width: 314px) {
@@ -2564,6 +2623,21 @@ table.dataTable tbody td {
         font-size: 50px;
     }
     /* End Modal */
+
+    /* Hide Scrollbar Mobile */
+    .scroll-samping{
+        overflow-x: scroll;
+        white-space: nowrap;
+        /* Hide Scrollbar IE, Edge, Firefox */
+        -ms-overflow-style: none; /* IE & Edge*/
+        scrollbar-width: none; /* Firefox */
+    }
+    
+    .scroll-samping::-webkit-scrollbar{
+        /* Hide Scrollbar Chrome, Safari, Opera */
+        display: none;
+    }
+    /* END Hide Scrollbar Mobile */
 }
 
 /* Ukuran Smartphone M */
@@ -2794,6 +2868,21 @@ table.dataTable tbody td {
         font-size: 50px;
     }
     /* End Modal */
+
+    /* Hide Scrollbar Mobile */
+    .scroll-samping{
+        overflow-x: scroll;
+        white-space: nowrap;
+        /* Hide Scrollbar IE, Edge, Firefox */
+        -ms-overflow-style: none; /* IE & Edge*/
+        scrollbar-width: none; /* Firefox */
+    }
+    
+    .scroll-samping::-webkit-scrollbar{
+        /* Hide Scrollbar Chrome, Safari, Opera */
+        display: none;
+    }
+    /* END Hide Scrollbar Mobile */
 }
 
 @media screen and (max-width: 375px) and (min-width: 348px) {
@@ -3022,6 +3111,21 @@ table.dataTable tbody td {
         font-size: 50px;
     }
     /* End Modal */
+
+    /* Hide Scrollbar Mobile */
+    .scroll-samping{
+        overflow-x: scroll;
+        white-space: nowrap;
+        /* Hide Scrollbar IE, Edge, Firefox */
+        -ms-overflow-style: none; /* IE & Edge*/
+        scrollbar-width: none; /* Firefox */
+    }
+    
+    .scroll-samping::-webkit-scrollbar{
+        /* Hide Scrollbar Chrome, Safari, Opera */
+        display: none;
+    }
+    /* END Hide Scrollbar Mobile */
 }
 
 /* Ukuran Smartphone L */
@@ -3250,6 +3354,21 @@ table.dataTable tbody td {
         font-size: 55px;
     }
     /* End Modal */
+
+    /* Hide Scrollbar Mobile */
+    .scroll-samping{
+        overflow-x: scroll;
+        white-space: nowrap;
+        /* Hide Scrollbar IE, Edge, Firefox */
+        -ms-overflow-style: none; /* IE & Edge*/
+        scrollbar-width: none; /* Firefox */
+    }
+    
+    .scroll-samping::-webkit-scrollbar{
+        /* Hide Scrollbar Chrome, Safari, Opera */
+        display: none;
+    }
+    /* END Hide Scrollbar Mobile */
 }
 
 @media screen and (max-width: 440px) and (min-width: 420px) {
@@ -3477,6 +3596,21 @@ table.dataTable tbody td {
         font-size: 55px;
     }
     /* End Modal */
+
+    /* Hide Scrollbar Mobile */
+    .scroll-samping{
+        overflow-x: scroll;
+        white-space: nowrap;
+        /* Hide Scrollbar IE, Edge, Firefox */
+        -ms-overflow-style: none; /* IE & Edge*/
+        scrollbar-width: none; /* Firefox */
+    }
+    
+    .scroll-samping::-webkit-scrollbar{
+        /* Hide Scrollbar Chrome, Safari, Opera */
+        display: none;
+    }
+    /* END Hide Scrollbar Mobile */
 }
 
 @media screen and (max-width: 479px) and (min-width: 441px) {
@@ -3704,6 +3838,21 @@ table.dataTable tbody td {
         font-size: 55px;
     }
     /* End Modal */
+
+    /* Hide Scrollbar Mobile */
+    .scroll-samping{
+        overflow-x: scroll;
+        white-space: nowrap;
+        /* Hide Scrollbar IE, Edge, Firefox */
+        -ms-overflow-style: none; /* IE & Edge*/
+        scrollbar-width: none; /* Firefox */
+    }
+    
+    .scroll-samping::-webkit-scrollbar{
+        /* Hide Scrollbar Chrome, Safari, Opera */
+        display: none;
+    }
+    /* END Hide Scrollbar Mobile */
 }
 
 @media screen and (max-width: 480px) and (min-width: 480px) {
@@ -3932,6 +4081,21 @@ table.dataTable tbody td {
         font-size: 55px;
     }
     /* End Modal */
+
+    /* Hide Scrollbar Mobile */
+    .scroll-samping{
+        overflow-x: scroll;
+        white-space: nowrap;
+        /* Hide Scrollbar IE, Edge, Firefox */
+        -ms-overflow-style: none; /* IE & Edge*/
+        scrollbar-width: none; /* Firefox */
+    }
+    
+    .scroll-samping::-webkit-scrollbar{
+        /* Hide Scrollbar Chrome, Safari, Opera */
+        display: none;
+    }
+    /* END Hide Scrollbar Mobile */
 }
 
 /* Ukuran Tab */
@@ -4132,6 +4296,21 @@ table.dataTable tbody td {
         font-size: 55px;
     }
     /* End Modal */
+
+    /* Hide Scrollbar Mobile */
+    .scroll-samping{
+        overflow-x: scroll;
+        white-space: nowrap;
+        /* Hide Scrollbar IE, Edge, Firefox */
+        -ms-overflow-style: none; /* IE & Edge*/
+        scrollbar-width: none; /* Firefox */
+    }
+    
+    .scroll-samping::-webkit-scrollbar{
+        /* Hide Scrollbar Chrome, Safari, Opera */
+        display: none;
+    }
+    /* END Hide Scrollbar Mobile */
 }
 
 @media screen and (max-width: 559px) and (min-width: 500px) {
@@ -4331,6 +4510,21 @@ table.dataTable tbody td {
         font-size: 55px;
     }
     /* End Modal */
+
+    /* Hide Scrollbar Mobile */
+    .scroll-samping{
+        overflow-x: scroll;
+        white-space: nowrap;
+        /* Hide Scrollbar IE, Edge, Firefox */
+        -ms-overflow-style: none; /* IE & Edge*/
+        scrollbar-width: none; /* Firefox */
+    }
+    
+    .scroll-samping::-webkit-scrollbar{
+        /* Hide Scrollbar Chrome, Safari, Opera */
+        display: none;
+    }
+    /* END Hide Scrollbar Mobile */
 }
 
 @media screen and (max-width: 619px) and (min-width: 560px) {
@@ -4530,6 +4724,21 @@ table.dataTable tbody td {
         font-size: 55px;
     }
     /* End Modal */
+
+    /* Hide Scrollbar Mobile */
+    .scroll-samping{
+        overflow-x: scroll;
+        white-space: nowrap;
+        /* Hide Scrollbar IE, Edge, Firefox */
+        -ms-overflow-style: none; /* IE & Edge*/
+        scrollbar-width: none; /* Firefox */
+    }
+    
+    .scroll-samping::-webkit-scrollbar{
+        /* Hide Scrollbar Chrome, Safari, Opera */
+        display: none;
+    }
+    /* END Hide Scrollbar Mobile */
 }
 
 @media screen and (max-width: 679px) and (min-width: 620px) {
@@ -4729,6 +4938,21 @@ table.dataTable tbody td {
         font-size: 55px;
     }
     /* End Modal */
+
+    /* Hide Scrollbar Mobile */
+    .scroll-samping{
+        overflow-x: scroll;
+        white-space: nowrap;
+        /* Hide Scrollbar IE, Edge, Firefox */
+        -ms-overflow-style: none; /* IE & Edge*/
+        scrollbar-width: none; /* Firefox */
+    }
+    
+    .scroll-samping::-webkit-scrollbar{
+        /* Hide Scrollbar Chrome, Safari, Opera */
+        display: none;
+    }
+    /* END Hide Scrollbar Mobile */
 }
 
 @media screen and (max-width: 707px) and (min-width: 680px) {
@@ -4928,6 +5152,21 @@ table.dataTable tbody td {
         font-size: 55px;
     }
     /* End Modal */
+
+    /* Hide Scrollbar Mobile */
+    .scroll-samping{
+        overflow-x: scroll;
+        white-space: nowrap;
+        /* Hide Scrollbar IE, Edge, Firefox */
+        -ms-overflow-style: none; /* IE & Edge*/
+        scrollbar-width: none; /* Firefox */
+    }
+    
+    .scroll-samping::-webkit-scrollbar{
+        /* Hide Scrollbar Chrome, Safari, Opera */
+        display: none;
+    }
+    /* END Hide Scrollbar Mobile */
 }
 
 @media screen and (max-width: 753px) and (min-width: 708px) {
@@ -5127,6 +5366,21 @@ table.dataTable tbody td {
         font-size: 55px;
     }
     /* End Modal */
+
+    /* Hide Scrollbar Mobile */
+    .scroll-samping{
+        overflow-x: scroll;
+        white-space: nowrap;
+        /* Hide Scrollbar IE, Edge, Firefox */
+        -ms-overflow-style: none; /* IE & Edge*/
+        scrollbar-width: none; /* Firefox */
+    }
+    
+    .scroll-samping::-webkit-scrollbar{
+        /* Hide Scrollbar Chrome, Safari, Opera */
+        display: none;
+    }
+    /* END Hide Scrollbar Mobile */
 }
 
 @media screen and (max-width: 789px) and (min-width: 754px) {
@@ -5326,6 +5580,21 @@ table.dataTable tbody td {
         font-size: 55px;
     }
     /* End Modal */
+
+    /* Hide Scrollbar Mobile */
+    .scroll-samping{
+        overflow-x: scroll;
+        white-space: nowrap;
+        /* Hide Scrollbar IE, Edge, Firefox */
+        -ms-overflow-style: none; /* IE & Edge*/
+        scrollbar-width: none; /* Firefox */
+    }
+    
+    .scroll-samping::-webkit-scrollbar{
+        /* Hide Scrollbar Chrome, Safari, Opera */
+        display: none;
+    }
+    /* END Hide Scrollbar Mobile */
 }
 
 @media screen and (max-width: 799px) and (min-width: 790px) {
@@ -5525,6 +5794,21 @@ table.dataTable tbody td {
         font-size: 55px;
     }
     /* End Modal */
+
+    /* Hide Scrollbar Mobile */
+    .scroll-samping{
+        overflow-x: scroll;
+        white-space: nowrap;
+        /* Hide Scrollbar IE, Edge, Firefox */
+        -ms-overflow-style: none; /* IE & Edge*/
+        scrollbar-width: none; /* Firefox */
+    }
+    
+    .scroll-samping::-webkit-scrollbar{
+        /* Hide Scrollbar Chrome, Safari, Opera */
+        display: none;
+    }
+    /* END Hide Scrollbar Mobile */
 }
 
 @media screen and (max-width: 800px) and (min-width: 800px) {
@@ -5724,6 +6008,21 @@ table.dataTable tbody td {
         font-size: 55px;
     }
     /* End Modal */
+
+    /* Hide Scrollbar Mobile */
+    .scroll-samping{
+        overflow-x: scroll;
+        white-space: nowrap;
+        /* Hide Scrollbar IE, Edge, Firefox */
+        -ms-overflow-style: none; /* IE & Edge*/
+        scrollbar-width: none; /* Firefox */
+    }
+    
+    .scroll-samping::-webkit-scrollbar{
+        /* Hide Scrollbar Chrome, Safari, Opera */
+        display: none;
+    }
+    /* END Hide Scrollbar Mobile */
 }
 
 /* Ukuran Tab 2 */
@@ -5904,6 +6203,21 @@ table.dataTable tbody td {
     .edit-group button.add-lain{
         position: unset;
     }
+
+    /* Hide Scrollbar Mobile */
+    .scroll-samping{
+        overflow-x: scroll;
+        white-space: nowrap;
+        /* Hide Scrollbar IE, Edge, Firefox */
+        -ms-overflow-style: none; /* IE & Edge*/
+        scrollbar-width: none; /* Firefox */
+    }
+    
+    .scroll-samping::-webkit-scrollbar{
+        /* Hide Scrollbar Chrome, Safari, Opera */
+        display: none;
+    }
+    /* END Hide Scrollbar Mobile */
 }
 
 @media screen and (max-width: 950px) and (min-width: 900px){
@@ -6083,6 +6397,21 @@ table.dataTable tbody td {
     .edit-group button.add-lain{
         position: unset;
     }
+
+    /* Hide Scrollbar Mobile */
+    .scroll-samping{
+        overflow-x: scroll;
+        white-space: nowrap;
+        /* Hide Scrollbar IE, Edge, Firefox */
+        -ms-overflow-style: none; /* IE & Edge*/
+        scrollbar-width: none; /* Firefox */
+    }
+    
+    .scroll-samping::-webkit-scrollbar{
+        /* Hide Scrollbar Chrome, Safari, Opera */
+        display: none;
+    }
+    /* END Hide Scrollbar Mobile */
 }
 
 @media screen and (max-width: 970px) and (min-width: 951px){
@@ -6262,9 +6591,23 @@ table.dataTable tbody td {
     .edit-group button.add-lain{
         position: unset;
     }
+
+    /* Hide Scrollbar Mobile */
+    .scroll-samping{
+        overflow-x: scroll;
+        white-space: nowrap;
+        /* Hide Scrollbar IE, Edge, Firefox */
+        -ms-overflow-style: none; /* IE & Edge*/
+        scrollbar-width: none; /* Firefox */
+    }
+    
+    .scroll-samping::-webkit-scrollbar{
+        /* Hide Scrollbar Chrome, Safari, Opera */
+        display: none;
+    }
+    /* END Hide Scrollbar Mobile */
 }
 
-/* Laptop M Ukuran 1024 */
 @media screen and (max-width: 999px) and (min-width: 971px) {
 /* Landing Page */
     .con-landing-page-2{
@@ -6396,8 +6739,24 @@ table.dataTable tbody td {
         margin-left: -25%;
     }
     /* End Modal */
+
+    /* Hide Scrollbar Mobile */
+    .scroll-samping{
+        overflow-x: scroll;
+        white-space: nowrap;
+        /* Hide Scrollbar IE, Edge, Firefox */
+        -ms-overflow-style: none; /* IE & Edge*/
+        scrollbar-width: none; /* Firefox */
+    }
+    
+    .scroll-samping::-webkit-scrollbar{
+        /* Hide Scrollbar Chrome, Safari, Opera */
+        display: none;
+    }
+    /* END Hide Scrollbar Mobile */
 }
 
+/* Laptop M Ukuran 1024 */
 @media screen and (max-width: 1024px) and (min-width: 1000px){
 /* Landing Page */
     .con-landing-page-2{
@@ -8423,6 +8782,7 @@ table.dataTable tbody td {
         margin-left: 10px;
     }
 }
+
 /* Disable Div */
 .disabledbutton {
   pointer-events: none;
