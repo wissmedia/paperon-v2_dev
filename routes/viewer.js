@@ -141,7 +141,7 @@ router.post('/', ensureAuth, async (req, res) => {
       }
     }
 
-    console.log(JSON.stringify(objs, null, 2))
+    // console.log(JSON.stringify(objs, null, 2))
 
     // await new Vx({
     //   user: req.user.id,

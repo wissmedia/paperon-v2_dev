@@ -293,7 +293,7 @@ router.get('/:id', ensureAuth, async (req, res) => {
 
     let qform = qforms[0]
 
-    console.log(JSON.stringify(qform, null, 2))
+    // console.log(JSON.stringify(qform, null, 2))
 
     if (!qform) {
       return res.render('error/404')
@@ -494,12 +494,12 @@ router.put('/:id', ensureAuth, async (req, res) => {
   }
 })
 
-// @desc    DELETE Pertanyaan
-// @route   DELETE /pertanyaan/:id
+// @desc    DELETE Kuesioner
+// @route   DELETE /kuesioner/:id
 router.delete('/:id', ensureAuth, async (req, res) => {
   try {
-    await Question.deleteOne({ _id: req.params.id })
-    res.redirect('/pertanyaan')
+    await QForm.deleteOne({ _id: req.params.id })
+    res.redirect('/kuesioner')
   } catch (error) {
     console.error(error)
     return res.render('error/500')
