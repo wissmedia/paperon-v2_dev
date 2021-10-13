@@ -10,36 +10,103 @@
         <div class="row-content">
           <div class="content fadeInKiri">
             <div class="line"></div>
+
             <div class="bungkus-content">
               <h1>DASHBOARD</h1>
               <h3>Welcome <%= user.firstName %>
               </h3>
-              <!-- <br>
-              <p>Jumlah User : <%= estimate.author %>
-              </p>
+              <br>
               <p>Jumlah Kuesioner : <%= estimate.qform %>
               </p>
               <p>Jumlah Pertanyaan : <%= estimate.question %>
               </p>
-              <br>
-              <h4>Rute Lain</h4>
-              <div>
-                <a href="/publik" class="pending">
-                  <button>Publik</button>
-                </a>
-                <a href="/viewer">
-                  <button>Viewer</button>
-                </a>
-                <a href="/noschema" class="pending">
-                  <button>Noschema</button>
-                </a>
-              </div>
-              <br><br> -->
-              <small>
-                Terjadi perubahan struktur skema pada versi <strong>1.1.18</strong> dan diharuskan untuk drop collection
+            </div>
+
+            <div class="bungkus-content">
+              <p>
+                Terjadi perubahan struktur skema pada versi <strong>1.1.18</strong> dan diharuskan untuk drop
+                collection
                 dan
                 data yang tersimpan terhapus.
-              </small>
+              </p>
+            </div>
+          </div>
+
+          <div class="content fadeInKiri">
+            <div class="line"></div>
+            <div class="bungkus-content">
+              <h1>Rute Lain</h1>
+            </div>
+            <div class="card-container scroll-samping">
+              <!-- Menu Item Card -->
+              <% menus.forEach(menu=> { %>
+                <div class="card <%=(menu.status ? 'pending' : '' ) %>">
+                  <a href="<%= menu.link %> ">
+                    <h3>
+                      <i class="<%= menu.icon %> "></i>
+                    </h3>
+                    <div class="card-label">
+                      <p>
+                        <%= menu.label %>
+                      </p>
+                    </div>
+                  </a>
+                </div>
+                <% }) %>
+                  <div class="card fadeInKiri">
+                    <a href="content/add.html">
+                      <h3>
+                        <i class="fas fa-plus-circle"></i>
+                      </h3>
+                      <div class="card-label">
+                        <p>New quesioner</p>
+                      </div>
+                    </a>
+                  </div>
+
+                  <div class="card fadeInAtas">
+                    <a href="content/quesioner.html">
+                      <h3>
+                        <i class="fas fa-eye"></i>
+                      </h3>
+                      <div class="card-label">
+                        <p>Publish</p>
+                      </div>
+                    </a>
+                  </div>
+
+                  <div class="card fadeInBawah">
+                    <a href="content/result.html">
+                      <h3>
+                        <i class="fas fa-poll"></i>
+                      </h3>
+                      <div class="card-label">
+                        <p>Result</p>
+                      </div>
+                    </a>
+                  </div>
+
+                  <div class="card fadeInKiri">
+                    <a href="content/add.html">
+                      <h3>
+                        <i class="fas fa-plus-circle"></i>
+                      </h3>
+                      <div class="card-label">
+                        <p>New quesioner</p>
+                      </div>
+                    </a>
+                  </div>
+
+                  <div class="card fadeInAtas">
+                    <a href="content/quesioner.html">
+                      <h3>
+                        <i class="fas fa-eye"></i>
+                      </h3>
+                      <div class="card-label">
+                        <p>Publish</p>
+                      </div>
+                    </a>
+                  </div>
             </div>
           </div>
         </div>
