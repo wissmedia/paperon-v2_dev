@@ -8,6 +8,7 @@ const session = require('express-session')
 const methodOverride = require('method-override')
 const MongoStore = require('connect-mongo')
 
+// LOAD DB CONFIG
 const connectDB = require('./config/db')
 
 // LOAD ENV CONFIG
@@ -25,7 +26,7 @@ const HOST = process.env.HOST || '0.0.0.0'
 app.locals.appNames = {
   title: 'Paperon',
   subtitle: 'Survei dan Kuesioner',
-  version: '1.1.19'
+  version: '1.1.20'
 }
 
 // BODY PARSER
