@@ -33,14 +33,14 @@
             </div>
             <div class="content fadeInKiri">
               <div class="line"></div>
-              <div class="bungkus-content edit">
+              <div class="bungkus-content">
                 <p>* Pratinjau kuesioner</p>
               </div>
               <% qform.listQ.forEach(qf=> { %>
-                <div class="bungkus-content edit">
-                  <div class="nomor-urut">
+                <div class="bungkus-content solid-border">
+                  <div class="nomor-urut putih">
                     <label>No :</label>
-                    <input type="number" class="input-nomor" placeholder="<%= qf.order %> ">
+                    <input type="number" class="input-nomor" value="<%= qf.order %>">
                 </div>
                   <%- helper.typeRender(qf._id, qf.tipe, qf.body, qf.opsiy, qf.opsix, qf.sl, qf.label, qf.useWajib) %>
                 </div>
